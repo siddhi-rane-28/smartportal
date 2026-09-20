@@ -1,0 +1,106 @@
+﻿@{
+    Layout = null;
+    var id = ViewBag.Id as string;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Apply - @id</title>
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial
+            }
+
+            body {
+                background: #f0f2f5
+            }
+
+            .h {
+                background: #1b5e20;
+                color: white;
+                padding: 12px 18px;
+                display: flex;
+                justify-content: space-between
+            }
+
+                .h a {
+                    background: white;
+                    color: #1b5e20;
+                    padding: 6px 14px;
+                    border-radius: 6px;
+                    text-decoration: none;
+                    font-size: 12px;
+                    font-weight: bold
+                }
+
+            .c {
+                max-width: 600px;
+                margin: 18px auto;
+                background: white;
+                padding: 22px;
+                border-radius: 14px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1)
+            }
+
+            label {
+                font-size: 12px;
+                font-weight: bold;
+                display: block;
+                margin: 10px 0 5px 0
+            }
+
+            input, select, textarea {
+                width: 100%;
+                padding: 11px;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                font-size: 13px
+            }
+
+            .row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px
+            }
+
+            .btn {
+                background: #2e7d32;
+                color: white;
+                width: 100%;
+                padding: 14px;
+                border: none;
+                border-radius: 8px;
+                font-weight: bold;
+                margin-top: 16px;
+                cursor: pointer
+            }
+    </style>
+    <script>
+            function submitAgri() {
+                var name = document.getElementById('name').value;
+                if (name == "") { alert("Naam likho"); return; }
+                var id = document.getElementById('sid').value;
+                window.location.href = "/Home/Receipt?id=" + id + "&name=" + encodeURIComponent(name);
+            }
+    </script>
+</head>
+<body>
+    <div class="h"><b>🌱 @id - Agriculture Form</b><a href="/Home/AgricultureDetails?id=@id">Back</a></div>
+    <div class="c">
+        <h3 style="color:#1b5e20;margin-bottom:6px">Agriculture Application Form</h3>
+        <p style="font-size:11px;color:#666;margin-bottom:14px">Yojana: @id</p>
+        <input type="hidden" id="sid" value="@id" />
+        <label>Farmer Name / शेतकरी नाव *</label><input id="name" placeholder="Ex: Ramesh Patil" />
+        <div class="row"><div><label>Mobile *</label><input placeholder="10 digit" /></div><div><label>Aadhar *</label><input placeholder="12 digit" /></div></div>
+        <label>Gat No / 7-12 Number *</label><input placeholder="Ex: 123/2B" />
+        <div class="row"><div><label>Area / क्षेत्र (Acre)</label><input placeholder="Ex: 2.5" /></div><div><label>Crop / पीक</label><select><option>Soyabean</option><option>Cotton</option><option>Wheat</option><option>Jowar</option><option>Other</option></select></div></div>
+        <label>Bank Account *</label><input placeholder="Bank Khata" />
+        <label>Address</label><textarea rows="2" placeholder="Gaon, Taluka, Jilha"></textarea>
+        <button class="btn" onclick="submitAgri()">✅ Submit & Get Receipt →</button>
+    </div>
+</body>
+</html>

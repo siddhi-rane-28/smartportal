@@ -1,0 +1,144 @@
+﻿@{
+    Layout = null;
+    var id = Context.Request.Query["id"].ToString().ToLower();
+    string title = "", img = "", about = "", benefits = "", eligibility = "", documents = "", process = "", link = "", helpline = "";
+    if (id.Contains("primary"))
+    {
+        title = "Primary Schools - Zila Parishad Primary School - Free Education in Village";
+        img = "https://thane.universalhigh.edu.in/wp-content/uploads/2024/09/Pre-primary-2-2.jpg";
+        about = "Zila Parishad Primary Schools provide free education for Class 1 to 8. Free books, uniforms, and mid-day meal are provided to all village students.";
+        benefits = "<li>Free education from Class 1 to 8</li><li>Free textbooks and school uniform</li><li>Daily free mid-day meal</li><li>Free bicycle for students</li>";
+        eligibility = "<li>Age 6 to 14 years</li><li>Must be village resident</li>";
+        documents = "<li>Aadhaar Card of child</li><li>Birth Certificate</li><li>Parent Aadhaar</li>";
+        process = "<li>Visit Zila Parishad School</li><li>Meet Headmaster</li><li>Fill admission form with documents</li><li>Admission confirmed same day</li>";
+        link = "https://education.maharashtra.gov.in"; helpline = "1800-233-1234";
+    }
+    else if (id.Contains("secondary"))
+    {
+        title = "Secondary & High Schools - 9th to 12th Education";
+        img = "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600";
+        about = "Secondary education for Class 9th to 12th with board exam preparation, science labs, and career guidance.";
+        benefits = "<li>Well-equipped Science and Computer Labs</li><li>Board exam coaching (SSC/HSC)</li><li>Career guidance and counseling</li><li>Scholarship for 10th and 12th toppers</li>";
+        eligibility = "<li>Must have passed 8th standard</li><li>Age 14+ years</li>";
+        documents = "<li>8th Standard Marksheet</li><li>Aadhaar Card</li><li>School Leaving Certificate</li>";
+        process = "<li>Visit Secondary School</li><li>Submit 8th marksheet</li><li>Fill admission form</li>";
+        link = "https://mahahsscboard.in"; helpline = "1800-233-1234";
+    }
+    else if (id.Contains("scholar"))
+    {
+        title = "Government Scholarships - SC/ST/OBC Students";
+        img = "https://www.ssims.edu.in/wp-content/uploads/2020/03/ssit-students-scholarship-loans.jpg";
+        about = "Government provides Rs. 5,000 to Rs. 50,000 yearly scholarship for SC/ST/OBC students. Hostel fees and books money also covered.";
+        benefits = "<li>Rs. 5,000 to Rs. 50,000 per year scholarship</li><li>Hostel fees fully covered</li><li>Extra money for books and stationery</li><li>Direct transfer to bank account</li>";
+        eligibility = "<li>Must belong to SC/ST/OBC category</li><li>Family income less than 2.5 Lakh per year</li><li>Minimum 75% attendance in school</li>";
+        documents = "<li>Caste Certificate</li><li>Income Certificate</li><li>Previous Year Marksheet</li><li>Bank Passbook (Aadhaar linked)</li><li>Aadhaar Card</li>";
+        process = "<li>Visit MahaDBT Portal</li><li>Create login with Aadhaar</li><li>Fill scholarship form online</li><li>Upload caste and income certificate</li><li>Amount will come to bank account</li>";
+        link = "https://mahadbt.maharashtra.gov.in"; helpline = "1800-120-8040";
+    }
+    else if (id.Contains("digital"))
+    {
+        title = "Digital Classroom / E-Learning - Smart Classroom & Tablet";
+        img = "https://4.imimg.com/data4/KQ/CR/MY-2244222/digital-classroom-solution.jpg";
+        about = "Digital Classroom solution with projector, smart board, and interactive learning. Government provides digital education for rural schools.";
+        benefits = "<li>Smart board and projector in classroom</li><li>Free tablet for 10th standard students</li><li>Free access to DIKSHA app</li><li>Online classes and video lectures</li>";
+        eligibility = "<li>Students from Class 5th to 12th</li><li>Must be enrolled in ZP school</li>";
+        documents = "<li>School ID Card</li><li>Aadhaar Card</li>";
+        process = "<li>Registration through your school</li><li>Teacher will add you to DIKSHA app</li><li>Receive tablet from school (for 10th)</li>";
+        link = "https://diksha.gov.in"; helpline = "1800-11-2030";
+    }
+    else if (id.Contains("angan"))
+    {
+        title = "Anganwadi & Early Learning - Bachchon ki Pehli Shiksha";
+        img = "https://www.thehitavada.com/Encyc/2020/10/9/2_09_30_38_Anganwadi-Centres_1_H%40%40IGHT_289_W%40%40IDTH_435.jpg";
+        about = "Anganwadi provides first education for children aged 3 to 6 years with free preschool, nutritious food, and vaccination support.";
+        benefits = "<li>Free preschool education</li><li>Daily nutritious food for children</li><li>Free health checkup and vaccination</li><li>Early learning toys and activities</li>";
+        eligibility = "<li>Children age 3 to 6 years</li><li>Mother must be village resident</li>";
+        documents = "<li>Child Aadhaar or Birth Certificate</li><li>Mother Aadhaar</li>";
+        process = "<li>Contact nearest Anganwadi center</li><li>Meet Anganwadi Sevika</li><li>Register child name</li>";
+        link = "https://wcd.nic.in"; helpline = "1098 - Child Helpline";
+    }
+    else if (id.Contains("mid"))
+    {
+        title = "Mid-Day Meal Scheme - Free Meal in School";
+        img = "https://www.studyiq.com/articles/wp-content/uploads/2023/06/09160143/Midday-Meal-Scheme.jpg";
+        about = "Under Mid-Day Meal scheme, all students from Class 1 to 8 get free hot cooked lunch daily in school.";
+        benefits = "<li>Free nutritious lunch daily</li><li>Improves student health and attendance</li><li>Menu includes rice, dal, vegetables, egg</li>";
+        eligibility = "<li>Students from Class 1st to 8th</li><li>Must be enrolled in government school</li>";
+        documents = "<li>Only school admission required</li>";
+        process = "<li>Automatically enrolled after school admission</li><li>No separate form needed</li>";
+        link = "https://mdm.nic.in"; helpline = "1800-233-1234";
+    }
+    else if (id.Contains("girls"))
+    {
+        title = "Girls Education - Beti Bachao Beti Padhao - Free Education for Girls";
+        img = "https://www.unesco.org/sites/default/files/styles/paragraph_medium_desktop/article/2024-03/investing-girls-education.jpg.webp";
+        about = "Under Beti Bachao Beti Padhao, girls get free education till 12th, free bicycle, and Rs. 10,000 scholarship.";
+        benefits = "<li>Free education from Class 1 to 12th for all girls</li><li>Free bicycle for girls going to secondary school</li><li>Rs. 10,000 scholarship for girl toppers</li><li>Free sanitary and safety kit</li>";
+        eligibility = "<li>Must be a girl student</li><li>Village resident</li><li>Enrolled in government school</li>";
+        documents = "<li>Girl's Aadhaar Card</li><li>Birth Certificate</li><li>Mother's Bank Account (for scholarship)</li>";
+        process = "<li>Visit official Beti Bachao website</li><li>Fill online form for girls scholarship</li><li>Submit Aadhaar and bank details</li><li>Cycle and scholarship will be given from school</li>";
+        link = "https://wcd.nic.in/bbbp-schemes"; helpline = "181 Women Helpline";
+    }
+    else
+    {
+        title = "Skill Development / ITI - Computer, Electrician Course";
+        img = "https://sankrailgovtiti.com/wp-content/uploads/2023/03/logo4.png";
+        about = "ITI and skill training courses like Computer Operator, Electrician, Fitter, Nursing with job guarantee and government certificate.";
+        benefits = "<li>Free skill training for 6 months to 2 years</li><li>Job placement after course</li><li>Government ITI certificate</li><li>Stipend during training</li>";
+        eligibility = "<li>Must have passed 10th standard</li><li>Age 14 to 40 years</li><li>Any gender can apply</li>";
+        documents = "<li>10th Marksheet</li><li>Aadhaar Card</li><li>2 Passport Photos</li>";
+        process = "<li>Visit official ITI Maharashtra website</li><li>Select course - Computer / Electrician / Fitter</li><li>Fill online admission form</li><li>Direct admission based on marks</li>";
+        link = "https://iti.maharashtra.gov.in"; helpline = "1800-233-4567";
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+            body {
+                margin: 0;
+                font-family: Arial;
+                background: #f5f7ff
+            }
+
+            .top-wrapper {
+                width: 100%;
+                background: #000;
+                display: flex;
+                justify-content: center;
+            }
+
+            .top {
+                width: 100%;
+                max-width: 900px;
+                max-height: 420px;
+                object-fit: contain;
+                display: block;
+            }
+
+            .card {
+                max-width: 850px;
+                margin: 20px auto 20px;
+                border-radius: 16px;
+                box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+                background: white;
+            }
+    </style>
+</head>
+<body>
+    <div class="top-wrapper"><img src="@img" class="top" onerror="this.src='https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200'" /></div>
+    <div class="card p-4">
+        <h3 style="color:#1565c0;text-align:center">@title</h3>
+        <p>@about</p>
+        <h6>Benefits</h6><ul>@Html.Raw(benefits)</ul>
+        <h6>Eligibility</h6><ul>@Html.Raw(eligibility)</ul>
+        <h6>Documents</h6><ul>@Html.Raw(documents)</ul>
+        <h6>How to Apply</h6><ol>@Html.Raw(process)</ol>
+        <p><b>Official Link:</b> <a href="@link" target="_blank">@link</a><br /><b>Helpline:</b> @helpline</p>
+        <a href="/Home/EducationForm?scheme=@title" class="btn btn-primary w-100 mt-3">Apply Now →</a>
+        <a href="/Home/EducationServices" class="btn btn-secondary w-100 mt-2">◀ Back to Education</a>
+    </div>
+</body>
+</html>

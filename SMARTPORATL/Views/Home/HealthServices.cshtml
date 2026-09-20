@@ -1,0 +1,101 @@
+﻿@{
+    Layout = null;
+    var cards = new[] {
+        new { Id="Medical", Title="Medical Facilities", Sub="PHC Hospital Building in Village", Img="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=600" },
+        new { Id="Emergency", Title="Emergency Contacts", Sub="108 Ambulance Service in Village", Img="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=600" },
+        new { Id="Camps", Title="Health Camps", Sub="Free Health Check-up Camp in Village", Img="https://images.unsplash.com/photo-1576765607924-3f7b8410a787?w=600" },
+        new { Id="Vaccination", Title="Vaccination Schedule", Sub="Child Vaccination Chart", Img="https://images.unsplash.com/photo-1605289982774-9a6fef564df8?w=600" },
+        new { Id="Nurse", Title="Nurse Services", Sub="Nurse Village - ASHA & ANM Home Visit", Img="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=61553699796210" },
+        new { Id="Aushadhi", Title="Jan Aushadhi Kendra", Sub="Cheap Medicines - 90% Discount", Img="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600" }
+    };
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+            body {
+                margin: 0;
+                font-family: Arial;
+                background: #f7f7f7
+            }
+
+            .banner {
+                height: 300px;
+                background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200');
+                background-size: cover;
+                background-position: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 32px;
+                font-weight: bold;
+                text-align: center
+            }
+
+            .grid {
+                max-width: 1200px;
+                margin: 20px auto;
+                display: grid;
+                grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+                gap: 20px;
+                padding: 15px
+            }
+
+            .card {
+                background: white;
+                border-radius: 16px;
+                overflow: hidden;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1)
+            }
+
+                .card img {
+                    width: 100%;
+                    height: 200px;
+                    object-fit: cover;
+                    display: block;
+                    background: #eee
+                }
+
+            .card-body {
+                padding: 15px;
+                text-align: center
+            }
+
+                .card-body h4 {
+                    color: #d32f2f;
+                    margin: 5px 0;
+                    font-size: 15px
+                }
+
+                .card-body p {
+                    font-size: 13px;
+                    color: #555
+                }
+
+            .btn {
+                background: #d32f2f;
+                color: white;
+                padding: 8px 20px;
+                border-radius: 20px;
+                text-decoration: none;
+                font-size: 13px;
+                display: inline-block;
+                margin-top: 8px
+            }
+    </style>
+</head>
+<body>
+    <div class="banner">Healthy Village, Happy Village</div>
+    <div class="grid">
+        @foreach (var c in cards)
+        {
+            <div class="card">
+                <img src="@c.Img" onerror="this.src='https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600'" />
+                <div class="card-body"><h4>@c.Title</h4><p>@c.Sub</p><a href="/Home/HealthDetails?id=@c.Id" class="btn">View Details</a></div>
+            </div>
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,171 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Complaint Box</title>
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial
+            }
+
+            body {
+                background: #e8eef7
+            }
+
+            .banner {
+                height: 400px;
+                background: linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.65)),url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2000');
+                background-size: cover;
+                background-position: center;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                color: white
+            }
+
+                .banner h1 {
+                    font-size: 26px;
+                    font-weight: bold;
+                    text-align: center
+                }
+
+            .sub {
+                color: #ffeb3b;
+                font-size: 11px;
+                margin-top: 8px;
+                background: rgba(0,0,0,0.6);
+                padding: 5px 12px;
+                border-radius: 15px
+            }
+
+            .btns {
+                margin-top: 16px;
+                display: flex;
+                gap: 10px
+            }
+
+            .btn-dash {
+                background: white;
+                color: #222;
+                padding: 7px 16px;
+                border-radius: 20px;
+                text-decoration: none;
+                font-size: 11px;
+                font-weight: bold
+            }
+
+            .btn-log {
+                background: #b71c1c;
+                color: white;
+                padding: 7px 16px;
+                border-radius: 20px;
+                text-decoration: none;
+                font-size: 11px;
+                font-weight: bold
+            }
+
+            .lang {
+                position: absolute;
+                right: 18px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: white;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+                width: 72px
+            }
+
+                .lang div {
+                    padding: 9px 0;
+                    text-align: center;
+                    font-size: 11px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    border-bottom: 1px solid #eee;
+                    color: #333
+                }
+
+                    .lang div.active {
+                        background: #1b5e20;
+                        color: white
+                    }
+
+            .search-wrap {
+                max-width: 750px;
+                width: 90%;
+                margin: -26px auto 0 auto;
+                background: white;
+                border-radius: 40px;
+                padding: 8px;
+                display: flex;
+                gap: 8px;
+                box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+                position: relative;
+                z-index: 2
+            }
+
+                .search-wrap input {
+                    flex: 1;
+                    border: 1px solid #ddd;
+                    border-radius: 30px;
+                    padding: 12px 18px;
+                    outline: none;
+                    font-size: 13px
+                }
+
+                .search-wrap button {
+                    background: #0f4d2a;
+                    color: white;
+                    border: none;
+                    border-radius: 30px;
+                    padding: 12px 22px;
+                    font-weight: bold;
+                    cursor: pointer
+                }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <h1>Complaint Box / Complaint Box</h1>
+        <div class="sub">You can search in Marathi, Hindi, English</div>
+        <div class="btns">
+            <a href="/Home/Dashboard" class="btn-dash">🏠 Dashboard</a>
+            <a href="/Home/Index" class="btn-log">Logout</a>
+        </div>
+        <div class="lang">
+            <div id="l-hi" onclick="setLang('hi')">हिन्दी</div>
+            <div id="l-en" class="active" onclick="setLang('en')">English</div>
+            <div id="l-mr" onclick="setLang('mr')">मराठी</div>
+        </div>
+    </div>
+    <div class="search-wrap">
+        <input type="text" id="s" placeholder="Search your problem in English... Eg: No water" />
+        <button onclick="goSolution()">Search 🔍</button>
+    </div>
+    <script>
+            function setLang(l) {
+                document.querySelectorAll('.lang div').forEach(d => d.classList.remove('active'));
+                document.getElementById('l-' + l).classList.add('active');
+                let i = document.getElementById('s');
+                if (l == 'hi') i.placeholder = "अपनी समस्या हिंदी में लिखें... जैसे: पानी नहीं आ रहा";
+                if (l == 'mr') i.placeholder = "तुमची समस्या मराठीत लिहा... जसे: पाणी येत नाहीये";
+                if (l == 'en') i.placeholder = "Search your problem in English... Eg: No water";
+            }
+            function goSolution() {
+                let v = document.getElementById('s').value;
+                if (v.trim() == "") { alert("Pehle kuch likho baba!"); return; }
+                // Solution ke alag page pe jayega
+                window.location.href = "/Home/ComplaintSolution?q=" + encodeURIComponent(v);
+            }
+    </script>
+</body>
+</html>

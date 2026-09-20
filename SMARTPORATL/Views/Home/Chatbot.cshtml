@@ -1,0 +1,271 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Gram Mitra - Smart Village</title>
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial
+            }
+
+            body {
+                background: #f3e8ff
+            }
+
+            .header {
+                background: linear-gradient(135deg,#4a148c,#7b1fa2);
+                color: white;
+                padding: 12px 18px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center
+            }
+
+                .header b {
+                    color: #ffeb3b
+                }
+
+            .nav a {
+                background: white;
+                color: #4a148c;
+                padding: 6px 14px;
+                border-radius: 18px;
+                text-decoration: none;
+                font-size: 11px;
+                font-weight: bold
+            }
+
+            .main {
+                max-width: 900px;
+                margin: 0 auto;
+                height: 100vh;
+                display: flex;
+                flex-direction: column
+            }
+
+            .lang-bar {
+                background: white;
+                padding: 8px 12px;
+                display: flex;
+                gap: 8px;
+                border-bottom: 1px solid #eee
+            }
+
+                .lang-bar button {
+                    border: 1px solid #ddd;
+                    padding: 5px 12px;
+                    border-radius: 15px;
+                    font-size: 11px;
+                    cursor: pointer;
+                    background: white
+                }
+
+                    .lang-bar button.active {
+                        background: #7b1fa2;
+                        color: white;
+                        border-color: #7b1fa2
+                    }
+
+            .chat-box {
+                flex: 1;
+                overflow-y: auto;
+                padding: 15px;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                background: #f9f5ff
+            }
+
+            .msg {
+                max-width: 80%;
+                padding: 10px 14px;
+                border-radius: 16px;
+                font-size: 13px;
+                line-height: 1.4;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.1)
+            }
+
+            .bot {
+                background: white;
+                color: #222;
+                border-top-left-radius: 4px;
+                align-self: flex-start
+            }
+
+            .user {
+                background: linear-gradient(135deg,#7b1fa2,#9c27b0);
+                color: white;
+                border-top-right-radius: 4px;
+                align-self: flex-end
+            }
+
+            .quick {
+                display: flex;
+                gap: 6px;
+                flex-wrap: wrap;
+                margin-top: 8px
+            }
+
+                .quick span {
+                    background: #ede7f6;
+                    color: #4a148c;
+                    padding: 5px 10px;
+                    border-radius: 12px;
+                    font-size: 10px;
+                    cursor: pointer;
+                    border: 1px solid #d1c4e9
+                }
+
+            .input-area {
+                background: white;
+                padding: 10px;
+                display: flex;
+                gap: 8px;
+                align-items: center;
+                border-top: 1px solid #eee
+            }
+
+                .input-area input {
+                    flex: 1;
+                    padding: 10px 14px;
+                    border-radius: 20px;
+                    border: 1px solid #ddd;
+                    outline: none;
+                    font-size: 13px
+                }
+
+                .input-area button {
+                    width: 38px;
+                    height: 38px;
+                    border-radius: 50%;
+                    border: none;
+                    cursor: pointer;
+                    font-size: 16px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center
+                }
+
+            .btn-mic {
+                background: #eee
+            }
+
+            .btn-send {
+                background: linear-gradient(135deg,#7b1fa2,#e040fb);
+                color: white
+            }
+
+            .bot a {
+                color: #7b1fa2;
+                font-weight: bold;
+                text-decoration: none;
+                display: inline-block;
+                margin-top: 5px;
+                background: #f3e5f5;
+                padding: 4px 10px;
+                border-radius: 10px;
+                font-size: 11px
+            }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="header"><b>🤖 AI GRAM MITRA</b><div class="nav"><a href="/Home/Dashboard">← Dashboard</a></div></div>
+
+        <div class="lang-bar">
+            <button class="active" id="btn-en" onclick="setLang('en')">English</button>
+            <button id="btn-hi" onclick="setLang('hi')">हिंदी</button>
+            <button id="btn-mr" onclick="setLang('mr')">मराठी</button>
+            <span style="margin-left:auto;font-size:10px;color:#666">● Online - 24x7</span>
+        </div>
+
+        <div class="chat-box" id="chatBox">
+            <div class="msg bot">Namaste! 🙏 I am your AI Gram Mitra.<br>Ask me anything about Village Services in any language.<br><br>तुम्ही मराठीत विचारा - मी मराठीत उत्तर देईल!<br><div class="quick"><span onclick="askQuick('Light Bill')">💡 Light Bill</span><span onclick="askQuick('7/12 Extract')">📄 7/12 Extract</span><span onclick="askQuick('PM Kisan')">🌾 PM Kisan</span><span onclick="askQuick('Water Bill')">💧 Water Bill</span></div></div>
+        </div>
+
+        <div class="input-area">
+            <button class="btn-mic" onclick="startVoice()">🎤</button>
+            <input type="text" id="userInput" placeholder="Type your question... / प्रश्न विचारा..." onkeypress="if(event.key==='Enter') sendMsg()" />
+            <button class="btn-send" onclick="sendMsg()">➤</button>
+        </div>
+    </div>
+
+    <script>
+            let currentLang = 'en';
+            const knowledge = [
+                { keys: ["light bill", "mseb", "vij bill", "लाईट बिल", "विज बिल"], en: "For MSEB Light Bill Pay: Go to Online Services > Light Bill. Enter Consumer No. and Pay. Link: mahadiscom.in", hi: "MSEB Light Bill bharne ke liye: Online Services > Light Bill me jao. Consumer No dalo. Official Link: mahadiscom.in", mr: "MSEB Light Bill bharnyasathi: Online Services > Light Bill var ja. Consumer No taka. Link: mahadiscom.in", link: "/Home/OnlineServiceDetails?id=LightBill", btn: "Pay Light Bill" },
+                { keys: ["water bill", "pani bill", "पाणी बिल", "जल बिल"], en: "Water Bill Pay available in Online Services. Enter House No.", hi: "Water Bill Online Services me bhare. House No dalo.", mr: "Pani Bill Online Services madhe bhara. Ghar No taka.", link: "/Home/OnlineServiceDetails?id=WaterBill", btn: "Pay Water Bill" },
+                { keys: ["7/12", "7-12", "satbara", "सातबारा", "extract", "bhulekh"], en: "To download 7/12 Extract: Go to Online Services > 7/12. Enter District, Taluka, Village, Gat No. Official: bhulekh.mahabhumi.gov.in", hi: "7/12 download karne ke liye: Online Services > 7/12. Gat No dalo.", mr: "7/12 Utara download karnyasathi: Online Services > 7/12. Gat No taka. Official: bhulekh.mahabhumi.gov.in", link: "/Home/OnlineServiceDetails?id=SevenTwelve", btn: "Download 7/12" },
+                { keys: ["pm kisan", "kisan yojana", "पीएम किसान", "पैसा नहीं आया"], en: "PM KISAN - Rs 6000/year. Check Status in Online Services > PM KISAN with Aadhaar No.", hi: "PM Kisan me 6000/year milta hai. Status check karo Online Services me.", mr: "PM Kisan madhe 6000/year milto. Status Online Services madhe check kara.", link: "/Home/OnlineServiceDetails?id=PMKisan", btn: "Check PM Kisan" },
+                { keys: ["ration card", "ration", "राशन", "शिधापत्रिका"], en: "Ration Card Services: eKYC, Add Name, 3 Color Cards info in Online Services.", hi: "Ration Card me eKYC, Name Add kar sakte ho.", mr: "Ration Card madhe eKYC, Navin Naav add karu shakta.", link: "/Home/OnlineServiceDetails?id=Ration", btn: "Ration Services" },
+                { keys: ["property tax", "gharpatti", "घरपट्टी"], en: "Property Tax Pay in Online Services > Property Tax", hi: "Property Tax Online Services me bhare", mr: "Gharpatti Online Services madhe bhara", link: "/Home/OnlineServiceDetails?id=Property", btn: "Pay Tax" },
+                { keys: ["certificate", "dakhla", "दाखला", "income", "caste"], en: "Certificates: Income, Caste, Residence, Non-Creamy Layer - Apply in Online Services > Certificates", hi: "Certificates: Income, Caste, Residence - Online Services me apply kare", mr: "Dakhle: Utpanna, Jat, Rahivashi - Online Services madhe arj kara", link: "/Home/OnlineServiceDetails?id=Certificates", btn: "Apply Certificate" },
+                { keys: ["takrar", "complaint", "shikayat", "तक्रार"], en: "To file complaint, go to Takrar Peti. Upload photo also.", hi: "Shikayat ke liye Takrar Peti me jao. Photo bhi upload karo.", mr: "Takrar karnyasathi Takrar Peti madhe ja. Photo pan upload kara.", link: "/Home/Complaint", btn: "File Complaint" },
+                { keys: ["sarpanch", "gram panchayat", "time", "वेळ", "सरपंच"], en: "Gram Panchayat Time: 10 AM - 5 PM, Monday to Saturday. Sarpanch available after 11 AM.", hi: "Gram Panchayat Time: 10-5, Monday-Saturday.", mr: "Gram Panchayat Vel: Sakali 10 te 5, Somwar te Shaniwar." },
+                { keys: ["weather", "havaman", "मौसम", "हवामान", "mandi bhav", "बाजार भाव"], en: "Weather & Mandi Bhav feature coming soon! Daily rates will be shown.", hi: "Mausam aur Mandi Bhav jaldi aayega!", mr: "Havaman ani Bajar Bhav lavkarach yeil!" },
+                { keys: ["hello", "hi", "namaste", "नमस्ते", "hey"], en: "Hello! How can I help you today? Ask about Bill, 7/12, Ration, Certificates.", hi: "Namaste! Bataiye kaise madad karu? Bill, 7/12, Ration ke bare me puchiye.", mr: "Namaskar! Kashi madat karu? Bill, 7/12, Ration baddal vichara." }
+            ];
+
+            function setLang(l) {
+                currentLang = l;
+                document.querySelectorAll('.lang-bar button').forEach(b => b.classList.remove('active'));
+                document.getElementById('btn-' + l).classList.add('active');
+                document.getElementById('userInput').placeholder = l == 'mr' ? "प्रश्न विचारा..." : l == 'hi' ? "Apna sawal likhiye..." : "Type your question...";
+            }
+
+            function detectLang(text) {
+                if (/[ऀ-ॿ]/.test(text)) return 'mr';
+                if (text.match(/kaise|kya|hai|nahi|bharna/)) return 'hi';
+                return currentLang;
+            }
+
+            function askQuick(t) { document.getElementById('userInput').value = t; sendMsg(); }
+
+            function sendMsg() {
+                let input = document.getElementById('userInput');
+                let text = input.value.trim(); if (!text) return;
+                let lang = detectLang(text.toLowerCase());
+                addMsg(text, 'user');
+                input.value = '';
+                setTimeout(() => { let ans = getAnswer(text.toLowerCase(), lang); addMsg(ans, 'bot'); speak(ans); }, 400);
+            }
+
+            function getAnswer(q, lang) {
+                for (let item of knowledge) {
+                    for (let k of item.keys) {
+                        if (q.includes(k)) {
+                            let txt = lang == 'hi' ? item.hi : lang == 'mr' ? item.mr : item.en;
+                            if (item.link) txt += `<br><a href='${item.link}'>${item.btn} →</a>`;
+                            return txt;
+                        }
+                    }
+                }
+                return lang == 'mr' ? "Maaf kara, mala samajle nahi. 'Light Bill', '7/12', 'PM Kisan' asa vichara." : lang == 'hi' ? "Maaf kijiye, samajh nahi aaya. 'Light Bill', '7/12', 'PM Kisan' try kijiye." : "Sorry, I didn't understand. Try asking 'Light Bill', '7/12', 'PM Kisan', 'Ration Card'.";
+            }
+
+            function addMsg(text, who) {
+                let box = document.getElementById('chatBox');
+                let div = document.createElement('div'); div.className = 'msg ' + who; div.innerHTML = text;
+                box.appendChild(div); box.scrollTop = box.scrollHeight;
+            }
+
+            function startVoice() {
+                if (!('webkitSpeechRecognition' in window)) { alert("Voice not supported in this browser. Use Chrome."); return; }
+                let rec = new webkitSpeechRecognition(); rec.lang = currentLang == 'mr' ? 'mr-IN' : currentLang == 'hi' ? 'hi-IN' : 'en-IN';
+                rec.onresult = function(e) { document.getElementById('userInput').value = e.results[0][0].transcript; sendMsg(); };
+                rec.start(); addMsg("🎤 Listening... Bolo...", "bot");
+            }
+            function speak(t) {
+                let txt = t.replace(/<[^>]*>/g, '');
+                let u = new SpeechSynthesisUtterance(txt); u.lang = currentLang == 'mr' ? 'mr-IN' : currentLang == 'hi' ? 'hi-IN' : 'en-IN'; u.rate = 0.9;
+                speechSynthesis.speak(u);
+            }
+    </script>
+</body>
+</html>

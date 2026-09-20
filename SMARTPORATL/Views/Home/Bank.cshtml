@@ -1,0 +1,147 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial
+            }
+
+            body {
+                background: #e8eef7;
+                min-height: 100vh
+            }
+
+            .header {
+                background: #062d11;
+                color: #f5c518;
+                padding: 12px 18px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: sticky;
+                top: 0;
+                z-index: 100
+            }
+
+                .header a {
+                    background: white;
+                    color: #000;
+                    padding: 7px 15px;
+                    border-radius: 18px;
+                    text-decoration: none;
+                    font-size: 11px;
+                    font-weight: bold
+                }
+
+            .banner {
+                background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=1200');
+                background-size: cover;
+                background-position: center;
+                padding: 70px 20px;
+                text-align: center;
+                color: white
+            }
+
+                .banner h1 {
+                    font-size: 32px;
+                    color: #f5c518;
+                    margin-bottom: 8px
+                }
+
+                .banner p {
+                    font-size: 16px;
+                    font-weight: bold
+                }
+
+            .container {
+                max-width: 1100px;
+                margin: 30px auto;
+                padding: 0 18px;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 18px;
+                padding-bottom: 40px
+            }
+
+            .card {
+                background: white;
+                border-radius: 14px;
+                overflow: hidden;
+                box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+                text-align: center;
+                padding-bottom: 18px;
+                transition: 0.3s
+            }
+
+                .card:hover {
+                    transform: translateY(-4px);
+                    box-shadow: 0 8px 20px rgba(0,0,0,0.12)
+                }
+
+                .card img {
+                    width: 100%;
+                    height: 190px;
+                    object-fit: cover
+                }
+
+                .card h3 {
+                    font-size: 13px;
+                    margin: 10px 6px 4px 6px;
+                    color: #062d11
+                }
+
+                .card p {
+                    font-size: 10px;
+                    color: #777;
+                    margin-bottom: 12px;
+                    padding: 0 6px
+                }
+
+            .btn {
+                background: #0277bd;
+                color: white;
+                padding: 8px 18px;
+                border-radius: 20px;
+                text-decoration: none;
+                font-size: 11px;
+                font-weight: bold;
+                display: inline-block
+            }
+
+            @@media(max-width:800px) {
+                .container {
+                    grid-template-columns: 1fr 1fr
+                }
+            }
+
+            @@media(max-width:500px) {
+                .container {
+                    grid-template-columns: 1fr
+                }
+            }
+    </style>
+</head>
+<body>
+    <div class="header"><b>🌾 SMART VILLAGE</b><a href="/Home/Dashboard">← Back to Dashboard</a></div>
+    <div class="banner"><h1>🏦 Bank & Financial Services</h1><p>Gaon ka Bank, Aapka Vikas - 6 Services</p></div>
+
+    <div class="container">
+        <div class="card"><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600" /><h3>🏦 Govt Bank - SBI / Gramin</h3><p>Savings & Jan Dhan Account</p><a class="btn" href="/Home/BankDetails?id=GovtBank">View Details →</a></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?w=600" /><h3>🏛️ Cooperative Bank</h3><p>Seva Sahakari Society</p><a class="btn" href="/Home/BankDetails?id=Cooperative">View Details →</a></div>
+
+        <!-- ATM CARD - SIRF YAHA PHOTO CHANGE KIYA - AAPKA LINK -->
+        <div class="card"><img src="https://www.bankrate.com/2022/09/08101001/How-to-use-atms.jpg" /><h3>🏧 ATM Services</h3><p>24x7 Cash Withdrawal</p><a class="btn" href="/Home/BankDetails?id=ATM">View Details →</a></div>
+
+        <div class="card"><img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=600" /><h3>💰 Loan & KCC</h3><p>Kisan Credit & Home Loan</p><a class="btn" href="/Home/BankDetails?id=Loan">View Details →</a></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600" /><h3>🛡️ Insurance & PM Schemes</h3><p>PMJJBY, PMSBY, Fasal Bima</p><a class="btn" href="/Home/BankDetails?id=Insurance">View Details →</a></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600" /><h3>👩‍👩‍👧‍👧 SHG / Bachat Gat</h3><p>Women Self Help Group</p><a class="btn" href="/Home/BankDetails?id=SHG">View Details →</a></div>
+    </div>
+</body>
+</html>

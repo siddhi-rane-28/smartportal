@@ -1,0 +1,105 @@
+﻿@{
+    Layout = null;
+    var id = ViewBag.Id as string;
+    string title = "", benefit = "", obj = "", elig = "", docs = "", process = "", link = "", img = "";
+    if (id == "PMKisan") { title = "PM Kisan Samman Nidhi"; benefit = "Rs.6000/year"; obj = "Chhote kisano ko arthik sahayata dena"; elig = "2 Hectare tak jamin, Aadhar link hona chahiye"; docs = "Aadhar, 7/12 Utara, Bank Passbook"; process = "pmkisan.gov.in > New Farmer Registration > Aadhar Verify > Land Details > Submit"; link = "https://pmkisan.gov.in"; img = "https://images.unsplash.com/photo-1500930540495-e92875696a16?w=800"; }
+    else if (id == "SoilCard") { title = "Soil Health Card Yojana"; benefit = "Free Mitti Testing"; obj = "Mitti ki jaanch karke sahi khaad ka upyog"; elig = "Sabhi Kisan"; docs = "Aadhar, 7/12, Mobile"; process = "soilhealth.dac.gov.in > Track Sample > Lab Report Download karo"; link = "https://soilhealth.dac.gov.in"; img = "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800"; }
+    else if (id == "Mandi") { title = "Mandi Price - बाजार भाव"; benefit = "Live Market Price"; obj = "Kisan ko sahi mandi bhav pata chale"; elig = "Sabhi Kisan"; docs = "Koi document nahi"; process = "enam.gov.in > Mandi Price > State select > Crop select"; link = "https://enam.gov.in"; img = "https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=800"; }
+    else if (id == "Beej") { title = "Beej Anudan Yojana"; benefit = "50% Subsidy"; obj = "Acchi quality ka beej kam daam me"; elig = "SC/ST/Small Farmer"; docs = "Aadhar, 7/12, Caste Certificate"; process = "Mahabeej Center > Aadhar dikhao > Beej lo > Subsidy Bank me"; link = "https://mahabeej.com"; img = "https://images.unsplash.com/photo-1589923188651-268a9765e432?w=800"; }
+    else if (id == "Sinchan") { title = "PM Krishi Sinchan Yojana"; benefit = "Drip - 55% Subsidy"; obj = "Har Khet Ko Pani - Pani ki bachat"; elig = "0.5 Acre se jyada jamin"; docs = "Aadhar, 7/12, Bank Passbook, Quotation"; process = "Krishi Vibhag > Form > Talathi Sign > Drip Company Quotation"; link = "https://pmksy.gov.in"; img = "https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=800"; }
+    else { title = "PM Fasal Bima Yojana"; benefit = "Fasal Insurance @ 2%"; obj = "Fasal kharab hone par paisa milega"; elig = "Sabhi Kisan jinhone karj liya hai"; docs = "Aadhar, 7/12, Bank Passbook, Buaai Praman Patra"; process = "pmfby.gov.in > Farmer Corner > Apply > Premium 2% bharo"; link = "https://pmfby.gov.in"; img = "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800"; }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+            body {
+                margin: 0;
+                font-family: Arial;
+                background: #f0f2f5
+            }
+
+            .header {
+                background: #1b5e20;
+                color: white;
+                padding: 12px 18px;
+                display: flex;
+                justify-content: space-between
+            }
+
+                .header a {
+                    background: white;
+                    color: #1b5e20;
+                    padding: 6px 14px;
+                    border-radius: 6px;
+                    text-decoration: none;
+                    font-weight: bold;
+                    font-size: 12px
+                }
+
+            .card {
+                max-width: 700px;
+                margin: 18px auto;
+                background: white;
+                border-radius: 14px;
+                overflow: hidden;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1)
+            }
+
+            .banner {
+                height: 200px;
+                background: url('@img') center/cover
+            }
+
+            .content {
+                padding: 18px
+            }
+
+            .badge {
+                background: #e8f5e9;
+                color: #2e7d32;
+                padding: 6px 12px;
+                border-radius: 20px;
+                font-weight: bold;
+                display: inline-block;
+                font-size: 12px
+            }
+
+            .info {
+                background: #f9fbe7;
+                padding: 12px;
+                border-radius: 8px;
+                margin: 10px 0;
+                border-left: 4px solid #2e7d32;
+                font-size: 13px;
+                line-height: 18px;
+                white-space: pre-line
+            }
+
+            .btn {
+                background: #2e7d32;
+                color: white;
+                padding: 14px;
+                text-align: center;
+                border-radius: 8px;
+                text-decoration: none;
+                display: block;
+                font-weight: bold;
+                margin-top: 16px
+            }
+
+            .linkbox {
+                background: #e3f2fd;
+                padding: 10px;
+                border-radius: 8px;
+                margin-top: 12px;
+                font-size: 12px;
+                word-break: break-all
+        }</style>
+    </head>
+    <body>
+        <div class="header"><h3 style="margin:0;font-size:15px">@title</h3><a href="/Home/Agriculture">Back</a></div>
+        <div class="card"><div class="banner"></div><div class="content"><div class="badge">💰 @benefit</div><h2 style="margin:10px 0;font-size:18px">@title</h2><div class="info"><b>🎯 Objective:</b><br>@obj</div><div class="info"><b>✅ Eligibility:</b><br>@elig</div><div class="info"><b>📄 Documents:</b><br>@docs</div><div class="info"><b>📝 Process:</b><br>@process</div><div class="linkbox"><b>🌐 Official Link:</b><br><a href="@link" target="_blank">@link</a></div><a class="btn" href="/Home/AgricultureForm?id=@id">➡️ Apply Now - Form Bharo →</a></div></div>
+    </body>
+</html>

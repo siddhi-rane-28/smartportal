@@ -1,0 +1,115 @@
+﻿@{
+    Layout = null;
+    var cards = new[] {
+        new { Id="Primary", Title="Primary Schools", Sub="Zila Parishad Primary School - Free Education in Village", Img="https://thane.universalhigh.edu.in/wp-content/uploads/2024/09/Pre-primary-2-2.jpg" },
+        new { Id="Secondary", Title="Secondary & High Schools", Sub="Secondary School - 9th to 12th Education", Img="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600" },
+        new { Id="Scholarship", Title="Scholarships", Sub="Government Scholarships - SC/ST/OBC Students", Img="https://www.ssims.edu.in/wp-content/uploads/2020/03/ssit-students-scholarship-loans.jpg" },
+        new { Id="Digital", Title="Digital Classroom / E-Learning", Sub="Digital Education - Smart Classroom & Tablet", Img="https://4.imimg.com/data4/KQ/CR/MY-2244222/digital-classroom-solution.jpg" },
+        new { Id="Anganwadi", Title="Anganwadi & Early Learning", Sub="Anganwadi - Bachchon ki Pehli Shiksha", Img="https://www.thehitavada.com/Encyc/2020/10/9/2_09_30_38_Anganwadi-Centres_1_H%40%40IGHT_289_W%40%40IDTH_435.jpg" },
+        new { Id="MidDay", Title="Mid-Day Meal Scheme", Sub="Free Mid-Day Meal - School me Free Khana", Img="https://www.studyiq.com/articles/wp-content/uploads/2023/06/09160143/Midday-Meal-Scheme.jpg" },
+        new { Id="Girls", Title="Girls Education", Sub="Beti Bachao Beti Padhao - Free Education for Girls", Img="https://www.unesco.org/sites/default/files/styles/paragraph_medium_desktop/article/2024-03/investing-girls-education.jpg.webp" },
+        new { Id="Skill", Title="Skill Development / ITI", Sub="ITI & Skill Training - Computer, Electrician Course", Img="https://sankrailgovtiti.com/wp-content/uploads/2023/03/logo4.png" }
+    };
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+            body {
+                margin: 0;
+                font-family: Arial;
+                background: #f0f4ff
+            }
+
+            .banner {
+                height: 240px;
+                background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200');
+                background-size: cover;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 28px;
+                font-weight: bold;
+                text-align: center
+            }
+
+            .grid {
+                max-width: 1300px;
+                margin: 20px auto;
+                display: grid;
+                grid-template-columns: repeat(auto-fill,minmax(330px,1fr));
+                gap: 20px;
+                padding: 15px
+            }
+
+            .card {
+                background: white;
+                border-radius: 16px;
+                overflow: hidden;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+                transition: 0.2s
+            }
+
+                .card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 8px 25px rgba(0,0,0,0.18)
+                }
+
+                .card img {
+                    width: 100%;
+                    height: 230px;
+                    object-fit: cover;
+                    display: block;
+                    background: #e3f2fd
+                }
+
+            .card-body {
+                padding: 14px;
+                text-align: center
+            }
+
+                .card-body h4 {
+                    color: #1565c0;
+                    margin: 5px 0;
+                    font-size: 15px;
+                    font-weight: bold
+                }
+
+                .card-body p {
+                    font-size: 12px;
+                    color: #555;
+                    margin-bottom: 10px;
+                    min-height: 32px
+                }
+
+            .btn {
+                background: #1565c0;
+                color: white;
+                padding: 8px 20px;
+                border-radius: 20px;
+                text-decoration: none;
+                font-size: 12px;
+                font-weight: bold;
+                display: inline-block
+            }
+    </style>
+</head>
+<body>
+    <div class="banner">📚 Shikshit Gaon, Samriddh Gaon</div>
+    <div class="grid">
+        @foreach (var c in cards)
+        {
+            <div class="card">
+                <img src="@c.Img" onerror="this.src='https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600'" />
+                <div class="card-body">
+                    <h4>@c.Title</h4>
+                    <p>@c.Sub</p>
+                    <a href="/Home/EducationDetails?id=@c.Id" class="btn">View Details</a>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>

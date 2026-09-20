@@ -1,0 +1,195 @@
+﻿@{
+    Layout = null;
+    var id = ViewBag.ServiceId as string;
+    if (string.IsNullOrEmpty(id)) { id = Context.Request.Query["id"].ToString(); }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial
+            }
+
+            body {
+                background: #f4f6fb
+            }
+
+            .header {
+                background: #062d11;
+                color: white;
+                padding: 12px 18px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center
+            }
+
+                .header b {
+                    color: #f5c518
+                }
+
+                .header a {
+                    background: white;
+                    color: #000;
+                    padding: 7px 15px;
+                    border-radius: 18px;
+                    text-decoration: none;
+                    font-size: 11px;
+                    font-weight: bold
+                }
+
+            .banner {
+                background: #062d11;
+                padding: 30px 20px;
+                text-align: center;
+                color: white
+            }
+
+                .banner h1 {
+                    color: #f5c518;
+                    font-size: 22px
+                }
+
+            .main-img {
+                max-width: 1000px;
+                margin: 20px auto 10px auto;
+                padding: 0 16px
+            }
+
+                .main-img img {
+                    width: 100%;
+                    height: 220px;
+                    object-fit: cover;
+                    border-radius: 14px
+                }
+
+            .container {
+                max-width: 1000px;
+                margin: 10px auto;
+                padding: 0 16px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+                padding-bottom: 40px
+            }
+
+            .card {
+                background: white;
+                border-radius: 12px;
+                padding: 20px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+                border-left: 5px solid #b71c1c
+            }
+
+                .card h3 {
+                    font-size: 14px;
+                    color: #062d11;
+                    margin-bottom: 6px
+                }
+
+                .card p {
+                    font-size: 11px;
+                    color: #555;
+                    line-height: 1.6
+                }
+
+            .num {
+                font-size: 12px;
+                font-weight: bold;
+                color: white;
+                background: #b71c1c;
+                padding: 6px 14px;
+                border-radius: 16px;
+                display: inline-block;
+                margin: 8px 0
+            }
+
+            .call-btn {
+                background: #062d11;
+                color: white;
+                padding: 10px 18px;
+                border-radius: 22px;
+                text-decoration: none;
+                font-size: 11px;
+                font-weight: bold;
+                display: inline-block;
+                margin-top: 10px
+            }
+
+            @@media(max-width:600px) {
+                .container {
+                    grid-template-columns: 1fr
+                }
+            }
+    </style>
+</head>
+<body>
+    <div class="header"><b>🌾 SMART VILLAGE</b><a href="/Home/PoliceSafety">← Back</a></div>
+    <div class="banner"><h1>@id Service Details</h1></div>
+    @if (id == "Emergency")
+    {
+        <div class="main-img"><img src="https://content.jdmagicbox.com/comp/def_content/emergency-helpline/helplines-2-emergency-helpline-6-8okpl.jpg" /></div>
+        <div class="container">
+            <div class="card"><h3>🚓 Police Help - 100 / 112</h3><div class="num">Call: 100 | 112</div><p>Chori, Jhagda ke liye. 10 min me police aayegi.</p><a class="call-btn" href="tel:112">📞 Call 112 Now</a></div>
+            <div class="card"><h3>🚑 Ambulance - 108</h3><div class="num">Call: 108</div><p>Accident, Delivery emergency. Free 24x7.</p><a class="call-btn" href="tel:108">📞 Call 108</a></div>
+            <div class="card"><h3>🔥 Fire - 101</h3><div class="num">Call: 101</div><p>Aag lagne par turant call karo.</p><a class="call-btn" href="tel:101">📞 Call 101</a></div>
+            <div class="card"><h3>📱 112 India App</h3><div class="num">Play Store</div><p>SOS button dabao, police location pe aayegi.</p><a class="call-btn" href="#">⬇️ Download App</a></div>
+        </div>
+    }
+    else if (id == "Women")
+    {
+        <div class="main-img"><img src="https://ritzmagazineimages.b-cdn.net/uploads/2019/01/women-safety-zones.jpg" /></div>
+        <div class="container">
+            <div class="card"><h3>👩 Women Helpline 181</h3><div class="num">Call: 181</div><p>Eve-teasing, Domestic Violence. Naam gupt rahega.</p><a class="call-btn" href="tel:181">📞 Call 181</a></div>
+            <div class="card"><h3>👧 Child 1098</h3><div class="num">Call: 1098</div><p>Baccha gum, Child Labour help.</p><a class="call-btn" href="tel:1098">📞 Call 1098</a></div>
+            <div class="card"><h3>🏠 Mahila Police Station</h3><div class="num">Local PS</div><p>Nearest Mahila Thana address.</p><a class="call-btn" href="#">📍 Location</a></div>
+            <div class="card"><h3>🚕 Night Safety 112</h3><div class="num">Safe Drop</div><p>Raat me akeli ho to 112 - Police ghar chod degi.</p><a class="call-btn" href="tel:112">📞 Help</a></div>
+        </div>
+    }
+    else if (id == "FIR")
+    {
+        <div class="main-img"><img src="https://advocatechenoyceil.wordpress.com/wp-content/uploads/2020/02/untitled-10.jpg" /></div>
+        <div class="container">
+            <div class="card"><h3>📝 Online FIR</h3><div class="num">mahapolice.gov.in</div><p>Theft, Mobile chori, Land dispute.</p><a class="call-btn" href="#">🌐 Register</a></div>
+            <div class="card"><h3>📄 Documents</h3><div class="num">Aadhaar + Photo</div><p>Aadhaar, Photo, Saboot lagega.</p><a class="call-btn" href="#">📎 Upload</a></div>
+            <div class="card"><h3>🔍 Status Track</h3><div class="num">Track Online</div><p>FIR kaha tak pahuchi check karo.</p><a class="call-btn" href="#">🔍 Track</a></div>
+            <div class="card"><h3>🏢 Police Station</h3><div class="num">Local PS Number</div><p>Najdik police station address.</p><a class="call-btn" href="tel:100">📞 Call PS</a></div>
+        </div>
+    }
+    else if (id == "Cyber")
+    {
+        <div class="main-img"><img src="https://www.sattrix.com/blog/wp-content/uploads/2022/01/5-ways-to-prevent-cyber-crime-2048x1365.jpg" /></div>
+        <div class="container">
+            <div class="card"><h3>📞 Cyber Helpline 1930</h3><div class="num">Call within 2 HOURS</div><p>UPI fraud hua to 2 ghante me call karo, paisa block hoga.</p><a class="call-btn" href="tel:1930">📞 Call 1930</a></div>
+            <div class="card"><h3>🌐 cybercrime.gov.in</h3><div class="num">Website</div><p>Screenshot upload karo, complaint likho.</p><a class="call-btn" href="#">🌐 Report</a></div>
+            <div class="card"><h3>⚠️ Don't Share OTP</h3><div class="num">OTP / PIN</div><p>Bank kabhi OTP nahi mangta. Fake link pe click mat karo.</p><a class="call-btn" href="#">🛡️ Tips</a></div>
+            <div class="card"><h3>📱 Hack Help</h3><div class="num">FB / WhatsApp</div><p>Facebook hack hua to cyber cell help karega.</p><a class="call-btn" href="#">🔧 Recover</a></div>
+        </div>
+    }
+    else if (id == "Traffic")
+    {
+        <div class="main-img"><img src="https://www.jaslokhospital.net/uploads/images/blogs/user-1756379827.jpg" /></div>
+        <div class="container">
+            <div class="card"><h3>🚑 Accident - 108</h3><div class="num">Call: 108</div><p>Accident pe 108 call, injured ko side me lo.</p><a class="call-btn" href="tel:108">📞 Call 108</a></div>
+            <div class="card"><h3>🚧 Highway 1033</h3><div class="num">NHAI 1033</div><p>Highway pe gaadi kharab, crane aayegi.</p><a class="call-btn" href="tel:1033">📞 Call 1033</a></div>
+            <div class="card"><h3>🩹 First Aid</h3><div class="num">Gram Panchayat</div><p>Patti, Dettol, Pain Spray box.</p><a class="call-btn" href="#">📦 List</a></div>
+            <div class="card"><h3>📋 Traffic Rules</h3><div class="num">Helmet = Life</div><p>Helmet pehno, License rakho.</p><a class="call-btn" href="#">📖 Rules</a></div>
+        </div>
+    }
+    else if (id == "Local")
+    {
+        <!-- ANDAR WALI PHOTO FIX - AAPKI WALI LOCAL POLICE PHOTO -->
+        <div class="main-img"><img src="https://rlv.zcache.com/support_your_local_police_bumper_sticker-rc2c8f4069ca1462c890545dcf37dd622_v9wht_8byvr_644.webp" style="object-fit:contain;background:white;padding:10px" /></div>
+        <div class="container">
+            <div class="card"><h3>👮 Police Patil</h3><div class="num">Add Name & Number</div><p>Gaon ka mukhya police aadmi.</p><a class="call-btn" href="tel:100">📞 Call Patil</a></div>
+            <div class="card"><h3>👷 Kotwal</h3><div class="num">Add Name & Number</div><p>Notice dena, Patil ki help.</p><a class="call-btn" href="tel:100">📞 Call Kotwal</a></div>
+            <div class="card"><h3>🌙 Night Patrol</h3><div class="num">10 PM - 4 AM</div><p>Raat ko gashth karne wale 10 ladke.</p><a class="call-btn" href="#">👥 Team List</a></div>
+            <div class="card"><h3>📹 CCTV & Meeting</h3><div class="num">Monthly 1st Date</div><p>CCTV Mandir Chowk, Bus Stand pe.</p><a class="call-btn" href="#">📹 CCTV Points</a></div>
+        </div>
+    }
+</body>
+</html>

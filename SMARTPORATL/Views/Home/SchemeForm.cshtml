@@ -1,0 +1,155 @@
+﻿@{
+    Layout = null;
+    var id = ViewBag.Id as string;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Apply Form - @id</title>
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial
+            }
+
+            body {
+                background: #f0f2f5
+            }
+
+            .header {
+                background: #1b5e20;
+                color: white;
+                padding: 12px 18px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center
+            }
+
+                .header a {
+                    background: white;
+                    color: #1b5e20;
+                    padding: 6px 14px;
+                    border-radius: 6px;
+                    text-decoration: none;
+                    font-size: 12px;
+                    font-weight: bold
+                }
+
+            .container {
+                max-width: 600px;
+                margin: 20px auto;
+                background: white;
+                padding: 24px;
+                border-radius: 14px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1)
+            }
+
+            h2 {
+                font-size: 18px;
+                margin-bottom: 4px;
+                color: #1b5e20
+            }
+
+            .sub {
+                font-size: 11px;
+                color: #666;
+                margin-bottom: 18px
+            }
+
+            label {
+                font-size: 12px;
+                font-weight: bold;
+                display: block;
+                margin: 10px 0 5px 0
+            }
+
+            input, select, textarea {
+                width: 100%;
+                padding: 11px;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                font-size: 13px
+            }
+
+            .row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 12px
+            }
+
+            .btn {
+                background: #2e7d32;
+                color: white;
+                width: 100%;
+                padding: 14px;
+                border: none;
+                border-radius: 8px;
+                font-weight: bold;
+                margin-top: 18px;
+                cursor: pointer;
+                font-size: 14px
+            }
+
+            .note {
+                background: #fff8e1;
+                padding: 10px;
+                border-radius: 8px;
+                font-size: 11px;
+                color: #8d6e00;
+                margin-top: 12px;
+                border-left: 4px solid #f5c518
+            }
+    </style>
+    <script>
+            function submitForm() {
+                var name = document.getElementById('name').value;
+                if (name.trim() == "") { alert("Naam likho"); return; }
+                var id = document.getElementById('schemeId').value;
+                window.location.href = "/Home/Receipt?id=" + id + "&name=" + encodeURIComponent(name);
+            }
+    </script>
+</head>
+<body>
+    <div class="header"><b>📝 @id - Application Form</b><a href="/Home/SchemeDetails?id=@id">◀ Back</a></div>
+
+    <div class="container">
+        <h2>Application Form</h2>
+        <div class="sub">Yojana: <b>@id</b> ke liye form bharo</div>
+
+        <input type="hidden" id="schemeId" value="@id" />
+
+        <label>Full Name / पूरा नाम *</label>
+        <input type="text" id="name" placeholder="Ex: Sunita Pawar" />
+
+        <div class="row">
+            <div><label>Mobile Number *</label><input type="text" placeholder="10 digit mobile" value="9876543210" /></div>
+            <div><label>Aadhar Number *</label><input type="text" placeholder="12 digit Aadhar" /></div>
+        </div>
+
+        <div class="row">
+            <div><label>Age / उम्र</label><input type="number" placeholder="Ex: 32" /></div>
+            <div><label>Village / गाव</label><input type="text" placeholder="Ex: Wadgaon" /></div>
+        </div>
+
+        <label>Bank Account No *</label>
+        <input type="text" placeholder="Bank Khata Number" />
+
+        <label>Ration Card Type</label>
+        <select><option>BPL</option><option>APL</option><option>Antyodaya</option><option>No Card</option></select>
+
+        <label>Address / पत्ता</label>
+        <textarea rows="2" placeholder="Full Address likhe"></textarea>
+
+        <label>Upload Document (Aadhar Photo)</label>
+        <input type="file" />
+
+        <div class="note">⚠️ Note: Form submit karne ke baad aapko Receipt milegi. Us Receipt ko Gram Panchayat me jama karna hai.</div>
+
+        <button class="btn" onclick="submitForm()">✅ Submit & Get Receipt →</button>
+
+    </div>
+</body>
+</html>

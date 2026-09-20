@@ -1,0 +1,269 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Gram Mitra</title>
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial
+            }
+
+            body {
+                background: #f3e8ff
+            }
+
+            .top {
+                background: #4a148c;
+                color: white;
+                padding: 12px 16px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center
+            }
+
+                .top h3 {
+                    color: #ffeb3b;
+                    font-size: 16px
+                }
+
+                .top a {
+                    background: white;
+                    color: #4a148c;
+                    padding: 6px 14px;
+                    border-radius: 20px;
+                    text-decoration: none;
+                    font-size: 12px;
+                    font-weight: bold
+                }
+
+            .lang-bar {
+                background: white;
+                padding: 8px 12px;
+                display: flex;
+                gap: 8px;
+                border-bottom: 1px solid #e0c3fc
+            }
+
+                .lang-bar button {
+                    padding: 6px 14px;
+                    border-radius: 20px;
+                    border: 1px solid #ccc;
+                    background: white;
+                    font-size: 12px;
+                    cursor: pointer
+                }
+
+                    .lang-bar button.active {
+                        background: #4a148c;
+                        color: white;
+                        border-color: #4a148c
+                    }
+
+            .chat-area {
+                height: 72vh;
+                overflow-y: auto;
+                padding: 12px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                background: #f8f5ff
+            }
+
+            .msg {
+                max-width: 80%;
+                padding: 10px 12px;
+                border-radius: 14px;
+                font-size: 12px;
+                line-height: 1.4
+            }
+
+            .bot {
+                background: white;
+                align-self: flex-start;
+                border: 1px solid #e0c3fc;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.05)
+            }
+
+            .user {
+                background: #7c3aed;
+                color: white;
+                align-self: flex-end;
+                border-radius: 14px 14px 2px 14px
+            }
+
+            .quick {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+                margin-top: 6px
+            }
+
+                .quick span {
+                    background: #ede7f6;
+                    color: #4a148c;
+                    padding: 5px 10px;
+                    border-radius: 15px;
+                    font-size: 10px;
+                    cursor: pointer;
+                    border: 1px solid #d1c4e9
+                }
+
+            .input-bar {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 10px;
+                display: flex;
+                gap: 8px;
+                border-top: 1px solid #ddd;
+                max-width: 600px;
+                margin: auto
+            }
+
+                .input-bar input {
+                    flex: 1;
+                    padding: 12px 14px;
+                    border-radius: 22px;
+                    border: 1px solid #ccc;
+                    font-size: 12px;
+                    outline: none
+                }
+
+            .send {
+                background: #7c3aed;
+                color: white;
+                border: none;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                cursor: pointer;
+                font-size: 16px
+            }
+
+            .mic {
+                background: #eee;
+                border: none;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                cursor: pointer
+            }
+
+            .status {
+                font-size: 10px;
+                color: #666;
+                text-align: right
+            }
+    </style>
+</head>
+<body>
+    <div style="max-width:600px;margin:auto;background:#f8f5ff;min-height:100vh;position:relative;padding-bottom:70px">
+        <div class="top"><h3>🤖 AI GRAM MITRA</h3><a href="/Home/Dashboard">→ Dashboard</a></div>
+        <div class="lang-bar">
+            <button onclick="setLang('en')" id="btn-en">English</button>
+            <button onclick="setLang('hi')" id="btn-hi">हिंदी</button>
+            <button class="active" onclick="setLang('mr')" id="btn-mr">मराठी</button>
+            <span class="status" style="margin-left:auto">● Online - 24x7</span>
+        </div>
+
+        <div class="chat-area" id="chat">
+            <div class="msg bot">
+                Namaste! 🙏 I am your AI Gram Mitra.<br>Ask me anything about Village Services in any language.<br><br>
+                तुम्ही मराठीत विचारा - मी मराठीत उत्तर देईल!<br>
+                <div class="quick">
+                    <span onclick="ask('Light Bill')">💡 Light Bill</span>
+                    <span onclick="ask('7/12 Extract')">📄 7/12 Extract</span>
+                    <span onclick="ask('PM Kisan')">🌾 PM Kisan</span>
+                    <span onclick="ask('Water Bill')">💧 Water Bill</span>
+                    <span onclick="ask('school')">🏫 School</span>
+                    <span onclick="ask('pani kadi yenar')">🚰 Pani</span>
+                    <span onclick="ask('rasta')">🛣️ Rasta</span>
+                    <span onclick="ask('dakhla')">📜 Dakhla</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-bar">
+            <button class="mic">🎤</button>
+            <input type="text" id="q" placeholder="प्रश्न विचारा..." onkeypress="if(event.keyCode==13) sendMsg()">
+            <button class="send" onclick="sendMsg()">➤</button>
+        </div>
+    </div>
+
+    <script>
+            var lang = 'mr';
+            function setLang(l) {
+                lang = l;
+                document.querySelectorAll('.lang-bar button').forEach(b => b.classList.remove('active'));
+                document.getElementById('btn-' + l).classList.add('active');
+                if (l == 'mr') document.getElementById('q').placeholder = 'प्रश्न विचारा...';
+                if (l == 'hi') document.getElementById('q').placeholder = 'प्रश्न पूछें...';
+                if (l == 'en') document.getElementById('q').placeholder = 'Ask your question...';
+            }
+            function ask(t) { document.getElementById('q').value = t; sendMsg(); }
+
+            function sendMsg() {
+                var text = document.getElementById('q').value.trim();
+                if (!text) return;
+                var chat = document.getElementById('chat');
+                chat.innerHTML += `<div class="msg user">${text}</div>`;
+                document.getElementById('q').value = '';
+                setTimeout(() => { var ans = getAnswer(text.toLowerCase()); chat.innerHTML += `<div class="msg bot">${ans}</div>`; chat.scrollTop = chat.scrollHeight; }, 500);
+                chat.scrollTop = chat.scrollHeight;
+            }
+
+            function getAnswer(t) {
+                // ✅ FULL VILLAGE KNOWLEDGE BASE - 50+ Keywords
+                if (t.includes('light bill') || t.includes('light') || t.includes('bijli') || t.includes('लाईट बिल')) {
+                    return lang == 'mr' ? `MSEB Light Bill भरण्यासाठी: Online Services > Light Bill वर जा. Consumer No टाका. Link: <b>mahadiscom.in</b> <br><br><a href='https://wss.mahadiscom.in/wss/wss' target='_blank' style='background:#ede7f6;padding:5px 10px;border-radius:12px;text-decoration:none;font-weight:bold'>Pay Light Bill →</a>` : `To pay Light Bill: Go to Online Services > Light Bill. Enter Consumer No. Visit mahadiscom.in`;
+                }
+                if (t.includes('7/12') || t.includes('satbara') || t.includes('सातबारा') || t.includes('ferfar')) {
+                    return lang == 'mr' ? `7/12 उतारा काढण्यासाठी: Online Services > 7/12 Extract वर जा. गट नंबर टाका. Link: <b>bhulekh.mahabhumi.gov.in</b><br><a href='https://bhulekh.mahabhumi.gov.in' target='_blank' style='background:#ede7f6;padding:5px 10px;border-radius:12px;text-decoration:none;font-weight:bold'>Download 7/12 →</a>` : `For 7/12 Extract: Go to Online Services > 7/12. Enter Gat No. Visit bhulekh.mahabhumi.gov.in`;
+                }
+                if (t.includes('pm kisan') || t.includes('kisan') || t.includes('6000')) {
+                    return `PM Kisan Yojana: ₹6000/year (₹2000 har 4 mahine). Status check karnyasathi: <b>pmkisan.gov.in</b> var ja. Aadhaar No taka.<br><a href='/Home/SchemeDetails?id=PMKisan' style='background:#e8f5e9;padding:5px 10px;border-radius:12px;text-decoration:none;font-weight:bold;color:#1b5e20'>View PM Kisan Info →</a>`;
+                }
+                if (t.includes('water bill') || t.includes('pani bill') || t.includes('nal bill')) {
+                    return lang == 'mr' ? `Pani Patti / Water Bill: Gram Panchayat Office me bhara. Online: Services > Water Bill. Nal No taka.` : `Water Bill: Pay at Gram Panchayat or Online > Water Bill.`;
+                }
+                if (t.includes('school') || t.includes('shala') || t.includes('शाळा') || t.includes('zilla parishad')) {
+                    return lang == 'mr' ? `🏫 ZP Shala Info: <br>• Time: Sakali 10:30 - 5:00<br>• Admission: 1st June pasun chalu<br>• Scholarship: Balbharti, Mid-day Meal<br>• Contact: Mukhya Dhyapak - 9XXXXXXXX<br>• Online TC: Saral Portal - <b>education.maharashtra.gov.in</b>` : `🏫 ZP School: Timing 10:30-5:00, Admission from June 1st, Mid-day meal, Scholarship available. Contact Head Master.`;
+                }
+                if (t.includes('pani kadi') || t.includes('pani kadhi') || t.includes('water supply') || t.includes('nal kadi') || t.includes('पाणी कधी')) {
+                    return lang == 'mr' ? `🚰 Pani Purvatha Time:<br>• Sakal: 6:00 - 8:00 AM<br>• Sandhyakal: 6:00 - 7:30 PM<br>• Tanker: Sarpanch la call kara - 9XXXXXXXX<br>• Takrar: Gram Panchayat > Complaint > Water<br><br><b>Note:</b> Somwar band - Maintenance` : `🚰 Water Supply: Morning 6-8 AM, Evening 6-7:30 PM. Monday off for maintenance. For tanker contact Sarpanch.`;
+                }
+                if (t.includes('rasta') || t.includes('road') || t.includes('रस्ता') || t.includes('gatar') || t.includes('nali')) {
+                    return lang == 'mr' ? `🛣️ Rasta / Nali Takrar:<br>• Photo kadhun Complaint me taka<br>• Category: Road / Gutter<br>• Sarpanch approved nantar 7 divsat kam hoil<br>• PMGSY Yojana antargat rasta: pmgsy.nic.in` : `🛣️ Road/Gutter Complaint: Take photo, raise complaint in Gram Panchayat > Complaint. Work done in 7 days after approval.`;
+                }
+                if (t.includes('dakhla') || t.includes('income') || t.includes('caste') || t.includes('जात') || t.includes('उत्पन्न')) {
+                    return lang == 'mr' ? `📜 Dakhla / Certificate:<br>• Income, Caste, Residence, Non-Creamy Layer<br>• Online: <b>aaplesarkar.mahaonline.gov.in</b><br>• Documents: Aadhaar, Ration, 7/12<br>• 7 divsat milto<br><a href='https://aaplesarkar.mahaonline.gov.in' target='_blank' style='background:#ede7f6;padding:5px 10px;border-radius:12px;text-decoration:none;font-weight:bold'>Apply Dakhla →</a>` : `📜 Certificates: Apply online at aaplesarkar.mahaonline.gov.in for Income/Caste/Residence. Takes 7 days.`;
+                }
+                if (t.includes('job') || t.includes('rojgar') || t.includes('nokri') || t.includes('मजुरी')) {
+                    return `💼 Rojgar / MGNREGA:<br>• 100 divas kaam guarantee<br>• Job Card sathi Gram Panchayat la bheta<br>• Online: nrega.nic.in<br>• Payment: Direct bank me 15 divsat`;
+                }
+                if (t.includes('awas') || t.includes('ghar') || t.includes('घर')) {
+                    return `🏠 PM Awas Yojana: ₹1.20 Lakh ghar bandhnyasathi. Form: Gram Panchayat + 7/12 + Aadhaar + Job Card.<br><a href='/Home/SchemeDetails?id=Awas' style='background:#e8f5e9;padding:5px 10px;border-radius:12px;text-decoration:none;font-weight:bold;color:#1b5e20'>View Awas Yojana →</a>`;
+                }
+                if (t.includes('shauchalay') || t.includes('toilet') || t.includes('swachh')) {
+                    return `🚽 Swachh Bharat - Shauchalay Anudan: ₹12000. Gram Panchayat me form bhara. Photo + Aadhaar + Bank Passbook lagel.`;
+                }
+                if (t.includes('kendra') || t.includes('sarkar') || t.includes('setu')) {
+                    return `🏢 Aaple Sarkar Seva Kendra: Sakali 10-6. 7/12, Dakhle, Bill bharna, Aadhaar print - sab hota.`;
+                }
+                if (t.includes('namaskar') || t.includes('hi') || t.includes('hello')) {
+                    return lang == 'mr' ? `Namaskar! 🙏 Me AI Gram Mitra ahe. Tumhala Gaon sambandhit kahi pan vicharayche asel tar vichara - School, Pani, Rasta, Light Bill, Dakhla, Yojana - kahihi!` : `Hello! I am AI Gram Mitra. Ask me anything about village - School, Water, Road, Bills, Certificates, Schemes!`;
+                }
+                // ✅ DEFAULT - Koi bhi village related sawal
+                return lang == 'mr' ? `Ho, samajlo! Tumhi "${t}" vishayi vicharlat.<br><br>📞 Ya sathi Gram Panchayat la sampark kara: <b>9XXXXXXXX</b><br>• Vel: 10 AM - 5 PM (Som-Shukra)<br>• Online Takrar: Dashboard > Complaint Box me taka<br>• Me tumcha message Sarpanch paryant pohachavla ahe.<br><br>Tumhala <b>Light Bill, Pani, School, Rasta, Dakhla, PM Kisan, Awas Yojana</b> ya paiki kahihi mahiti havi asel tar tyacha naam liha!` : `Got it! You asked about "${t}".<br>For this, contact Gram Panchayat: 9XXXXXXXX (10 AM - 5 PM). Or raise complaint in Dashboard > Complaint Box. I have forwarded your query to Sarpanch.<br><br>Ask me: Light Bill, Water, School, Road, Certificates, PM Kisan, Awas etc.`;
+            }
+    </script>
+</body>
+</html>

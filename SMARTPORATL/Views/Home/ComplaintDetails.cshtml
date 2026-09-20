@@ -1,0 +1,242 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+            body {
+                font-family: Arial;
+                background: #f5f5f5;
+                margin: 0
+            }
+
+            .outer {
+                border: 2px solid #555;
+                margin: 10px;
+                padding: 10px;
+                min-height: 95vh;
+                position: relative;
+                background: white;
+            }
+
+            .top-lang {
+                position: absolute;
+                right: 120px;
+                top: 15px;
+                border: 1px solid #333;
+                text-align: center;
+            }
+
+                .top-lang div {
+                    border-bottom: 1px solid #333;
+                    padding: 4px 12px;
+                    font-size: 13px;
+                    cursor: pointer;
+                }
+
+                    .top-lang div:last-child {
+                        border-bottom: none;
+                    }
+
+                .top-lang .active {
+                    background: #1565c0;
+                    color: white;
+                }
+
+            .submit-btn {
+                position: absolute;
+                right: 20px;
+                top: 120px;
+                border: 1px solid #333;
+                padding: 30px 10px;
+                writing-mode: vertical-lr;
+                font-weight: bold;
+                background: #fff;
+                cursor: pointer;
+                letter-spacing: 2px;
+            }
+
+            .left-label {
+                position: absolute;
+                left: 10px;
+                top: 50%;
+                writing-mode: vertical-lr;
+                transform: rotate(180deg);
+                font-size: 18px;
+                letter-spacing: 2px;
+            }
+
+            .search-wrap {
+                margin-left: 70px;
+                margin-top: 40px;
+                display: flex;
+                gap: 15px;
+            }
+
+            .search-label {
+                writing-mode: vertical-lr;
+                transform: rotate(180deg);
+                border: 1px solid #333;
+                padding: 10px 6px;
+                height: 400px;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: white;
+            }
+
+            .search-input-box {
+                border: 1px solid #333;
+                width: 60px;
+                display: flex;
+                align-items: end;
+                justify-content: center;
+                padding-bottom: 10px;
+                font-size: 22px;
+                background: white;
+            }
+
+            .solution-box {
+                flex: 1;
+                border: 1px solid #333;
+                min-height: 400px;
+                padding: 15px;
+                margin-right: 100px;
+                background: white;
+            }
+
+                .solution-box h3 {
+                    text-align: center;
+                    margin-bottom: 15px;
+                }
+
+            #solutionText {
+                width: 100%;
+                min-height: 300px;
+                border: 1px dashed #aaa;
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            .search-bar-top {
+                margin-left: 70px;
+                margin-right: 100px;
+                margin-top: 20px;
+                display: flex;
+                gap: 10px;
+            }
+
+                .search-bar-top input {
+                    flex: 1;
+                    padding: 12px;
+                    border-radius: 25px;
+                    border: 1px solid #888;
+                    outline: none;
+                }
+
+                .search-bar-top button {
+                    padding: 10px 20px;
+                    border-radius: 20px;
+                    border: none;
+                    background: #1565c0;
+                    color: white;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+
+            /* Language content */
+            .lang-hi, .lang-mr {
+                display: none;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="outer">
+
+        <div class="top-lang">
+            <div onclick="setLang('mr')" id="btn-mr">mar</div>
+            <div onclick="setLang('hi')" id="btn-hi">hindi</div>
+            <div onclick="setLang('en')" id="btn-en" class="active">English</div>
+        </div>
+
+        <div class="submit-btn" onclick="submitComplaint()">Submit</div>
+
+        <div class="left-label">Complaint Box</div>
+
+        <div class="search-bar-top">
+            <input type="text" id="searchBox" placeholder="Search your problem here... / Apni samasya yahan likho..." onkeyup="doSearch()" />
+            <button onclick="doSearch()">Search</button>
+        </div>
+
+        <div class="search-wrap">
+            <div class="search-label">Search Box</div>
+            <div class="search-input-box">🔍</div>
+
+            <div class="solution-box">
+                <h3>Solution</h3>
+                <div id="solutionText">
+                    <div class="sol-item" data-key="pani water nal">
+                        <b>Water Problem Solution:</b><br>
+                        Gram Panchayat me complaint karo. Tanker 24 hr me ayega.<br>
+                        Helpline: 1800-121-3464
+                        <hr>
+                    </div>
+                    <div class="sol-item" data-key="rasta road gutter">
+                        <b>Road Problem Solution:</b><br>
+                        Road ka photo upload karo, 7 din me repair hoga.<br>
+                        PWD: 1800-121-6644
+                        <hr>
+                    </div>
+                    <div class="sol-item" data-key="light bijli">
+                        <b>Light Problem Solution:</b><br>
+                        Pole number likh ke bhejo. 1912 pe call karo.
+                        <hr>
+                    </div>
+                    <div class="sol-item" data-key="kachra garbage safai">
+                        <b>Garbage Problem Solution:</b><br>
+                        Somwar/Guruvar ko gadi ayegi. Sarpanch se sampark karo.
+                    </div>
+                    <p id="noResult" style="display:none; color:red; text-align:center;">No result found. Please click Submit for new complaint.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+            let currentLang = 'en';
+            function setLang(l) {
+                currentLang = l;
+                document.querySelectorAll('.top-lang div').forEach(d => d.classList.remove('active'));
+                document.getElementById('btn-' + l).classList.add('active');
+                let inp = document.getElementById('searchBox');
+                if (l === 'hi') inp.placeholder = "अपनी समस्या हिंदी में लिखें...";
+                if (l === 'mr') inp.placeholder = "तुमची समस्या मराठीत लिहा...";
+                if (l === 'en') inp.placeholder = "Search your problem here...";
+            }
+            function doSearch() {
+                let q = document.getElementById('searchBox').value.toLowerCase();
+                let items = document.querySelectorAll('.sol-item');
+                let found = false;
+                items.forEach(it => {
+                    if (it.getAttribute('data-key').includes(q) || it.innerText.toLowerCase().includes(q) || q === "") {
+                        it.style.display = 'block'; found = true;
+                    } else {
+                        it.style.display = 'none';
+                    }
+                });
+                document.getElementById('noResult').style.display = found ? 'none' : 'block';
+            }
+            function submitComplaint() {
+                let text = document.getElementById('searchBox').value;
+                if (text === "") { alert("Pehle Search Box me apni complaint likho madam!"); return; }
+                alert("Complaint Submitted Successfully (" + currentLang + ") : " + text + "\n\nGaon ke sarpanch ko bhej diya gaya hai!");
+            }
+    </script>
+
+</body>
+</html>

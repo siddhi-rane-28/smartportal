@@ -1,0 +1,175 @@
+﻿@{
+    Layout = null;
+    var id = Context.Request.Query["id"].ToString();
+    if (string.IsNullOrEmpty(id)) { id = ViewBag.ServiceId as string ?? "Water"; }
+    var photos = new Dictionary<string, string>{
+        {"Water","https://fukujimautm.wordpress.com/wp-content/uploads/2017/09/watertap.jpg"},
+        {"Electricity","https://www.globalelectricity.org/wp-content/uploads/2026/07/this-week-in-electricity-2026-07-30.jpg"},
+        {"Roads","https://sujeetengineering.solutions/image/road-construction.webp"},
+        {"Garbage","https://static.pib.gov.in/WriteReadData/userfiles/image/Screenshot2024-09-17153054ZXE1.png"},
+        {"StreetLight","https://lumencity.in/wp-content/uploads/2023/09/1-10.jpg"},
+        {"GPWork","https://5.imimg.com/data5/SELLER/Default/2023/7/325093273/AN/LW/YM/162283999/new-product-500x500.jpeg"}
+    };
+    var photo = photos.ContainsKey(id) ? photos[id] : photos["Water"];
+
+    // FIXED OFFICIAL LINKS - 100% Working
+    var officialLink = "";
+    var onlineLink = "";
+    if (id == "Water") { officialLink = "https://jaljeevanmission.gov.in"; onlineLink = "https://ejalshakti.gov.in/jjmreport/JJMIndia.aspx"; }
+    else if (id == "Electricity") { officialLink = "https://www.mahadiscom.in"; onlineLink = "https://wss.mahadiscom.in/wss/wss"; }
+    else if (id == "Roads") { officialLink = "https://pmgsy.nic.in"; onlineLink = "https://pmgsy.nic.in"; }
+    else if (id == "Garbage") { officialLink = "https://swachhbharatmission.gov.in"; onlineLink = "https://sbm.gov.in"; }
+    else if (id == "StreetLight") { officialLink = "https://www.mahadiscom.in"; onlineLink = "https://www.mahadiscom.in"; }
+    else { officialLink = "https://egramswaraj.gov.in"; onlineLink = "https://egramswaraj.gov.in"; }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial
+            }
+
+            body {
+                background: #f5f7fa
+            }
+
+            .header {
+                background: #062d11;
+                color: #f5c518;
+                padding: 12px 18px;
+                display: flex;
+                justify-content: space-between
+            }
+
+                .header a {
+                    background: white;
+                    color: #000;
+                    padding: 6px 14px;
+                    border-radius: 18px;
+                    text-decoration: none;
+                    font-size: 11px;
+                    font-weight: bold
+                }
+
+            .box {
+                max-width: 750px;
+                margin: 20px auto;
+                background: white;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 4px 16px rgba(0,0,0,0.1)
+            }
+
+                .box img {
+                    width: 100%;
+                    height: 260px;
+                    object-fit: cover
+                }
+
+            .content {
+                padding: 20px
+            }
+
+                .content p {
+                    font-size: 12.5px;
+                    line-height: 22px;
+                    margin: 6px 0
+                }
+
+            .badge {
+                background: #2e7d32;
+                color: white;
+                padding: 4px 10px;
+                border-radius: 12px;
+                font-size: 10px;
+                font-weight: bold;
+                margin-right: 5px
+            }
+
+            .btn {
+                width: 100%;
+                padding: 11px;
+                border: none;
+                border-radius: 22px;
+                color: white;
+                font-weight: bold;
+                margin-top: 10px;
+                cursor: pointer;
+                display: block;
+                text-align: center;
+                text-decoration: none;
+                font-size: 13px
+            }
+
+            input, textarea {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                margin-top: 8px
+            }
+    </style>
+</head>
+<body>
+    <div class="header"><b>🏗️ @id</b><a href="/Home/VillageDevelopment">← Back</a></div>
+    <div class="box">
+        <img src="@photo" />
+        <div class="content">
+            @if (id == "Water")
+            {
+                <h2>💧 Water Supply - Jal Jeevan Mission</h2><span class="badge">Har Ghar Nal</span>
+                <p><b>About:</b> Har ghar nal se jal pahuchana. Aapki wali photo - Watertap image added.</p>
+                <p><b>Objective:</b> 55 litre roz pani dena, Quality check karna.</p>
+                <p><b>Benefits:</b> 24x7 Water Supply, BPL ko free connection, 48 hr me repair.</p>
+                <p><b>Eligibility:</b> All villagers, Aadhar compulsory.</p>
+                <p><b>Docs:</b> Aadhar, Ghar Patti, Ration Card.</p>
+                <p><b>Offline:</b> GP Office 10 AM - 5 PM, 7 days me connection.</p>
+            }
+            else if (id == "Electricity")
+            {
+                <h2>⚡ Electricity</h2><span class="badge" style="background:#ef6c00">MSEDCL</span>
+                <p><b>About:</b> Nirantar bijli purvatha.<br /><b>Services:</b> New Connection, Bill Pay, Fault Repair<br /><b>Helpline:</b> 1912 / 1800-212-3435<br /><b>Online:</b> wss.mahadiscom.in</p>
+            }
+            else if (id == "Roads")
+            {
+                <h2>🛣️ Roads & Infrastructure</h2><p><b>About:</b> Rasta nirman aur repair.<br />Photo ke saath complaint, 7 din me kaam.</p>
+            }
+            else if (id == "Garbage")
+            {
+                <h2>🗑️ Garbage & Swachhata</h2><p><b>About:</b> Going Zero Waste - Swachh Bharat.<br />Daily Van 7 AM, Blue-Sukha, Green-Gila.</p>
+            }
+            else if (id == "StreetLight")
+            {
+                <h2>💡 Street Light</h2><p><b>About:</b> Solar & LED Lights.<br />Pole No. ke saath complaint.</p>
+            }
+            else
+            {
+                <h2>🏫 Grampanchayat Work</h2><p><b>About:</b> School, Mandir, Hall, Tanki, Road.<br />Monday 11 AM meeting.</p>
+            }
+
+            <hr style="margin:16px 0" />
+            <h3 style="font-size:13px">🔗 Official Website</h3>
+            <a href="@officialLink" target="_blank" class="btn" style="background:#1565c0">🌐 Visit Official Website - @id</a>
+
+            <hr style="margin:16px 0" />
+            <h3 style="font-size:13px">📮 Complaint with Photo</h3>
+            <form method="post" action="/Home/SubmitVillageComplaint" enctype="multipart/form-data">
+                <input type="hidden" name="type" value="@id" />
+                <textarea name="description" placeholder="Apni takrar likho..." required></textarea>
+                <input type="file" name="photo" accept="image/*" required />
+                <button type="submit" class="btn" style="background:#c62828">Submit Complaint with Photo</button>
+            </form>
+
+            <hr style="margin:16px 0" />
+            <h3 style="font-size:13px">💻 Online Service</h3>
+            <a href="@onlineLink" target="_blank" class="btn" style="background:#2e7d32">💻 Click Here - Online Bill Pay / Service</a>
+            <p style="font-size:10px;color:#777;text-align:center;margin-top:8px">New tab me open hoga</p>
+        </div>
+    </div>
+</body>
+</html>

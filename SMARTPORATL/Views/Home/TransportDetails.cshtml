@@ -1,0 +1,281 @@
+﻿@{
+    Layout = null;
+    var id = ViewBag.ServiceId as string ?? "STBus";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial
+            }
+
+            body {
+                background: #f5f7f4;
+                padding-bottom: 40px
+            }
+
+            .header {
+                background: #062d11;
+                color: #f5c518;
+                padding: 12px 18px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center
+            }
+
+                .header a {
+                    background: white;
+                    color: #000;
+                    padding: 7px 15px;
+                    border-radius: 18px;
+                    text-decoration: none;
+                    font-size: 11px;
+                    font-weight: bold
+                }
+
+            .wrap {
+                max-width: 850px;
+                margin: 20px auto;
+                background: white;
+                border-radius: 14px;
+                overflow: hidden;
+                box-shadow: 0 4px 16px rgba(0,0,0,0.1)
+            }
+
+                .wrap img {
+                    width: 100%;
+                    height: 320px;
+                    object-fit: cover
+                }
+
+            .content {
+                padding: 22px
+            }
+
+            .tag {
+                background: #e3f2fd;
+                color: #0277bd;
+                padding: 5px 12px;
+                border-radius: 20px;
+                font-size: 10px;
+                font-weight: bold;
+                display: inline-block;
+                margin-bottom: 12px
+            }
+
+            .content h2 {
+                color: #062d11;
+                font-size: 22px;
+                margin-bottom: 12px
+            }
+
+            .content h4 {
+                color: #2e7d32;
+                margin: 16px 0 6px 0;
+                font-size: 14px;
+                border-left: 4px solid #2e7d32;
+                padding-left: 8px
+            }
+
+            .content p, li {
+                font-size: 13px;
+                color: #444;
+                line-height: 20px
+            }
+
+            ul {
+                margin-left: 18px;
+                margin-bottom: 8px
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 10px 0;
+                font-size: 12px
+            }
+
+            th {
+                background: #062d11;
+                color: #f5c518;
+                padding: 9px;
+                text-align: left
+            }
+
+            td {
+                padding: 9px;
+                border-bottom: 1px solid #eee
+            }
+
+            .price {
+                color: #2e7d32;
+                font-weight: bold
+            }
+
+            .linkbox {
+                background: #fff8e1;
+                border-left: 4px solid #f5c518;
+                padding: 10px 12px;
+                border-radius: 6px;
+                margin: 14px 0;
+                font-size: 12px
+            }
+
+                .linkbox a {
+                    color: #1565c0;
+                    font-weight: bold;
+                    text-decoration: none
+                }
+
+            .online {
+                display: block;
+                background: #1565c0;
+                color: white;
+                text-align: center;
+                padding: 12px;
+                border-radius: 8px;
+                text-decoration: none;
+                font-weight: bold;
+                margin: 12px 0;
+                font-size: 13px
+            }
+
+            .complaint {
+                background: #f9fbe7;
+                padding: 16px;
+                border-radius: 10px;
+                margin-top: 20px;
+                border: 1px solid #dce775
+            }
+
+                .complaint input, .complaint textarea {
+                    width: 100%;
+                    padding: 9px;
+                    border: 1px solid #ccc;
+                    border-radius: 6px;
+                    margin: 6px 0;
+                    font-size: 12px
+                }
+
+            .btn-sub {
+                background: #2e7d32;
+                color: white;
+                padding: 9px 20px;
+                border: none;
+                border-radius: 20px;
+                font-weight: bold;
+                cursor: pointer;
+                font-size: 12px
+            }
+    </style>
+</head>
+<body>
+    <div class="header"><b>🚌 Transport Details</b><a href="/Home/Transport">← Back</a></div>
+
+    <div class="wrap">
+        @if (id == "STBus")
+        {
+            <img src="https://media.assettype.com/freepressjournal/2024-12-18/1dhl7uh3/IMG-20241218-WA0159.jpg" />
+            <div class="content">
+                <span class="tag">MSRTC GOVT SERVICE - SINCE 1948</span>
+                <h2>🚌 ST Bus Timetable - MSRTC (Maharashtra State Road Transport Corporation)</h2>
+                <h4>About This Service:</h4><p>Maharashtra State Road Transport Corporation (MSRTC) popularly known as Lal Pari is the backbone of rural connectivity. It connects our village to Taluka, District, Pune, Mumbai, and Nashik daily. It is the most affordable and trusted public transport for farmers, students, and senior citizens. More than 16,000 buses operate daily across Maharashtra.</p>
+                <h4>Objective:</h4><p>To provide safe, cheap, regular, and punctual public transport to every villager. Special focus on student education, farmer market access, and women safety with reserved seats.</p>
+                <h4>📅 Daily Timetable:</h4><table><tr><th>Route</th><th>Departure Time</th><th>Arrival</th></tr><tr><td>Village → Taluka</td><td>7:00 AM, 9:30 AM, 1:00 PM, 5:00 PM</td><td>45 Min Journey</td></tr><tr><td>Taluka → Village</td><td>8:15 AM, 11:00 AM, 3:00 PM, 6:30 PM</td><td>45 Min Journey</td></tr><tr><td>Village → Pune / Mumbai</td><td>6:00 AM (Pune), 10:00 PM (Mumbai Night)</td><td>3.5 Hrs / 8 Hrs</td></tr></table>
+                <h4>🎫 Ticket Price & Pass:</h4><ul><li>Village to Taluka: <span class="price">Rs. 25/-</span> | Village to District: <span class="price">Rs. 120/-</span></li><li>Pune: <span class="price">Rs. 350/-</span> | Mumbai: <span class="price">Rs. 650/-</span></li><li>Student Monthly Pass: <span class="price">Rs. 300/-</span> | Senior Citizen: 50% Discount | Ladies: 50% Discount under Govt Scheme</li></ul>
+                <h4>✨ Facilities Available:</h4><ul><li>Free WiFi in Shivshahi & Shivneri, Mobile Charging Point, CCTV Surveillance, Ladies Reserved Seats (50%), Senior Citizen Priority Seats, Emergency Panic Button.</li></ul>
+                <div class="linkbox">🔗 Official Website: <a href="https://msrtc.maharashtra.gov.in" target="_blank">https://msrtc.maharashtra.gov.in</a> | Booking: https://public.msrtcors.com</div>
+                <a class="online" href="https://public.msrtcors.com/timetable" target="_blank">💻 Check Live Timetable & Online Booking →</a>
+            </div>
+        }
+        else if (id == "Auto")
+        {
+            <img src="https://img-drivio.gumlet.io/cv/blog/670/featured-image-1780398870910.webp?w=1200&q=75&format=auto" />
+            <div class="content">
+                <span class="tag">ON CALL 24x7 - LOCAL TRANSPORT</span>
+                <h2>🛺 Auto Rickshaw Union - Village Service</h2>
+                <h4>About This Service:</h4><p>Auto Rickshaw is the fastest and most convenient mode of transport for short distances of 5-10 KM. Our registered Auto Union has 50+ autos available 24x7 for emergency, hospital, market, and station trips. Service available within 5 minutes of calling.</p>
+                <h4>Objective:</h4><p>To provide door-to-door last-mile connectivity at affordable rates, especially for urgent medical cases and daily commuters.</p>
+                <h4>📅 Service Timing:</h4><p>24 Hours Available. Day Time: 6 AM to 10 PM (Regular Rate) | Night Time: 10 PM to 6 AM (Extra Rs. 20 Night Charge). Average waiting time is only 5 minutes.</p>
+                <h4>💰 Fare Chart:</h4><ul><li>Up to 2 KM: <span class="price">Rs. 20/-</span> | Village to Taluka (8 KM): <span class="price">Rs. 80/- (Full) / Rs. 15/- (Sharing)</span> | Village to District Hospital: <span class="price">Rs. 200/-</span></li><li>Luggage: Free up to 20kg, Extra luggage Rs. 20/- | Night Charge: + Rs. 20/- after 10 PM</li></ul>
+                <h4>✨ Features:</h4><ul><li>Licensed Drivers, Meter System, First Aid Box, Emergency Contact with Police, GPS Tracked Autos.</li></ul>
+                <a class="online" href="tel:9876543210">📞 Call Auto Union Now - 9876543210 →</a>
+            </div>
+        }
+        else if (id == "Travels")
+        {
+            <img src="https://images.hindustantimes.com/img/2024/08/13/1600x900/Mumbai--India---Aug-012--2024--General-view-of-pri_1723490180705_1723521483264.jpg" />
+            <div class="content">
+                <span class="tag">PRIVATE LUXURY - LONG DISTANCE</span>
+                <h2>🚐 Private Travels & Tours - AC / Non-AC</h2>
+                <h4>About This Service:</h4><p>Private Travels provides comfortable long-distance travel from our village to major cities like Pune, Mumbai, Nagpur, and Goa. Services include AC Sleeper, Non-AC Sleeper, and Semi-Sleeper buses with experienced drivers. Daily evening services are available for convenience.</p>
+                <h4>Objective:</h4><p>To offer a comfortable, safe, and luxurious alternative to ST buses for overnight and long-distance journeys with guaranteed seats and online booking.</p>
+                <h4>📅 Daily Schedule:</h4><p>Pune: 8:00 PM Daily (Reaches 11:30 PM) | Mumbai: 9:00 PM Daily (Reaches 5:00 AM) | Nashik: 7:30 PM Daily. Booking should be done 2 hours in advance.</p>
+                <h4>💰 Ticket Price:</h4><ul><li>Non-AC Seater: <span class="price">Rs. 400/-</span> | AC Seater: <span class="price">Rs. 550/-</span> | AC Sleeper: <span class="price">Rs. 750/-</span> | AC Sleeper with Blanket: <span class="price">Rs. 850/-</span></li></ul>
+                <h4>✨ Premium Facilities:</h4><ul><li>Pushback Seats, AC with Temperature Control, Blanket & Water Bottle, Charging Point, Live GPS Tracking, Entertainment TV, Free Cancellation before 6 Hrs.</li></ul>
+                <div class="linkbox">🔗 Partner: <a href="https://www.redbus.in" target="_blank">https://www.redbus.in</a> | AbhiBus | MakeMyTrip</div>
+                <a class="online" href="https://www.redbus.in" target="_blank">💻 Book Private Travels Online →</a>
+            </div>
+        }
+        else if (id == "Emergency")
+        {
+            <img src="https://www.livemint.com/lm-img/img/2024/11/01/600x338/ANI-20241011215-0_1730457066413_1730457093756.jpg" />
+            <div class="content">
+                <span class="tag">108 FREE - 24x7 GOVT EMERGENCY SERVICE</span>
+                <h2>🚑 Emergency & Ambulance Service - 108</h2>
+                <h4>About This Service:</h4><p>The 108 Emergency Ambulance Service is a free, 24x7 life-saving service provided by the Maharashtra Government. It is available for road accidents, heart attacks, pregnancy delivery, fire accidents, and any medical emergency. The ambulance reaches within 15-20 minutes and has trained medical staff and oxygen support. The new fleet includes Advanced Life Support (ALS) and Basic Life Support (BLS) ambulances.</p>
+                <h4>Objective:</h4><p>To provide immediate medical help and transport to the nearest government hospital without any cost to save lives during the golden hour.</p>
+                <h4>🚨 When to Call:</h4><ul><li>Road Accident & Injury | Heart Attack, Chest Pain | Pregnancy Delivery & Labor Pain | Breathing Difficulty, Electric Shock | Fire, Snake Bite, Any Medical Emergency</li></ul>
+                <h4>💰 Cost & Availability:</h4><p><span class="price">108 Service is 100% FREE</span> for all citizens. No money needed. Private Ambulance charges Rs. 10 per KM. Private Car for hospital drop is Rs. 300 to Taluka Hospital and Rs. 1000 to District Hospital.</p>
+                <h4>✨ Facilities in Ambulance:</h4><ul><li>Oxygen Cylinder, Stretcher, First Aid Kit, Trained Nurse & Driver, BP Machine, Free Medicine during transport, Direct admission in Govt Hospital.</li></ul>
+                <div class="linkbox">🔗 Emergency Numbers: 108 (Ambulance) | 102 (Janani Express for Pregnant Women) | Official: https://www.maharashtra.gov.in</div>
+                <a class="online" href="tel:108" style="background:#c62828">🚨 CALL 108 NOW - FREE AMBULANCE →</a>
+            </div>
+        }
+        else if (id == "School")
+        {
+            <img src="https://shpublicschool.com/wp-content/uploads/2023/08/DSC02565-1024x683.jpg" />
+            <div class="content">
+                <span class="tag">SAFE & SECURE - FOR STUDENTS</span>
+                <h2>🏫 School Bus Service - ZP & Private Schools</h2>
+                <h4>About This Service:</h4><p>School Bus Service ensures safe and punctual transport for students from village to ZP School, Private English Schools, and Colleges in Taluka. All buses have a lady attendant and GPS tracking. ZP School buses are free under the government scheme.</p>
+                <h4>Objective:</h4><p>To reduce school dropouts, ensure 100% attendance, and provide safe transport especially for girl students with zero accidents.</p>
+                <h4>📅 Bus Timing:</h4><p>Morning Pickup: 8:00 AM to 9:00 AM (Door to door) | School Drop: 9:00 AM | Return Trip: 4:00 PM from School | On Saturday: 1:00 PM Return.</p>
+                <h4>💰 Monthly Fees:</h4><p>ZP School: <span class="price">FREE</span> under Sarva Shiksha Abhiyan | Private School Bus: <span class="price">Rs. 400/- to Rs. 700/- Per Month</span> depending on distance. Discount for 2 siblings.</p>
+                <h4>✨ Safety Features:</h4><ul><li>Speed Governor (Max 40 KM/H), GPS Live Tracking for Parents, Lady Attendant, CCTV Camera, First Aid Box, Fire Extinguisher, Parent App to track bus.</li></ul>
+                <a class="online" href="#">💻 Track School Bus Live Location</a>
+            </div>
+        }
+        else
+        {
+            <img src="https://mover.delivery/media/myphpkxc/best-selling-8-feet-mini-trucks.png" />
+            <div class="content">
+                <span class="tag">FOR FARMERS & BUSINESS - GOODS TRANSPORT</span>
+                <h2>🚚 Goods Transport - Pickup, Tractor & Mini Truck</h2>
+                <h4>About This Service:</h4><p>Goods Transport Service is specially designed for farmers, shopkeepers, and construction businesses. It helps to transport vegetables, grains, fertilizer, cement, sand, and household shifting. Vehicles available are Tractor with Trolley, Mahindra Pickup, Tata Ace, and 14-feet Mini Truck. Quick service within 1 hour of booking.</p>
+                <h4>Objective:</h4><p>To support the village economy by providing cheap and fast goods movement from farm to market and for local businesses.</p>
+                <h4>📅 Booking Time:</h4><p>On Demand - Vehicle will arrive within 60 minutes after booking. Advance booking for wedding and event materials. Service from 6 AM to 8 PM.</p>
+                <h4>💰 Rent Chart:</h4><ul><li>Tractor + Trolley (Sand/Stone): <span class="price">Rs. 500/- per Trip</span> (5 KM)</li><li>Mahindra Pickup (Fruits/Vegetables): <span class="price">Rs. 800/-</span> | Tata Ace: <span class="price">Rs. 1200/-</span> | 14ft Mini Truck (House Shifting): <span class="price">Rs. 1500/- to Rs. 2500/-</span></li><li>Loading & Unloading: Extra Rs. 200/- with 2 Labors</li></ul>
+                <h4>✨ Benefits:</h4><ul><li>Fixed Rate - No Hidden Charge, Experienced Drivers, Insurance Covered, Available for APMC Market, All Materials.</li></ul>
+                <a class="online" href="tel:9876543210">📞 Book Goods Vehicle Now →</a>
+            </div>
+        }
+        <div class="content">
+            <div class="complaint">
+                <h3>📮 Complaint Box with Photo</h3>
+                <form method="post" action="/Home/SubmitTransportComplaint" enctype="multipart/form-data">
+                    <input type="hidden" name="type" value="@id" />
+                    <input type="text" name="description" placeholder="Write complaint in English..." required />
+                    <input type="file" name="photo" accept="image/*" />
+                    <button class="btn-sub" type="submit">Submit Complaint →</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

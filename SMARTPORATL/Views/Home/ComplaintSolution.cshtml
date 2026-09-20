@@ -1,0 +1,83 @@
+﻿@{
+    Layout = null;
+    var q = Context.Request.Query["q"].ToString();
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Solution</title>
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial
+            }
+
+            body {
+                background: #eef2f7;
+                padding: 15px
+            }
+
+            .box {
+                max-width: 800px;
+                margin: 20px auto;
+                background: white;
+                border-radius: 14px;
+                padding: 20px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                border-top: 4px solid #1b5e20
+            }
+
+            h2 {
+                text-align: center;
+                margin-bottom: 15px
+            }
+
+            .q {
+                background: #fff9c4;
+                padding: 10px;
+                border-radius: 8px;
+                font-weight: bold;
+                margin-bottom: 15px;
+                border: 1px dashed #c5a600
+            }
+
+            .sol {
+                border: 1px solid #ddd;
+                padding: 14px;
+                border-radius: 10px;
+                margin-bottom: 12px;
+                background: #fafafa
+            }
+
+            .back {
+                display: inline-block;
+                margin-bottom: 15px;
+                background: #222;
+                color: white;
+                padding: 7px 14px;
+                border-radius: 20px;
+                text-decoration: none;
+                font-size: 12px
+            }
+    </style>
+</head>
+<body>
+    <a href="/Home/ComplaintBox" class="back">← Back to Search</a>
+    <div class="box">
+        <h2>📋 Solution</h2>
+        <div class="q">Aapne Search kiya: <span style="color:#b71c1c">@q</span></div>
+
+        <div class="sol">
+            <b>✅ Solution for "@q":</b><br><br>
+            Is samasya ke liye Gram Panchayat me complaint darj ki gayi hai. 24-48 ghante me hal ho jayega.<br><br>
+            <b>Helpline:</b> 1800-121-3464 (Pani), 1912 (Light), 1800-121-6644 (Rasta)<br><br>
+            <small>Note: Yahan aap database se real solution dikha sakte ho baba.</small>
+        </div>
+
+        <p style="text-align:center;margin-top:15px;font-size:12px;color:#777">Is page ko aap baad me database se connect kar sakte ho</p>
+    </div>
+</body>
+</html>

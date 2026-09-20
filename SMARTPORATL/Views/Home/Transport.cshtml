@@ -1,0 +1,149 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial
+            }
+
+            body {
+                background: #e8eef7;
+                overflow-y: auto;
+                min-height: 100vh
+            }
+
+            .header {
+                background: #062d11;
+                color: #f5c518;
+                padding: 12px 18px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: sticky;
+                top: 0;
+                z-index: 100
+            }
+
+                .header a {
+                    background: white;
+                    color: #000;
+                    padding: 7px 15px;
+                    border-radius: 18px;
+                    text-decoration: none;
+                    font-size: 11px;
+                    font-weight: bold
+                }
+
+            .banner {
+                background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('https://media.assettype.com/freepressjournal/2024-12-18/1dhl7uh3/IMG-20241218-WA0159.jpg');
+                background-size: cover;
+                background-position: center;
+                padding: 70px 20px;
+                text-align: center;
+                color: white;
+                min-height: 180px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center
+            }
+
+                .banner h1 {
+                    font-size: 32px;
+                    color: #f5c518;
+                    margin-bottom: 8px
+                }
+
+                .banner p {
+                    font-size: 16px;
+                    font-weight: bold
+                }
+
+            .container {
+                max-width: 1100px;
+                margin: 30px auto;
+                padding: 0 18px;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 18px;
+                padding-bottom: 40px
+            }
+
+            .card {
+                background: white;
+                border-radius: 14px;
+                overflow: hidden;
+                box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+                text-align: center;
+                padding-bottom: 18px;
+                transition: 0.3s
+            }
+
+                .card:hover {
+                    transform: translateY(-4px);
+                    box-shadow: 0 8px 20px rgba(0,0,0,0.12)
+                }
+
+                .card img {
+                    width: 100%;
+                    height: 190px;
+                    object-fit: cover
+                }
+
+                .card h3 {
+                    font-size: 13px;
+                    margin: 10px 6px 4px 6px;
+                    color: #062d11
+                }
+
+                .card p {
+                    font-size: 10px;
+                    color: #777;
+                    margin-bottom: 12px;
+                    padding: 0 6px
+                }
+
+            .btn {
+                background: #0277bd;
+                color: white;
+                padding: 8px 18px;
+                border-radius: 20px;
+                text-decoration: none;
+                font-size: 11px;
+                font-weight: bold;
+                display: inline-block
+            }
+
+            @@media(max-width:800px) {
+                .container {
+                    grid-template-columns: 1fr 1fr
+                }
+            }
+
+            @@media(max-width:500px) {
+                .container {
+                    grid-template-columns: 1fr
+                }
+            }
+    </style>
+</head>
+<body>
+    <div class="header"><b>🌾 SMART VILLAGE</b><a href="/Home/Dashboard">← Back to Dashboard</a></div>
+    <div class="banner"><h1>🚌 Transport & ST Bus Services</h1><p>Gaon ka Vikas, Behtar Transport - 6 Services</p></div>
+
+    <div class="container">
+        <div class="card"><img src="https://media.assettype.com/freepressjournal/2024-12-18/1dhl7uh3/IMG-20241218-WA0159.jpg" /><h3>🚌 ST Bus Timetable</h3><p>MSRTC Lal Pari Service</p><a class="btn" href="/Home/TransportDetails?id=STBus">View Details →</a></div>
+        <div class="card"><img src="https://img-drivio.gumlet.io/cv/blog/670/featured-image-1780398870910.webp?w=1200&q=75&format=auto" /><h3>🛺 Auto Rickshaw</h3><p>24x7 On Call Service</p><a class="btn" href="/Home/TransportDetails?id=Auto">View Details →</a></div>
+        <div class="card"><img src="https://images.hindustantimes.com/img/2024/08/13/1600x900/Mumbai--India---Aug-012--2024--General-view-of-pri_1723490180705_1723521483264.jpg" /><h3>🚐 Private Travels</h3><p>AC Sleeper Booking</p><a class="btn" href="/Home/TransportDetails?id=Travels">View Details →</a></div>
+        <div class="card"><img src="https://www.livemint.com/lm-img/img/2024/11/01/600x338/ANI-20241011215-0_1730457066413_1730457093756.jpg" /><h3>🚑 Emergency & Ambulance</h3><p>108 Free Service</p><a class="btn" href="/Home/TransportDetails?id=Emergency">View Details →</a></div>
+        <div class="card"><img src="https://shpublicschool.com/wp-content/uploads/2023/08/DSC02565-1024x683.jpg" /><h3>🏫 School Bus</h3><p>Safe Student Transport</p><a class="btn" href="/Home/TransportDetails?id=School">View Details →</a></div>
+        <div class="card"><img src="https://mover.delivery/media/myphpkxc/best-selling-8-feet-mini-trucks.png" /><h3>🚚 Goods Transport</h3><p>Pickup & Tractor Service</p><a class="btn" href="/Home/TransportDetails?id=Goods">View Details →</a></div>
+    </div>
+</body>
+</html>

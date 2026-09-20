@@ -1,0 +1,191 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Services</title>
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial
+            }
+
+            body {
+                background: #eef3fb
+            }
+
+            .header {
+                background: #062d11;
+                color: white;
+                padding: 12px 18px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center
+            }
+
+                .header b {
+                    color: #f5c518
+                }
+
+            .nav a {
+                background: white;
+                color: #222;
+                padding: 6px 14px;
+                border-radius: 18px;
+                text-decoration: none;
+                font-size: 11px;
+                font-weight: bold
+            }
+
+            .main {
+                max-width: 1150px;
+                margin: 12px auto;
+                padding: 0 15px
+            }
+
+            .banner {
+                background: white;
+                border-radius: 16px;
+                overflow: hidden;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+                border: 1px solid #ffedd5;
+                margin-bottom: 18px;
+                text-align: center
+            }
+
+                .banner img {
+                    width: 100%;
+                    height: 280px;
+                    object-fit: contain;
+                    background: white;
+                    display: block;
+                    padding: 0
+                }
+
+                .banner .txt {
+                    padding: 14px;
+                    background: white;
+                    border-top: 1px solid #eee
+                }
+
+                    .banner .txt h3 {
+                        font-size: 15px;
+                        color: #062d11
+                    }
+
+                    .banner .txt p {
+                        font-size: 11px;
+                        color: #666;
+                        margin-top: 3px
+                    }
+
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(3,1fr);
+                gap: 18px
+            }
+
+            .card {
+                background: white;
+                border-radius: 14px;
+                overflow: hidden;
+                box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+                border: 1px solid #eee;
+                text-align: center
+            }
+
+                .card .imgbox {
+                    width: 100%;
+                    height: 155px;
+                    overflow: hidden;
+                    background: #f8fafc
+                }
+
+                    .card .imgbox img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        display: block
+                    }
+
+                .card .info {
+                    padding: 12px 10px 14px 10px
+                }
+
+                    .card .info h4 {
+                        font-size: 13px;
+                        color: #222
+                    }
+
+                    .card .info p {
+                        font-size: 10px;
+                        color: #777;
+                        margin-top: 3px
+                    }
+
+            .btn {
+                color: white;
+                padding: 7px 22px;
+                border-radius: 20px;
+                text-decoration: none;
+                font-size: 11px;
+                font-weight: bold;
+                display: inline-block;
+                margin-top: 9px;
+                background: linear-gradient(135deg,#e65100,#fb8c00)
+            }
+    </style>
+</head>
+<body>
+    <div class="header"><b>SMART VILLAGE</b><div class="nav"><a href="/Home/Dashboard">← Dashboard</a></div></div>
+
+    <div class="main">
+
+        <!-- ✅ BANNER - PURI PHOTO DIKHEGI - AAPKI LINK SE -->
+        <div class="banner">
+            <img src="https://assets.thehansindia.com/h-upload/2022/07/27/1305127-online-servixces.webp" alt="Online Services Banner" />
+            <div class="txt">
+                <h3>📱 Online Services & Bill Pay - 7 Services</h3>
+                <p style="font-size:13px;color:#1a7a2e;font-weight:bold;margin-top:6px;letter-spacing:0.5px">आपकी प्रगति का डिजिटल साथी।</p>
+            </div>
+        </div>
+
+        <!-- BAKI 7 CARDS - SAME TO SAME - KOI CHANGE NAHI -->
+        <div class="grid">
+            <div class="card">
+                <div class="imgbox"><img src="https://img.freepik.com/free-photo/electric-light-bulb-dollar_218381-44215.jpg?w=740" alt="Light Bill" /></div>
+                <div class="info"><h4>Light Bill - MSEB</h4><p>MSEB Bill Pay</p><a class="btn" href="/Home/OnlineServiceDetails?id=LightBill">Pay Now</a></div>
+            </div>
+            <div class="card">
+                <div class="imgbox"><img src="https://5.imimg.com/data5/SELLER/Default/2022/6/NO/MW/MM/119967853/14-water-bill-500x500.jpg" alt="Water Bill" /></div>
+                <div class="info"><h4>Water Bill</h4><p>पाणी बिल</p><a class="btn" href="/Home/OnlineServiceDetails?id=WaterBill">Pay Now</a></div>
+            </div>
+            <div class="card">
+                <div class="imgbox"><img src="https://cdn.dwello.in/articles/assets/b9151991-6a6d-4d86-92de-04a1ba5d3b3d/hbfdhhad.jpeg" alt="Property Tax" /></div>
+                <div class="info"><h4>Property Tax</h4><p>Gharpatti</p><a class="btn" href="/Home/OnlineServiceDetails?id=Property">Pay Tax</a></div>
+            </div>
+            <div class="card">
+                <div class="imgbox"><img src="https://goelgangadevelopments.com/wp-content/uploads/2023/01/Maharashtra-government-712-extracts.jpg" alt="7/12" /></div>
+                <div class="info"><h4>7/12 Extracts</h4><p>जमीन 7/12</p><a class="btn" href="/Home/OnlineServiceDetails?id=SevenTwelve">Download</a></div>
+            </div>
+            <div class="card">
+                <div class="imgbox"><img src="https://static.pib.gov.in/WriteReadData/userfiles/image/image003D3SM.jpg" alt="PM Kisan" /></div>
+                <div class="info"><h4>PM KISAN</h4><p>5 Yojana</p><a class="btn" href="/Home/OnlineServiceDetails?id=PMKisan">View</a></div>
+            </div>
+            <div class="card">
+                <div class="imgbox"><img src="https://cdnbbsr.s3waas.gov.in/s3db9eeb7e678863649bce209842e0d164/uploads/2024/04/202404161912460174.png" alt="Ration Card" /></div>
+                <div class="info"><h4>Ration Card</h4><p>3 Color + eKYC</p><a class="btn" href="/Home/OnlineServiceDetails?id=Ration">Check</a></div>
+            </div>
+            <div class="card">
+                <div class="imgbox"><img src="https://printitonline.in/wp-content/uploads/2025/03/SPOT-UV-certificates-1.jpg" alt="Certificates" /></div>
+                <div class="info"><h4>Certificates</h4><p>5 Type Dakhla</p><a class="btn" href="/Home/OnlineServiceDetails?id=Certificates">Apply</a></div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

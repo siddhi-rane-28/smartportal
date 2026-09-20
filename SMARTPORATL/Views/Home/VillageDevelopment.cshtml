@@ -1,0 +1,191 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+            html {
+                scroll-behavior: smooth;
+                overflow-y: auto;
+                height: 100%
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial
+            }
+
+            body {
+                background: #eef3eb;
+                overflow-y: auto;
+                min-height: 100vh;
+                height: auto
+            }
+
+            .header {
+                background: #062d11;
+                color: #f5c518;
+                padding: 14px 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: sticky;
+                top: 0;
+                z-index: 100
+            }
+
+                .header a {
+                    background: white;
+                    color: #000;
+                    padding: 8px 18px;
+                    border-radius: 20px;
+                    text-decoration: none;
+                    font-size: 12px;
+                    font-weight: bold
+                }
+
+            /* BANNER SIZE BADA KIYA - pehle 45px tha ab 75px */
+            .banner {
+                background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://fukujimautm.wordpress.com/wp-content/uploads/2017/09/watertap.jpg');
+                background-size: cover;
+                background-position: center;
+                padding: 75px 20px; /* BADA KIYA */
+                text-align: center;
+                color: white;
+                min-height: 200px; /* BANNER HEIGHT BADHAI */
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+                .banner h1 {
+                    font-size: 36px;
+                    color: #f5c518;
+                    letter-spacing: 1px;
+                    margin-bottom: 12px
+                }
+                /* BADA KIYA */
+                .banner .tagline {
+                    font-size: 18px;
+                    color: #fff;
+                    font-weight: bold;
+                    letter-spacing: 0.5px
+                }
+            /* GAON KI PRAGATI WALA TEXT BADA KIYA - 18px */
+
+            /* CARDS NEECHE KIYE + GREEN LINE HATAYI */
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 24px;
+                margin-top: 50px; /* CARDS NEECHE KIYE - pehle 20px tha ab 50px */
+                margin-bottom: 50px; /* scroll ke liye space */
+                padding-bottom: 30px;
+            }
+
+            .card {
+                background: white;
+                border-radius: 16px;
+                overflow: hidden;
+                box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+                text-align: center;
+                padding-bottom: 20px;
+                border-top: none !important; /* GREEN LINE HATA DI - IMPORTANT */
+                border: none; /* GREEN LINE HATA DI */
+            }
+
+                .card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 8px 24px rgba(0,0,0,0.15)
+                }
+
+                .card img {
+                    width: 100%;
+                    height: 210px;
+                    object-fit: cover
+                }
+
+                .card h3 {
+                    font-size: 16px;
+                    margin: 14px 0 6px 0;
+                    color: #062d11
+                }
+
+                .card p {
+                    font-size: 12px;
+                    color: #666;
+                    margin-bottom: 14px
+                }
+
+            .btn {
+                background: #2e7d32;
+                color: white;
+                padding: 10px 22px;
+                border-radius: 22px;
+                text-decoration: none;
+                font-size: 13px;
+                font-weight: bold;
+                display: inline-block
+            }
+
+            @@media(max-width:900px) {
+                .container {
+                    grid-template-columns: 1fr 1fr;
+                    margin-top: 35px
+                }
+
+                .card img {
+                    height: 190px
+                }
+
+                .banner h1 {
+                    font-size: 28px
+                }
+
+                .banner .tagline {
+                    font-size: 15px
+                }
+            }
+
+            @@media(max-width:600px) {
+                .container {
+                    grid-template-columns: 1fr;
+                    margin-top: 30px
+                }
+
+                .card img {
+                    height: 220px
+                }
+
+                .banner {
+                    padding: 60px 15px
+                }
+            }
+    </style>
+</head>
+<body>
+    <div class="header"><b>🌾 SMART VILLAGE</b><a href="/Home/Dashboard">← Back to Dashboard</a></div>
+
+    <div class="banner">
+        <h1>🏗️ Village Development</h1>
+        <div class="tagline">Gaon Ki Pragati, Desh Ki Pragati</div>
+    </div>
+
+    <div class="container">
+        <div class="card"><img src="https://fukujimautm.wordpress.com/wp-content/uploads/2017/09/watertap.jpg" /><h3>💧 Water Supply</h3><p>Jal Jeevan Mission</p><a class="btn" href="/Home/VillageDevelopmentDetails?id=Water">View Details →</a></div>
+        <div class="card"><img src="https://www.globalelectricity.org/wp-content/uploads/2026/07/this-week-in-electricity-2026-07-30.jpg" /><h3>⚡ Electricity</h3><p>Mahavitaran</p><a class="btn" href="/Home/VillageDevelopmentDetails?id=Electricity">View Details →</a></div>
+        <div class="card"><img src="https://sujeetengineering.solutions/image/road-construction.webp" /><h3>🛣️ Roads & Infrastructure</h3><p>Road Construction</p><a class="btn" href="/Home/VillageDevelopmentDetails?id=Roads">View Details →</a></div>
+        <div class="card"><img src="https://static.pib.gov.in/WriteReadData/userfiles/image/Screenshot2024-09-17153054ZXE1.png" /><h3>🗑️ Garbage & Swachhata</h3><p>Going Zero Waste</p><a class="btn" href="/Home/VillageDevelopmentDetails?id=Garbage">View Details →</a></div>
+        <div class="card"><img src="https://lumencity.in/wp-content/uploads/2023/09/1-10.jpg" /><h3>💡 Street Light</h3><p>Solar Lights</p><a class="btn" href="/Home/VillageDevelopmentDetails?id=StreetLight">View Details →</a></div>
+        <div class="card"><img src="https://5.imimg.com/data5/SELLER/Default/2023/7/325093273/AN/LW/YM/162283999/new-product-500x500.jpeg" /><h3>🏫 Grampanchayat Work</h3><p>Development Works</p><a class="btn" href="/Home/VillageDevelopmentDetails?id=GPWork">View Details →</a></div>
+    </div>
+</body>
+</html>

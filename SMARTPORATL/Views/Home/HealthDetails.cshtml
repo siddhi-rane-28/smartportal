@@ -1,0 +1,201 @@
+﻿@{
+    Layout = null;
+    var id = (ViewBag.ServiceId as string ?? Context.Request.Query["id"].ToString() ?? "").ToLower();
+    string title = "", img = "", about = "", benefits = "", eligibility = "", documents = "", process = "", link = "", helpline = "";
+
+    if (id.Contains("phc") || id.Contains("medical"))
+    {
+        title = "Medical Facilities - PHC / Hospital Building";
+        img = "https://www.shutterstock.com/image-photo/indian-female-doctor-checking-blood-260nw-2591499391.jpg";
+        about = "Primary Health Center facility in every village for basic medical treatment and maternal health services.";
+        benefits = "<li>Free OPD and consultation</li><li>Free medicines for BPL families</li><li>24x7 delivery and maternal care</li><li>Vaccination for children</li>";
+        eligibility = "<li>All villagers eligible</li><li>BPL / Yellow card gets free medicines</li>";
+        documents = "<li>Aadhaar Card</li><li>Ration Card for free medicines</li>";
+        process = "<li>Visit nearest PHC with Aadhaar</li><li>Register at reception counter</li>";
+        link = "https://www.nhm.gov.in"; helpline = "108 / 102";
+    }
+    else if (id.Contains("emergency") || id.Contains("ambulance") || id.Contains("108"))
+    {
+        title = "Emergency 108 Ambulance Service";
+        img = "https://d35oenyzp35321.cloudfront.net/emergency_critical_care_d8e396be8b.jpg";
+        about = "Free 108 ambulance service for emergency transport to hospital within 20 minutes.";
+        benefits = "<li>Free 24x7 ambulance service</li><li>Reaches within 20 minutes</li><li>Free first aid and oxygen support</li>";
+        eligibility = "<li>Any person in medical emergency</li><li>Pregnant women, accident victims</li>";
+        documents = "<li>No documents required during emergency</li>";
+        process = "<li>Call 108 from any phone</li><li>Share your location</li>";
+        link = "https://nhm.gov.in"; helpline = "108";
+    }
+    else if (id.Contains("camp"))
+    {
+        title = "Health Camps - Free Check-up in Village";
+        img = "https://www.indiabullsfoundation.com/uploads/product/medical-camp-1-0030282001558621335.jpg";
+        about = "Free health check-up camps organized in village every month by government health department.";
+        benefits = "<li>Free BP, Sugar, Eye check-up</li><li>Free medicines distribution</li><li>Free consultation with specialist doctors</li><li>Ayushman Bharat Golden Card distribution</li>";
+        eligibility = "<li>All villagers eligible</li><li>Senior citizens, women, children priority</li>";
+        documents = "<li>Aadhaar Card</li><li>Ayushman Card if available</li>";
+        process = "<li>Information given by ASHA worker</li><li>Come to camp venue on date</li>";
+        link = "https://pmjay.gov.in"; helpline = "14555";
+    }
+    else if (id.Contains("vaccine") || id.Contains("vaccination"))
+    {
+        title = "Vaccination Schedule - Child Immunization";
+        img = "https://images.unsplash.com/photo-1605289982774-9a6fef564df8?w=1200";
+        about = "Complete vaccination schedule for children from birth to 10 years under government program.";
+        benefits = "<li>Free vaccines for all children</li><li>Protection from 12 dangerous diseases</li><li>BCG, Polio, Hepatitis, Measles vaccines</li><li>Free vaccination card</li>";
+        eligibility = "<li>Children 0-10 years</li><li>All children eligible</li>";
+        documents = "<li>Aadhaar of parents</li><li>Child birth certificate</li><li>Mother and Child Protection Card</li>";
+        process = "<li>Visit nearest PHC / Anganwadi</li><li>Register child name</li><li>Follow vaccination schedule chart</li>";
+        link = "https://www.nhm.gov.in"; helpline = "1075";
+    }
+    else if (id.Contains("hospital") || id.Contains("nearest"))
+    {
+        title = "Nearest Hospitals - Best and Nearest Government Hospitals";
+        img = "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=1200";
+        about = "List of nearest Government Hospitals, PHC, Rural Hospital, District Hospital with address and distance.";
+        benefits = "<li>Free treatment up to Rs. 5 Lakh with Ayushman Card</li><li>All specialists available</li><li>Free X-Ray and Lab Tests</li>";
+        eligibility = "<li>All villagers eligible</li>";
+        documents = "<li>Aadhaar Card</li><li>Ayushman Card</li>";
+        process = "<li>Visit with referral slip from PHC</li><li>Show Ayushman card</li>";
+        link = "https://arogya.maharashtra.gov.in/1095/Hospitals"; helpline = "108";
+    }
+    else
+    {
+        title = "Jan Aushadhi Kendra - Cheap Medicines 90% Discount";
+        img = "https://img.magnific.com/free-psd/amber-bottle-assorted-pills-spilling-onto-white-background_632498-25290.jpg";
+        about = "Government medical stores providing quality medicines at 50% to 90% cheaper price. Same formula as branded medicines.";
+        benefits = "<li>Medicines at 50-90% discount - Rs.100 medicine in Rs.10-20</li><li>Same quality as branded medicines - WHO-GMP certified</li><li>Available for Diabetes, BP, Heart, Cancer, Fever</li><li>More than 2000 medicines and 300 surgical items available</li>";
+        eligibility = "<li>All citizens eligible</li><li>No income limit</li>";
+        documents = "<li>Doctor Prescription required</li><li>Aadhaar Card (optional)</li>";
+        process = "<li>Take prescription from PHC doctor</li><li>Visit nearest Jan Aushadhi Kendra</li><li>Show prescription and get cheap medicines</li>";
+        link = "https://janaushadhi.gov.in"; helpline = "1800 180 8080";
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@title</title>
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial
+            }
+
+            body {
+                background: #f5f5f5
+            }
+
+            .topbar {
+                background: #1565c0;
+                color: white;
+                padding: 12px 18px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center
+            }
+
+                .topbar a {
+                    color: white;
+                    text-decoration: none;
+                    font-weight: bold;
+                    font-size: 13px
+                }
+
+            .card {
+                max-width: 850px;
+                margin: 20px auto;
+                background: white;
+                border-radius: 14px;
+                overflow: hidden;
+                box-shadow: 0 2px 12px rgba(0,0,0,0.15)
+            }
+
+                .card img {
+                    width: 100%;
+                    height: 340px;
+                    object-fit: cover
+                }
+
+            .body {
+                padding: 18px
+            }
+
+            .badge {
+                background: #e3f2fd;
+                color: #1565c0;
+                padding: 5px 10px;
+                border-radius: 20px;
+                font-size: 11px;
+                font-weight: bold
+            }
+
+            h3 {
+                margin: 10px 0 6px 0
+            }
+
+            .muted {
+                color: #666;
+                font-size: 13px
+            }
+
+            hr {
+                margin: 14px 0;
+                border: none;
+                border-top: 1px solid #eee
+            }
+
+            h5 {
+                margin: 12px 0 6px 0
+            }
+
+            ul {
+                padding-left: 18px;
+                font-size: 13px;
+                line-height: 22px
+            }
+
+            .btn {
+                width: 100%;
+                display: block;
+                background: #d32f2f;
+                color: white;
+                padding: 12px;
+                text-align: center;
+                border-radius: 10px;
+                text-decoration: none;
+                font-weight: bold;
+                margin-top: 18px
+            }
+
+            .linkbox {
+                background: #f9f9f9;
+                padding: 10px;
+                border-radius: 8px;
+                margin-top: 10px;
+                font-size: 12px
+            }
+    </style>
+</head>
+<body>
+    <div class="topbar"><a href="/Home/HealthServices">◀ Back to Health Services</a><span>🏥 Health Services</span></div>
+    <div class="card">
+        <img src="@img" />
+        <div class="body">
+            <span class="badge">Govt Verified • Helpline: @helpline</span>
+            <h3>@title</h3>
+            <p class="muted">@about</p><hr />
+            <h5>💊 Benefits / Facilities</h5><ul>@Html.Raw(benefits)</ul>
+            <h5>✅ Eligibility</h5><ul>@Html.Raw(eligibility)</ul>
+            <h5>📄 Documents Required</h5><ul>@Html.Raw(documents)</ul>
+            <h5>⚙️ Process / How to Avail</h5><ul>@Html.Raw(process)</ul><hr />
+            <div class="linkbox">
+                <b>Official Website:</b> <a href="@link" target="_blank">@link</a><br />
+                <b>Helpline Number:</b> @helpline
+            </div>
+            <a href="/Home/HealthForm?scheme=@title" class="btn">Proceed To Form - Apply / Request →</a>
+        </div>
+    </div>
+</body>
+</html>

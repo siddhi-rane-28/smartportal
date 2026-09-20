@@ -1,0 +1,159 @@
+﻿@{
+    Layout = null;
+    var id = ViewBag.Id as string;
+    var name = ViewBag.Name as string;
+    var receiptNo = "SV-" + new Random().Next(10000, 99999);
+    var date = DateTime.Now.ToString("dd-MM-yyyy hh:mm tt");
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Receipt - @id</title>
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial
+            }
+
+            body {
+                background: #e8eef7;
+                display: flex;
+                justify-content: center;
+                padding: 20px
+            }
+
+            .card {
+                max-width: 500px;
+                width: 100%;
+                background: white;
+                border-radius: 14px;
+                overflow: hidden;
+                box-shadow: 0 6px 20px rgba(0,0,0,0.15)
+            }
+
+            .header {
+                background: #062d11;
+                color: white;
+                padding: 16px;
+                text-align: center
+            }
+
+                .header h2 {
+                    font-size: 16px;
+                    color: #f5c518;
+                    margin: 0
+                }
+
+                .header p {
+                    font-size: 11px;
+                    color: #ccc;
+                    margin-top: 4px
+                }
+
+            .content {
+                padding: 22px
+            }
+
+            .row {
+                display: flex;
+                justify-content: space-between;
+                padding: 9px 0;
+                border-bottom: 1px dashed #ddd;
+                font-size: 13px
+            }
+
+                .row b {
+                    color: #222
+                }
+
+                .row span {
+                    color: #444
+                }
+
+            .status {
+                background: #e8f5e9;
+                color: #1b5e20;
+                text-align: center;
+                padding: 10px;
+                border-radius: 8px;
+                font-weight: bold;
+                margin: 16px 0;
+                font-size: 13px
+            }
+
+            .btns {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+                margin-top: 16px
+            }
+
+            .btn {
+                padding: 12px;
+                border-radius: 8px;
+                text-align: center;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: 12px;
+                border: none;
+                cursor: pointer
+            }
+
+            .btn-print {
+                background: #1b5e20;
+                color: white
+            }
+
+            .btn-home {
+                background: #f5f5f5;
+                color: #333;
+                border: 1px solid #ddd
+            }
+
+            @@media print {
+                .btns {
+                    display: none
+                }
+
+                body {
+                    background: white;
+                    padding: 0
+                }
+            }
+    </style>
+    <script>
+            function printRec() { window.print(); }
+    </script>
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <h2>🌾 SMART VILLAGE PORTAL</h2>
+            <p>Gram Panchayat - Official Receipt</p>
+        </div>
+        <div class="content">
+            <h3 style="text-align:center;font-size:15px;margin-bottom:14px">Application Receipt</h3>
+
+            <div class="row"><b>Receipt No:</b><span>@receiptNo</span></div>
+            <div class="row"><b>Date & Time:</b><span>@date</span></div>
+            <div class="row"><b>Yojana Name:</b><span style="font-weight:bold;color:#1b5e20">@id</span></div>
+            <div class="row"><b>Applicant Name:</b><span>@name</span></div>
+            <div class="row"><b>Application Status:</b><span style="color:green;font-weight:bold">Submitted</span></div>
+            <div class="row"><b>Gram Sevak Sign:</b><span>Pending</span></div>
+
+            <div class="status">✅ Aapka Form Safaltapurvak Jama Ho Gaya Hai</div>
+
+            <p style="font-size:11px;color:#666;line-height:14px">* Is Receipt ko sambhal ke rakhe. 7 din ke andar Gram Panchayat se sampark kare. Official website par status check kar sakte hai. Helpline: 1800-123-4567</p>
+
+            <div class="btns">
+                <button class="btn btn-print" onclick="printRec()">🖨️ Print Receipt</button>
+                <a class="btn btn-home" href="/Home/Dashboard">🏠 Go to Dashboard</a>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

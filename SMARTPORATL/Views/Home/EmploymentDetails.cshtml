@@ -1,0 +1,110 @@
+﻿@{
+    var id = ViewBag.ServiceId as string;
+    string title = "", about = "", benefits = "", eligibility = "", docs = "", process = "", link1 = "", link2 = "", helpline = "", image = "";
+
+    if (id == "govt-prep")
+    {
+        title = "Government Job Preparation - MPSC / Police Bharti / Talathi";
+        about = "This scheme helps rural youth prepare for government competitive exams like MPSC, Maharashtra Police Bharti, Talathi, Zilla Parishad, and Gram Sevak. Free coaching and guidance is provided at district level.";
+        benefits = "• Secure Government Job with Pension<br>• Salary Rs.25,000 - Rs.70,000<br>• Respect in Village & Job Security<br>• Free Coaching Material";
+        eligibility = "• Education: 10th / 12th / Graduate<br>• Age: 18-38 years (SC/ST 43 years)<br>• Must be Domicile of Maharashtra<br>• Physical fitness for Police";
+        docs = "• Aadhaar Card<br>• Education Certificates<br>• Domicile & Caste Certificate<br>• Passport Size Photos";
+        process = "Step 1: Register on MPSC/Mahapariksha Portal<br>Step 2: Fill Online Form<br>Step 3: Download Hall Ticket<br>Step 4: Written Exam -> Physical Test -> Interview";
+        link1 = "https://mpsc.gov.in"; link2 = "https://mahapolice.gov.in"; helpline = "1800-120-8040"; image = "/images/employment/govt-prep.jpg";
+    }
+    else if (id == "private-jobs")
+    {
+        title = "Private Jobs & Rozgar Melava - Direct Company Jobs";
+        about = "Maharashtra Government organizes Rozgar Melava (Job Fair) where Pune-Mumbai companies come to villages to hire youth. No exam, only direct interview for 10th, 12th pass and graduates.";
+        benefits = "• Direct Interview, No Written Exam<br>• Salary Rs.15,000 - Rs.35,000<br>• Jobs in Pune, Mumbai, Nashik MIDC<br>• Free Registration";
+        eligibility = "• Education: 10th Pass to Graduate<br>• Age: 18-40 years<br>• Both Male & Female Can Apply<br>• Basic Communication Skills";
+        docs = "• Resume / Biodata<br>• Aadhaar Card<br>• Education Marksheet<br>• 2 Passport Photos";
+        process = "Step 1: Register on Mahaswayam Portal<br>Step 2: Find Nearest Rozgar Melava Date<br>Step 3: Attend with Resume<br>Step 4: On-Spot Interview & Offer Letter";
+        link1 = "https://rojgar.mahaswayam.gov.in"; link2 = "https://www.ncs.gov.in"; helpline = "1800-425-1514"; image = "/images/employment/private-jobs.jpg";
+    }
+    else if (id == "skill-job")
+    {
+        title = "Skill to Job - PMKVY & ITI Training - Free Training";
+        about = "Pradhan Mantri Kaushal Vikas Yojana (PMKVY) provides free 3-month training in Computer, Mobile Repair, Electrician, Plumbing, Beauty Parlour. Government certificate + job guarantee after training.";
+        benefits = "• 100% Free Training<br>• Rs.8000 Monthly Stipend<br>• Government Certificate<br>• Job Placement Assistance";
+        eligibility = "• Education: 10th Pass<br>• Age: 18-35 years<br>• Unemployed Youth<br>• Must not have taken PMKVY before";
+        docs = "• Aadhaar Card<br>• 10th Marksheet<br>• Bank Passbook<br>• Photo";
+        process = "Step 1: Visit Nearest PMKVY Center<br>Step 2: Choose Course (Computer/Electrician etc)<br>Step 3: 3 Months Training<br>Step 4: Exam & Certificate & Job";
+        link1 = "https://www.pmkvyofficial.org"; link2 = "https://iti.maharashtra.gov.in"; helpline = "1800-102-8000"; image = "/images/employment/skill-job.jpg";
+    }
+    else if (id == "startup")
+    {
+        title = "Startup & Self Employment - Mudra Loan up to 10 Lakh";
+        about = "Don't search for a job, create a job! Under Mudra Yojana, you can get a loan up to Rs.10 Lakh without guarantee to start your own Kirana Shop, Garage, Beauty Parlour, Dairy, or Mobile Shop. 35% Subsidy for SC/ST/Women.";
+        benefits = "• Loan up to Rs.10 Lakh Without Collateral<br>• Subsidy 35% for Women/SC/ST<br>• Low Interest 7-9%<br>• Become Job Giver, Not Seeker";
+        eligibility = "• Age: 18+ years<br>• Must have Business Plan<br>• Indian Citizen<br>• No Bank Defaulter";
+        docs = "• Aadhaar Card<br>• Business Plan (2 Page)<br>• Bank Account<br>• Project Report";
+        process = "Step 1: Prepare Small Business Plan<br>Step 2: Visit Your Bank with Documents<br>Step 3: Fill Mudra Loan Form<br>Step 4: Loan Approved in 7 Days";
+        link1 = "https://www.mudra.org.in"; link2 = "https://startupindia.gov.in"; helpline = "1800-180-1111"; image = "/images/employment/startup.jpg";
+    }
+    else if (id == "digital-jobs")
+    {
+        title = "Digital & IT Jobs - Work From Home - Earn From Village";
+        about = "Now youth can earn from village itself! Work as CSC Center Operator, Data Entry, Freelancing, YouTube, Digital Marketing. Earn Rs.10k-50k per month using Laptop/Mobile and Internet. Government supports Digital India jobs.";
+        benefits = "• Work From Home / Village<br>• Income Rs.10,000 - Rs.50,000 / Month<br>• No Investment Needed<br>• Flexible Timing";
+        eligibility = "• Education: 12th Pass + Computer Knowledge<br>• Must have Laptop / Mobile + Internet<br>• Age: 18+<br>• Basic English Typing";
+        docs = "• Aadhaar Card<br>• Bank Account<br>• PAN Card (for Freelancing)<br>• Laptop/Mobile";
+        process = "Step 1: Open CSC Center or Create Freelancer Account<br>Step 2: Learn Basic Digital Skills (1 Month)<br>Step 3: Start Taking Work<br>Step 4: Earn Money Online";
+        link1 = "https://csc.gov.in"; link2 = "https://www.digitalindia.gov.in"; helpline = "1800-3000-3468"; image = "/images/employment/digital-jobs.jpg";
+    }
+    else if (id == "abroad-job")
+    {
+        title = "Abroad Job / Foreign Opportunity - Legal Overseas Jobs";
+        about = "Government approved overseas jobs in Dubai, Saudi Arabia, Qatar, Europe for Driver, Electrician, Plumber, Nursing. 100% Legal and Safe through eMigrate portal. Beware of Fake Agents! Check eMigrate before going.";
+        benefits = "• Salary Rs.50,000 - Rs.1,00,000<br>• Free Accommodation & Visa<br>• Government Approved Safe Jobs<br>• No Fake Agent Risk";
+        eligibility = "• Age: 21-45 years<br>• Education: 10th Pass + Skill Certificate<br>• Must have Passport<br>• Physical Fitness";
+        docs = "• Passport<br>• Aadhaar Card<br>• Skill Certificate (ITI)<br>• Police Clearance Certificate";
+        process = "Step 1: Register on eMigrate.gov.in<br>Step 2: Choose Government Registered Agent<br>Step 3: Verify Job Offer on Portal<br>Step 4: Visa & Fly Legally";
+        link1 = "https://emigrate.gov.in"; link2 = "https://www.mea.gov.in/overseas-employment"; helpline = "1800-11-3090"; image = "/images/employment/abroad-job.jpg";
+    }
+    else if (id == "apprenticeship")
+    {
+        title = "Apprenticeship & Internship - Earn While You Learn";
+        about = "After ITI/Diploma/12th, you can do 1-year apprenticeship in a company with Rs.7000-9000 monthly stipend. You get company experience + certificate + chance of permanent job in same company.";
+        benefits = "• Monthly Stipend Rs.7000-9000<br>• Company Work Experience<br>• Government Certificate<br>• 60% Get Permanent Job";
+        eligibility = "• Education: ITI / 12th / Diploma<br>• Age: 18-30 years<br>• Must have ITI Certificate (for Technical)<br>• Freshers Only";
+        docs = "• Aadhaar Card<br>• ITI / Education Certificate<br>• Bank Account<br>• Photo";
+        process = "Step 1: Register on Apprenticeship Portal<br>Step 2: Search Company Near You<br>Step 3: Apply & Interview<br>Step 4: 1 Year Training with Stipend";
+        link1 = "https://www.apprenticeshipindia.gov.in"; link2 = "https://apprenticeshipindia.org"; helpline = "1800-425-2255"; image = "/images/employment/apprenticeship.jpg";
+    }
+    else if (id == "career-guidance")
+    {
+        title = "Career Guidance & Counseling - What to do After 12th?";
+        about = "Confused after 10th/12th? What to become - Engineer, Doctor, Police, Teacher? Free career counseling, aptitude test, and scholarship information for rural youth. Talk to expert counselors online or offline.";
+        benefits = "• Free Career Counseling<br>• Free Aptitude Test<br>• Information about Scholarships<br>• Expert Guidance from NCS";
+        eligibility = "• Education: 10th / 12th Student<br>• Age: 15+<br>• Anyone Can Apply<br>• No Documents Needed";
+        docs = "• No Documents Required<br>• Just Ask Your Questions<br>• Bring Your Marksheet for Better Guidance";
+        process = "Step 1: Visit NCS Career Guidance Portal<br>Step 2: Take Free Career Assessment Test<br>Step 3: Talk to Counselor<br>Step 4: Choose Right Career Path";
+        link1 = "https://www.ncs.gov.in/career-guidance"; link2 = "https://www.education.gov.in/career"; helpline = "1800-425-1514"; image = "/images/employment/career-guidance.jpg";
+    }
+}
+<div class="container mt-4">
+    <div class="card shadow border-0 rounded-4 overflow-hidden">
+        <img src="@image" onerror="this.src='https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=900&h=500&fit=crop'" style="width:100%; height:420px; object-fit:cover; object-position:center top; display:block;" alt="@title" />
+        <div class="card-body p-4">
+            <h3 class="fw-bold">@title</h3>
+            <div class="mt-3">
+                <h5 class="fw-bold text-primary">📖 About This Scheme</h5><p>@about</p>
+                <h5 class="fw-bold text-success">🎁 Benefits for Youth</h5><p>@Html.Raw(benefits)</p>
+                <h5 class="fw-bold text-warning">✅ Eligibility Criteria</h5><p>@Html.Raw(eligibility)</p>
+                <h5 class="fw-bold text-danger">📄 Required Documents</h5><p>@Html.Raw(docs)</p>
+                <h5 class="fw-bold text-info">📝 How to Apply - Step by Step</h5><p>@Html.Raw(process)</p>
+                <div class="p-3 rounded-3 bg-light mt-3 border">
+                    <h5 class="fw-bold">🔗 Official Website Links</h5>
+                    <a href="@link1" target="_blank" class="btn btn-outline-primary btn-sm me-2 mb-2">🌐 @link1</a>
+                    <a href="@link2" target="_blank" class="btn btn-outline-success btn-sm mb-2">🌐 @link2</a>
+                    <p class="mt-2 mb-0"><strong>📞 Helpline:</strong> @helpline</p>
+                </div>
+                <div class="mt-4 d-flex gap-2 flex-wrap">
+                    <a href="/Home/EmploymentForm?scheme=@id" class="btn btn-success rounded-pill px-4 py-2 fw-bold">Apply Now - Free</a>
+                    <a href="/Home/EmploymentServices" class="btn btn-outline-dark rounded-pill px-4 py-2">← Back to All Jobs</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

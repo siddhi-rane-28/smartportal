@@ -1,0 +1,252 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMART VILLAGE PORTAL - Government of Maharashtra</title>
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Segoe UI', Arial, sans-serif
+            }
+
+            body {
+                background: #f4f7fb
+            }
+
+            .tricolor {
+                height: 4px;
+                background: linear-gradient(90deg,#ff9933,#ffffff,#138808)
+            }
+
+            .welcome-hero {
+                position: relative;
+                width: 100%;
+                height: 420px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: url('/images/kokan.jpg') center/cover no-repeat
+            }
+
+                .welcome-hero::before {
+                    content: "";
+                    position: absolute;
+                    inset: 0;
+                    background: linear-gradient(90deg,rgba(0,51,0,0.88),rgba(0,0,0,0.25))
+                }
+
+            .welcome-content {
+                position: relative;
+                z-index: 2;
+                text-align: center;
+                color: white;
+                padding: 20px
+            }
+
+            .govt-tag {
+                background: rgba(255,255,255,0.18);
+                backdrop-filter: blur(5px);
+                padding: 7px 16px;
+                border-radius: 20px;
+                font-size: 12px;
+                margin-bottom: 14px;
+                display: inline-block;
+                border: 1px solid rgba(255,255,255,0.3)
+            }
+
+            .welcome-content h1 {
+                font-size: 42px;
+                font-weight: 800;
+                text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+                letter-spacing: 0.5px
+            }
+
+                .welcome-content h1 span {
+                    color: #ffde59
+                }
+
+            .welcome-content p {
+                margin-top: 12px;
+                font-size: 15px;
+                opacity: 0.95;
+                letter-spacing: 0.3px
+            }
+
+            .top-nav {
+                position: absolute;
+                top: 18px;
+                right: 18px;
+                z-index: 3;
+                display: flex;
+                gap: 8px
+            }
+
+                .top-nav a {
+                    background: white;
+                    color: #1a1a1a;
+                    padding: 7px 16px;
+                    border-radius: 20px;
+                    text-decoration: none;
+                    font-size: 12px;
+                    font-weight: 700;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+                    transition: 0.2s
+                }
+
+                    .top-nav a:hover {
+                        transform: translateY(-2px)
+                    }
+
+            /* ✅ REAL WEBSITE LOOK */
+            .main {
+                max-width: 1300px;
+                margin: 0 auto;
+                padding: 28px 20px;
+                background: transparent
+            }
+
+            .grid3 {
+                display: grid;
+                grid-template-columns: repeat(3,1fr);
+                gap: 24px
+            }
+
+            .card {
+                background: white;
+                border-radius: 14px;
+                overflow: hidden;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+                border: 1px solid #e8ecf1;
+                height: 330px;
+                display: flex;
+                flex-direction: column;
+                transition: 0.3s
+            }
+
+                .card:hover {
+                    transform: translateY(-8px);
+                    box-shadow: 0 14px 32px rgba(0,0,0,0.15)
+                }
+
+            .card-img {
+                width: 100%;
+                height: 195px;
+                background-size: cover;
+                background-position: center;
+                flex-shrink: 0
+            }
+
+            .card-body {
+                height: 135px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 14px;
+                text-align: center
+            }
+
+                .card-body h3 {
+                    font-size: 15px;
+                    color: #1a1a1a;
+                    font-weight: 700
+                }
+
+                .card-body p {
+                    font-size: 11px;
+                    color: #666;
+                    margin: 5px 0
+                }
+
+            .btn {
+                color: white;
+                padding: 7px 20px;
+                border-radius: 20px;
+                text-decoration: none;
+                font-size: 12px;
+                font-weight: 700;
+                display: inline-block;
+                margin-top: 8px;
+                letter-spacing: 0.3px;
+                transition: 0.2s
+            }
+
+                .btn:hover {
+                    transform: scale(1.05)
+                }
+
+            .b1, .b2, .b3, .b4, .b5, .b6, .b7, .b8, .b9, .b10, .b11 {
+                background: #0a5c36
+            }
+
+            .b12 {
+                background: linear-gradient(90deg,#6a11cb,#2575fc)
+            }
+
+            .footer {
+                background: #0a2f1f;
+                color: white;
+                text-align: center;
+                padding: 18px;
+                font-size: 12px;
+                margin-top: 30px;
+                letter-spacing: 0.3px
+            }
+
+            @@media(max-width:768px) {
+                .grid3 {
+                    grid-template-columns: 1fr 1fr
+                }
+
+                .welcome-content h1 {
+                    font-size: 28px
+                }
+            }
+
+            @@media(max-width:480px) {
+                .grid3 {
+                    grid-template-columns: 1fr
+                }
+
+                .main {
+                    padding: 16px 12px
+                }
+            }
+    </style>
+</head>
+<body>
+    <div class="tricolor"></div>
+    <div class="welcome-hero">
+        <div class="top-nav"><a href="/Home/Schemes">Schemes</a><a href="/Home/Agriculture">Agriculture</a><a href="/Home/Index">Logout</a></div>
+        <div class="welcome-content">
+            <div style="font-size:50px;margin-bottom:8px">🌾</div>
+            <h1>WELCOME TO <span>SMART VILLAGE PORTAL</span></h1>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="grid3">
+            <div class="card"><div class="card-img" style="background-image:url('https://vajiramias.sgp1.cdn.digitaloceanspaces.com/wp/current-affairs/2025/06/Important-Government-Schemes.webp')"></div><div class="card-body"><h3>Government Schemes</h3><a class="btn b1" href="/Home/Schemes">View</a></div></div>
+            <div class="card"><div class="card-img" style="background-image:url('https://www.aiu.edu/wp-content/uploads/2024/08/4f4a1a9d7c51499e0f4d28ec5e128022-scaled-1.jpg')"></div><div class="card-body"><h3>Agriculture</h3><a class="btn b2" href="/Home/Agriculture">View</a></div></div>
+            <div class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500')"></div><div class="card-body"><h3>Health Services</h3><a class="btn b3" href="/Home/Health">View</a></div></div>
+            <div class="card"><div class="card-img" style="background-image:url('https://img.aaplamahanagar.com/2024/08/complaint-box.png')"></div><div class="card-body"><h3>तक्रार पेटी</h3><p>गावातील तक्रारी</p><a class="btn b4" href="/Home/ComplaintBox">View All</a></div></div>
+            <div class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500')"></div><div class="card-body"><h3>Education</h3><p>Primary, Scholarship</p><a class="btn b5" href="/Home/EducationServices">View Courses</a></div></div>
+            <div class="card"><div class="card-img" style="background-image:url('https://www.trainingjournal.com/wp-content/uploads/2025/12/youth-unemployment-chalk-diagram-on-blackboard-with-skills-education-and-opportunities-stockpack-adobe-stock-scaled-1.jpg')"></div><div class="card-body"><h3>Youth Employment</h3><p>8 Services</p><a class="btn b6" href="/Home/EmploymentServices">Explore 8 Jobs</a></div></div>
+            <div class="card"><div class="card-img" style="background-image:url('https://images.cnbctv18.com/uploads/2025/04/maharashtra-police-2025-04-3fc05b37b6124b5cfc0c71aa6334eb3b.jpg')"></div><div class="card-body"><h3>Police & Safety</h3><p>112, Women Safety, FIR</p><a class="btn b7" href="/Home/PoliceSafety">View 6 Services</a></div></div>
+            <div class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=500')"></div><div class="card-body"><h3>Village Development</h3><p>Water, Electricity, Roads</p><a class="btn b8" href="/Home/VillageDevelopment">View 6</a></div></div>
+            <div class="card"><div class="card-img" style="background-image:url('https://www.cppr.in/wp-content/uploads/2026/06/Free-bus-rides-for-women-article.jpeg')"></div><div class="card-body"><h3>Transport & ST Bus</h3><p>Laal Pari Timetable</p><a class="btn b9" href="/Home/Transport">View 6</a></div></div>
+            <div class="card"><div class="card-img" style="background-image:url('https://cioviews.com/wp-content/uploads/2019/05/BFSI-Banking-min-696x465.jpg')"></div><div class="card-body"><h3>Bank & Finance</h3><p>Loan, ATM, Insurance</p><a class="btn b10" href="/Home/Bank">View 6</a></div></div>
+            <div class="card"><div class="card-img" style="background-image:url('https://wise.com/imaginary-v2/c4d8cfa4cc524864557f907ba3088466.jpg')"></div><div class="card-body"><h3>Online Services & Bill Pay</h3><p>Light Bill, Water, 7/12</p><a class="btn b11" href="/Home/OnlineServices">View 7 Services</a></div></div>
+            <div class="card"><div class="card-img" style="background-image:url('https://play-lh.googleusercontent.com/SmnoXRVTp4N-YQylDVHoMl1oFVqbev_vhjm26vub9CZPFR-lfkHpBFUsxO5brGxHdMJ4pa9IOEZtsj73vfQo')"></div><div class="card-body"><h3>AI Gram Mitra</h3><p>Marathi | Hindi | English</p><a class="btn b12" href="/Home/Chatbot">Ask Now</a></div></div>
+        </div>
+    </div>
+
+    <div class="footer">© 2026 SMART VILLAGE PORTAL | महाराष्ट्र शासन | Designed & Developed for Digital Grampanchayat | Made with ❤️ for Rural India</div>
+
+</body>
+</html>

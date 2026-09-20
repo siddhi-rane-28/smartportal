@@ -1,0 +1,123 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial
+            }
+
+            .hero {
+                background: url('/images/village.jpg') center/cover no-repeat;
+                height: 100vh;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .welcome-big {
+                font-family: 'Great Vibes', cursive;
+                font-size: 90px;
+                color: white;
+                text-align: center;
+                padding-top: 60px;
+                text-shadow: 0 3px 15px black;
+            }
+            /* FINAL RUNNING - AB PAKKA CHALEGA */
+            .yellow-running {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: #FFD600;
+                height: 42px;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+
+                .yellow-running .moving-text {
+                    display: inline-block;
+                    padding-left: 100%;
+                    font-weight: bold;
+                    font-size: 18px;
+                    line-height: 42px;
+                    color: black;
+                    animation: scroll-left 35s linear infinite; /* 35s = SLOW */
+                }
+
+            @@keyframes scroll-left {
+                0% {
+                    transform: translateX(0);
+                }
+
+                100% {
+                    transform: translateX(-100%);
+                }
+            }
+
+            .card {
+                background: white;
+                width: 380px;
+                padding: 26px;
+                border-radius: 16px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+                position: absolute;
+                right: 50px;
+                bottom: 70px;
+            }
+
+            .title {
+                color: #1a73e8;
+                font-size: 20px;
+                font-weight: bold
+            }
+
+            .sub1 {
+                font-weight: bold;
+                font-size: 13px;
+                margin: 6px 0 2px 0
+            }
+
+            .sub2 {
+                font-size: 11px;
+                color: #555;
+                margin-bottom: 18px
+            }
+
+            .btn {
+                background: #1e8e5a;
+                color: white;
+                width: 100%;
+                padding: 12px;
+                border-radius: 8px;
+                font-weight: bold;
+                text-align: center;
+                text-decoration: none;
+                display: block
+            }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="welcome-big">Welcome!</div>
+        <div class="card">
+            <div class="title">🌾 Smart Village Portal</div>
+            <div class="sub1">Digital Gaon, Sashakta Kisan</div>
+            <div class="sub2">Ek hi portal par gaon ki har suvidha</div>
+            <a class="btn" href="/Home/Login">Enter Portal →</a>
+        </div>
+
+        <div class="yellow-running">
+            <div class="moving-text">
+                Explore Village Roots, Discover Digital Future &nbsp;&nbsp;&nbsp; ● &nbsp;&nbsp;&nbsp; Explore Village Roots, Discover Digital Future &nbsp;&nbsp;&nbsp; ● &nbsp;&nbsp;&nbsp; Explore Village Roots, Discover Digital Future &nbsp;&nbsp;&nbsp; ● &nbsp;&nbsp;&nbsp; Explore Village Roots, Discover Digital Future
+            </div>
+        </div>
+    </div>
+</body>
+</html>

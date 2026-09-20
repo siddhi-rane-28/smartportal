@@ -1,0 +1,234 @@
+﻿@{
+    Layout = null;
+    var id = Context.Request.Query["id"].ToString().ToLower();
+    var title = "PM Kisan Yojana"; var subtitle = ""; var img = "";
+    var b1 = ""; var b2 = ""; var b3 = ""; var e1 = ""; var e2 = ""; var d1 = ""; var d2 = ""; var link = ""; var lname = "";
+
+    if (id == "pmkisan") { title = "PM Kisan Yojana"; subtitle = "Rs.6000/year direct to farmer"; img = "https://images.unsplash.com/photo-1500930540495-e92875696a16?w=800"; b1 = "₹6000 per year (₹2000 har 4 mahine)"; b2 = "Direct Bank Account me paisa"; b3 = "Kheti ke liye madad"; e1 = "Zameen wala kisan hona chahiye"; e2 = "Aadhaar + Bank Account linked"; d1 = "Aadhaar Card"; d2 = "7/12 Utara, Bank Passbook"; link = "https://pmkisan.gov.in/"; lname = "pmkisan.gov.in"; }
+    else if (id == "ladkibahin") { title = "Ladki Bahin Yojana"; subtitle = "Rs.1500/month mahilaon ko"; img = "https://images.tv9marathi.com/wp-content/uploads/2025/12/ladki-bahin-yojana-26.jpg"; b1 = "₹1500 har mahine bank me"; b2 = "Maharashtra mahila"; b3 = "21-65 age"; e1 = "Income 2.5L se kam"; e2 = "Maharashtra Resident"; d1 = "Aadhaar,Ration,Income"; d2 = "Passbook,Hamipatra"; link = "https://ladakibahin.maharashtra.gov.in/"; lname = "ladakibahin.maharashtra.gov.in"; }
+    else if (id == "ayushman") { title = "Ayushman Bharat"; subtitle = "5 Lakh Insurance"; img = "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800"; b1 = "5 Lakh free ilaj"; b2 = "Govt+Private hospital"; b3 = "Parivar ke liye"; e1 = "BPL Parivar"; e2 = "SECC list"; d1 = "Aadhaar,Ration"; d2 = "Ayushman Card"; link = "https://pmjay.gov.in/"; lname = "pmjay.gov.in"; }
+    else if (id == "mahilarojgar") { title = "Mahila Rojgar Yojana"; subtitle = "Rs.20000 Credit"; img = "https://www.livehindustan.com/lh-img/smart/img/2025/09/03/original/Bihar_Mahila_Rojgar_Yojana_1756891759075_1756891768994.png"; b1 = "₹20000 business"; b2 = "Self-employment"; b3 = "Bina guarantee"; e1 = "18+ Mahila"; e2 = "Small business"; d1 = "Aadhaar,Photo"; d2 = "Bank Details"; link = "https://udyamimitra.in/"; lname = "udyamimitra.in"; }
+    else if (id == "ujjwala") { title = "PM Ujjwala Yojana"; subtitle = "Free LPG"; img = "https://upload.wikimedia.org/wikipedia/en/0/02/Pradhan_Mantri_Ujjwala_Yojana_%28PMUY%29_logo.png"; b1 = "Free Cylinder+Chulha"; b2 = "First refill free"; b3 = "No deposit"; e1 = "BPL Family"; e2 = "18+ Mahila"; d1 = "BPL Ration,Aadhaar"; d2 = "Bank Account"; link = "https://www.pmuy.gov.in/"; lname = "pmuy.gov.in"; }
+    else if (id == "awas") { title = "PM Awas Yojana"; subtitle = "Rs.1.20 Lakh House"; img = "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800"; b1 = "₹1.20 Lakh ghar"; b2 = "Toilet+Bijli"; b3 = "Pahad me 1.30L"; e1 = "Kuccha ghar/BPL"; e2 = "Ghar nahi"; d1 = "Aadhaar,Job Card,7/12"; d2 = "Passbook"; link = "https://pmayg.nic.in/"; lname = "pmayg.nic.in"; }
+    else if (id == "lic") { title = "LIC Bima Sakhi"; subtitle = "Rs.7000/month"; img = "https://vajiramias.sgp1.cdn.digitaloceanspaces.com/wp/current-affairs/2025/07/bima-sakhi-yojana.webp"; b1 = "1st year 7000/month"; b2 = "2nd year 6000, 3rd 5000"; b3 = "Commission extra"; e1 = "10th Pass 18-70"; e2 = "LIC Agent"; d1 = "Aadhaar,10th Marksheet"; d2 = "Bank,Photo"; link = "https://licindia.in/bima-sakhi"; lname = "licindia.in"; }
+    else if (id == "mutualfund") { title = "Mutual Fund - Sahi Hai"; subtitle = "Rs.500 SIP Start"; img = "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800"; b1 = "Sirf ₹500 se SIP shuru"; b2 = "Long term me accha return - 12-15%"; b3 = "Tax saving - ELSS me 80C"; e1 = "18+ koi bhi - PAN mandatory"; e2 = "KYC complete hona chahiye"; d1 = "PAN Card, Aadhaar Card"; d2 = "Bank Account, Mobile, Email"; link = "https://www.mutualfundssahihai.com/"; lname = "mutualfundssahihai.com"; }
+    else if (id == "mediclaim") { title = "Mediclaim Health Insurance"; subtitle = "5 Lakh Cover for family"; img = "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800"; b1 = "₹5 Lakh tak hospital kharcha free"; b2 = "Family cover - 4 log tak"; b3 = "Cashless hospital - 10000+ hospital"; e1 = "18-65 age ke sabhi nagrik"; e2 = "Pre-existing 2 saal baad cover"; d1 = "Aadhaar Card, Age Proof"; d2 = "Medical Reports (if any)"; link = "https://www.starhealth.in/"; lname = "starhealth.in"; }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@title</title>
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial
+            }
+
+            body {
+                background: #f2f6f2
+            }
+
+            .topbar {
+                background: #1b5e20;
+                color: white;
+                padding: 12px 18px;
+                display: flex;
+                justify-content: space-between;
+                position: sticky;
+                top: 0;
+                z-index: 10
+            }
+
+                .topbar a {
+                    color: white;
+                    text-decoration: none;
+                    font-weight: bold
+                }
+
+            .container {
+                max-width: 900px;
+                margin: 12px auto;
+                padding: 0 10px
+            }
+
+            .white {
+                background: white;
+                border-radius: 14px;
+                overflow: hidden;
+                box-shadow: 0 4px 18px rgba(0,0,0,0.1)
+            }
+
+                .white img {
+                    width: 100%;
+                    height: 320px;
+                    object-fit: cover;
+                    display: block;
+                    background: white
+                }
+
+            .content {
+                padding: 14px 16px
+            }
+
+                .content h2 {
+                    font-size: 18px;
+                    color: #1b5e20
+                }
+
+            .sub {
+                font-size: 12px;
+                color: #666;
+                margin-bottom: 10px
+            }
+
+            .sec {
+                margin-top: 10px;
+                background: #f9fdf9;
+                border: 1px solid #c8e6c9;
+                border-radius: 10px;
+                padding: 10px 12px
+            }
+
+                .sec h4 {
+                    font-size: 12px;
+                    color: #1b5e20;
+                    margin-bottom: 5px
+                }
+
+                .sec li {
+                    font-size: 11px;
+                    margin-left: 14px;
+                    margin-bottom: 3px
+                }
+
+            .official {
+                margin-top: 12px;
+                background: #e3f2fd;
+                border: 1px solid #90caf9;
+                border-radius: 10px;
+                padding: 10px 12px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center
+            }
+
+                .official a {
+                    background: #1565c0;
+                    color: white;
+                    padding: 6px 14px;
+                    border-radius: 18px;
+                    font-size: 11px;
+                    text-decoration: none;
+                    font-weight: bold
+                }
+
+            .form {
+                background: white;
+                border-radius: 14px;
+                box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+                padding: 16px;
+                margin-top: 14px;
+                border-top: 4px solid #2e7d32
+            }
+
+                .form h3 {
+                    font-size: 15px;
+                    color: #1b5e20;
+                    margin-bottom: 10px
+                }
+
+                .form input, .form select {
+                    width: 100%;
+                    padding: 10px 12px;
+                    margin-bottom: 10px;
+                    border: 1px solid #ccc;
+                    border-radius: 8px;
+                    font-size: 12px
+                }
+
+                .form label {
+                    font-size: 11px;
+                    font-weight: bold;
+                    color: #333;
+                    margin-bottom: 3px;
+                    display: block
+                }
+
+            .btn-sub {
+                background: #2e7d32;
+                color: white;
+                padding: 12px;
+                border-radius: 22px;
+                border: none;
+                width: 100%;
+                font-size: 13px;
+                font-weight: bold;
+                cursor: pointer
+            }
+
+            .receipt {
+                display: none;
+                margin-top: 16px;
+                background: white;
+                border: 2px dashed #2e7d32;
+                border-radius: 14px;
+                padding: 16px;
+                text-align: center
+            }
+
+                .receipt .id {
+                    font-size: 18px;
+                    font-weight: bold;
+                    background: #e8f5e9;
+                    padding: 8px;
+                    border-radius: 8px;
+                    margin: 10px 0
+                }
+    </style>
+</head>
+<body>
+    <div class="topbar"><a href="/Home/Schemes">◀ Back to Schemes</a><span style="font-size:12px">@title</span></div>
+    <div class="container">
+        <div class="white">
+            <img src="@img" alt="@title" onerror="this.src='https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800'" />
+            <div class="content">
+                <h2>@title</h2><p class="sub">@subtitle</p>
+                <div class="sec"><h4>✓ Benefits / Facilities:</h4><ul><li>@b1</li><li>@b2</li><li>@b3</li></ul></div>
+                <div class="sec"><h4>✓ Eligibility:</h4><ul><li>@e1</li><li>@e2</li></ul></div>
+                <div class="sec"><h4>✓ Required Documents:</h4><ul><li>@d1</li><li>@d2</li></ul></div>
+                <div class="official"><span>🔗 Official: @lname</span><a href="@link" target="_blank">Visit Official Website</a></div>
+            </div>
+        </div>
+        <div class="form" id="formBox">
+            <h3>📝 Apply Form - @title</h3>
+            <label>Full Name</label><input type="text" id="fName" placeholder="Enter name">
+            <label>Mobile</label><input type="text" id="fMobile" placeholder="10 digit">
+            <label>Aadhaar</label><input type="text" id="fAadhaar" placeholder="12 digit">
+            <label>Village</label><input type="text" id="fVillage" placeholder="Village Name">
+            <label>Category</label><select><option>General</option><option>OBC</option><option>SC</option><option>ST</option></select>
+            <button class="btn-sub" onclick="submitForm()">Proceed To Submit & Get Receipt</button>
+        </div>
+        <div class="receipt" id="receiptBox">
+            <h3>✅ Application Submitted!</h3>
+            <p style="font-size:12px">Smart Village Portal</p>
+            <div class="id" id="receiptId">SV-20260514-1234</div>
+            <p style="font-size:12px"><b>Scheme:</b> @title</p>
+            <p style="font-size:12px"><b>Date:</b> <span id="rDate"></span></p>
+            <p style="font-size:12px"><b>Status:</b> Pending Verification</p>
+            <br><a href="@link" target="_blank" style="background:#1565c0;color:white;padding:8px 14px;border-radius:18px;font-size:11px;text-decoration:none">Track on @lname</a>
+            <br><br><button onclick="window.print()" style="background:#ff6f00;color:white;padding:10px 18px;border-radius:20px;border:none;font-size:12px;font-weight:bold">🖨️ Print Receipt</button>
+        </div>
+    </div>
+    <script>
+            function submitForm() {
+                var n = document.getElementById('fName').value; if (n == "") { alert('Name likho'); return; }
+                var r = Math.floor(1000 + Math.random() * 9000); var id = 'SV-' + new Date().getFullYear() + String(new Date().getMonth() + 1).padStart(2, '0') + String(new Date().getDate()).padStart(2, '0') + '-' + r;
+                document.getElementById('rDate').innerText = new Date().toLocaleDateString('en-IN'); document.getElementById('receiptId').innerText = id;
+                document.getElementById('formBox').style.display = 'none'; document.getElementById('receiptBox').style.display = 'block';
+            }
+    </script>
+</body>
+</html>

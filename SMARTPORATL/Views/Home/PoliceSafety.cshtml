@@ -1,0 +1,194 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial
+            }
+
+            body {
+                background: #e8eef7
+            }
+
+            .header {
+                background: #062d11;
+                color: white;
+                padding: 12px 18px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: sticky;
+                top: 0;
+                z-index: 100
+            }
+
+                .header b {
+                    color: #f5c518
+                }
+
+                .header a {
+                    background: white;
+                    color: #000;
+                    padding: 7px 15px;
+                    border-radius: 18px;
+                    text-decoration: none;
+                    font-size: 11px;
+                    font-weight: bold
+                }
+
+            .banner {
+                background: #062d11;
+                padding: 35px 20px;
+                text-align: center;
+                color: white
+            }
+
+                .banner h1 {
+                    font-size: 26px;
+                    color: #f5c518;
+                    margin-bottom: 6px
+                }
+
+                .banner p {
+                    font-size: 12px;
+                    color: #ccc
+                }
+
+            .container {
+                max-width: 1100px;
+                margin: 25px auto;
+                padding: 0 18px;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 18px;
+                padding-bottom: 40px
+            }
+
+            .card {
+                background: white;
+                border-radius: 14px;
+                padding: 16px;
+                text-align: center;
+                box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+                border-top: 4px solid #ccc;
+                transition: 0.3s
+            }
+
+                .card:hover {
+                    transform: translateY(-4px)
+                }
+
+                .card img {
+                    width: 100%;
+                    height: 140px;
+                    object-fit: cover;
+                    border-radius: 10px;
+                    margin-bottom: 10px
+                }
+
+                .card h3 {
+                    font-size: 13px;
+                    margin: 10px 0 5px 0;
+                    color: #062d11
+                }
+
+                .card p {
+                    font-size: 10px;
+                    color: #777;
+                    margin-bottom: 12px;
+                    line-height: 1.4
+                }
+
+            .btn {
+                color: white;
+                padding: 8px 18px;
+                border-radius: 20px;
+                text-decoration: none;
+                font-size: 10px;
+                font-weight: bold;
+                display: inline-block
+            }
+
+            .c1 {
+                border-top-color: #e53935
+            }
+
+            .c2 {
+                border-top-color: #8e24aa
+            }
+
+            .c3 {
+                border-top-color: #1565c0
+            }
+
+            .c4 {
+                border-top-color: #00897b
+            }
+
+            .c5 {
+                border-top-color: #ef6c00
+            }
+
+            .c6 {
+                border-top-color: #2e7d32
+            }
+
+            .b1 {
+                background: linear-gradient(135deg,#b71c1c,#e53935)
+            }
+
+            .b2 {
+                background: linear-gradient(135deg,#6a1b9a,#ab47bc)
+            }
+
+            .b3 {
+                background: linear-gradient(135deg,#0d47a1,#1976d2)
+            }
+
+            .b4 {
+                background: linear-gradient(135deg,#004d40,#26a69a)
+            }
+
+            .b5 {
+                background: linear-gradient(135deg,#e65100,#fb8c00)
+            }
+
+            .b6 {
+                background: linear-gradient(135deg,#1b5e20,#43a047)
+            }
+
+            @@media(max-width:800px) {
+                .container {
+                    grid-template-columns: 1fr 1fr
+                }
+            }
+
+            @@media(max-width:500px) {
+                .container {
+                    grid-template-columns: 1fr
+                }
+            }
+    </style>
+</head>
+<body>
+    <div class="header"><b>🌾 SMART VILLAGE</b><a href="/Home/Dashboard">← Dashboard</a></div>
+    <div class="banner"><h1>👮 Police & Safety Services</h1><p>112 Emergency, Women Safety, FIR, Cyber Crime Help</p></div>
+    <div class="container">
+        <div class="card c1"><img src="https://content.jdmagicbox.com/comp/def_content/emergency-helpline/helplines-2-emergency-helpline-6-8okpl.jpg" /><h3>Emergency Helpline - 112</h3><p>One Nation One Number<br>Police + Fire + Medical</p><a class="btn b1" href="/Home/PoliceSafetyDetails?id=Emergency">View Details →</a></div>
+        <div class="card c2"><img src="https://ritzmagazineimages.b-cdn.net/uploads/2019/01/women-safety-zones.jpg" /><h3>Women Safety - 1098 / 181</h3><p>Mahila Helpline, Child Help<br>24x7 Support</p><a class="btn b2" href="/Home/PoliceSafetyDetails?id=Women">View Details →</a></div>
+        <div class="card c3"><img src="https://advocatechenoyceil.wordpress.com/wp-content/uploads/2020/02/untitled-10.jpg" /><h3>Police Complaint / FIR</h3><p>Online Complaint, Theft, Fight<br>FIR Copy Download</p><a class="btn b3" href="/Home/PoliceSafetyDetails?id=FIR">Register →</a></div>
+        <div class="card c4"><img src="https://www.sattrix.com/blog/wp-content/uploads/2022/01/5-ways-to-prevent-cyber-crime-2048x1365.jpg" /><h3>Cyber Crime - 1930</h3><p>Online Fraud, UPI Fraud<br>cybercrime.gov.in</p><a class="btn b4" href="/Home/PoliceSafetyDetails?id=Cyber">Report Now →</a></div>
+        <div class="card c5"><img src="https://www.jaslokhospital.net/uploads/images/blogs/user-1756379827.jpg" /><h3>Traffic & Accident - 108</h3><p>Road Accident, Ambulance<br>First Aid Help</p><a class="btn b5" href="/Home/PoliceSafetyDetails?id=Traffic">Emergency →</a></div>
+
+        <!-- LOCAL POLICE SUPPORT - SIRF YE CHANGE KIYA - AAPKI WALI PHOTO -->
+        <div class="card c6"><img src="https://rlv.zcache.com/support_your_local_police_bumper_sticker-rc2c8f4069ca1462c890545dcf37dd622_v9wht_8byvr_644.webp" /><h3>Local Police Support</h3><p>Police Patil, Kotwal Number<br>Night Patrol Team</p><a class="btn b6" href="/Home/PoliceSafetyDetails?id=Local">Contact →</a></div>
+    </div>
+</body>
+</html>

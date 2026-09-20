@@ -1,0 +1,278 @@
+﻿@{
+    Layout = null;
+    var id = ViewBag.ServiceId as string ?? "GovtBank";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial
+            }
+
+            body {
+                background: #f5f7f4;
+                padding-bottom: 40px
+            }
+
+            .header {
+                background: #062d11;
+                color: #f5c518;
+                padding: 12px 18px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center
+            }
+
+                .header a {
+                    background: white;
+                    color: #000;
+                    padding: 7px 15px;
+                    border-radius: 18px;
+                    text-decoration: none;
+                    font-size: 11px;
+                    font-weight: bold
+                }
+
+            .wrap {
+                max-width: 850px;
+                margin: 20px auto;
+                background: white;
+                border-radius: 14px;
+                overflow: hidden;
+                box-shadow: 0 4px 16px rgba(0,0,0,0.1)
+            }
+
+                .wrap img {
+                    width: 100%;
+                    height: 320px;
+                    object-fit: cover
+                }
+
+            .content {
+                padding: 22px
+            }
+
+            .tag {
+                background: #e0f2f1;
+                color: #004d40;
+                padding: 5px 12px;
+                border-radius: 20px;
+                font-size: 10px;
+                font-weight: bold;
+                display: inline-block;
+                margin-bottom: 12px
+            }
+
+            .content h2 {
+                color: #062d11;
+                font-size: 22px;
+                margin-bottom: 12px
+            }
+
+            .content h4 {
+                color: #004d40;
+                margin: 16px 0 6px 0;
+                font-size: 14px;
+                border-left: 4px solid #00796b;
+                padding-left: 8px
+            }
+
+            .content p, li {
+                font-size: 13px;
+                color: #444;
+                line-height: 20px
+            }
+
+            ul {
+                margin-left: 18px;
+                margin-bottom: 8px
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 10px 0;
+                font-size: 12px
+            }
+
+            th {
+                background: #004d40;
+                color: #fff;
+                padding: 9px;
+                text-align: left
+            }
+
+            td {
+                padding: 9px;
+                border-bottom: 1px solid #eee
+            }
+
+            .price {
+                color: #2e7d32;
+                font-weight: bold
+            }
+
+            .linkbox {
+                background: #fff8e1;
+                border-left: 4px solid #f5c518;
+                padding: 10px 12px;
+                border-radius: 6px;
+                margin: 14px 0;
+                font-size: 12px
+            }
+
+                .linkbox a {
+                    color: #1565c0;
+                    font-weight: bold;
+                    text-decoration: none
+                }
+
+            .online {
+                display: block;
+                background: #004d40;
+                color: white;
+                text-align: center;
+                padding: 12px;
+                border-radius: 8px;
+                text-decoration: none;
+                font-weight: bold;
+                margin: 12px 0;
+                font-size: 13px
+            }
+
+            .complaint {
+                background: #f1f8e9;
+                padding: 16px;
+                border-radius: 10px;
+                margin-top: 20px;
+                border: 1px solid #aed581
+            }
+
+                .complaint input, .complaint textarea {
+                    width: 100%;
+                    padding: 9px;
+                    border: 1px solid #ccc;
+                    border-radius: 6px;
+                    margin: 6px 0;
+                    font-size: 12px
+                }
+
+            .btn-sub {
+                background: #004d40;
+                color: white;
+                padding: 9px 20px;
+                border: none;
+                border-radius: 20px;
+                font-weight: bold;
+                cursor: pointer;
+                font-size: 12px
+            }
+    </style>
+</head>
+<body>
+    <div class="header"><b>🏦 Bank Details</b><a href="/Home/Bank">← Back</a></div>
+
+    <div class="wrap">
+        @if (id == "GovtBank")
+        {
+            <img src="https://www.thebusinessbanks.com/wp-content/uploads/2026/07/State-Bank-of-India.jpg" />
+            <div class="content">
+                <span class="tag">SBI & MAHARASHTRA GRAMIN BANK - GOVT SECURED</span>
+                <h2>🏦 Govt Bank - SBI / Gramin Bank Services</h2>
+                <h4>About This Service:</h4><p>State Bank of India (SBI) and Maharashtra Gramin Bank are the main government banks serving our village. SBI is India's largest public sector bank providing secure and affordable banking since 1955. It provides zero-balance Jan Dhan accounts, savings accounts, and current accounts for farmers and shopkeepers. All government subsidies like PM Kisan, Ladki Bahin, and MGNREGA money comes directly in these accounts.</p>
+                <h4>Objective:</h4><p>To provide financial inclusion to every villager, ensure safe savings, direct benefit transfer (DBT) of government schemes, and promote digital banking like UPI and ATM.</p>
+                <h4>🏦 Account Types & Timing:</h4><table><tr><th>Account Type</th><th>Min Balance</th><th>Interest</th></tr><tr><td>Jan Dhan Account (Zero Balance)</td><td>Rs. 0/-</td><td>3.5% + Insurance Rs. 2 Lakh</td></tr><tr><td>Regular Savings Account</td><td>Rs. 500/-</td><td>2.70% to 3.00%</td></tr><tr><td>Current Account (For Shops)</td><td>Rs. 5000/-</td><td>No Interest, Unlimited Transactions</td></tr></table><p><b>Bank Timing:</b> 10:00 AM to 4:00 PM (Monday to Friday) | Saturday: 10 AM to 1 PM | Lunch: 2-2:30 PM | Sunday Closed.</p>
+                <h4>📄 Documents Required:</h4><ul><li>Aadhar Card, PAN Card, 2 Passport Photos, Mobile Number, Electricity Bill or Ration Card for Address Proof. For Jan Dhan: Only Aadhar is enough.</li></ul>
+                <h4>✨ Facilities:</h4><ul><li>ATM Card, Passbook, Cheque Book, UPI - GPay/PhonePe, Mobile Banking (YONO App), SMS Alerts, Free Accident Insurance up to Rs. 2 Lakh with Jan Dhan.</li></ul>
+                <div class="linkbox">🔗 Official: <a href="https://www.onlinesbi.sbi" target="_blank">https://www.onlinesbi.sbi</a> | Gramin Bank: https://www.mahagraminbank.com</div>
+                <a class="online" href="https://www.onlinesbi.sbi" target="_blank">💻 Open SBI Account Online →</a>
+            </div>
+        }
+        else if (id == "Cooperative")
+        {
+            <img src="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?w=600" />
+            <div class="content">
+                <span class="tag">SEVA SAHAKARI SOCIETY - FOR FARMERS</span>
+                <h2>🏛️ Co-operative Bank / Seva Society</h2>
+                <h4>About This Service:</h4><p>Village Seva Sahakari Society is a cooperative bank run by farmers for farmers. It was established to help small farmers with crop loans, fertilizer, and seeds at low interest rates. It is managed by the village members and works on the principle of cooperation. More than 500 farmers are members of our society.</p>
+                <h4>Objective:</h4><p>To provide cheap credit to farmers for farming activities and reduce dependence on private moneylenders who charge high interest.</p>
+                <h4>💰 Loan Details:</h4><table><tr><th>Loan Type</th><th>Interest Rate</th><th>Limit</th></tr><tr><td>Crop Loan (PIK Karj)</td><td>0% to 7% (Govt Subsidy)</td><td>Up to Rs. 1.60 Lakh</td></tr><tr><td>Fertilizer & Seed Loan</td><td>7%</td><td>Up to Rs. 50,000</td></tr><tr><td>Long Term Tractor Loan</td><td>8.5%</td><td>Up to Rs. 5 Lakh</td></tr></table>
+                <h4>✨ Benefits of Membership:</h4><ul><li>Become member with Rs. 1000 share. Get cheap fertilizer, crop insurance included, bonus at year-end, loan without collateral for small amount.</li></ul>
+                <a class="online" href="#">📝 Apply for Membership - Visit Society Office</a>
+            </div>
+        }
+        else if (id == "ATM")
+        {
+            <img src="https://content.jdmagicbox.com/comp/def_content/atm/default-atm-2.jpg" />
+            <div class="content">
+                <span class="tag">24x7 CASH SERVICE - 2 ATMs IN VILLAGE</span>
+                <h2>🏧 ATM Services & Micro ATM</h2>
+                <h4>About This Service:</h4><p>Our village has 2 ATMs - SBI ATM near Grampanchayat and Maharashtra Gramin Bank ATM near Bus Stand. Both ATMs work 24x7 and support all bank cards like SBI, HDFC, ICICI, etc. Micro ATM is also available at the CSC center where you can withdraw cash using Aadhar Card (AePS).</p>
+                <h4>Objective:</h4><p>To provide instant cash withdrawal without going to Taluka and promote digital payments.</p>
+                <h4>🏧 ATM Details:</h4><ul><li><b>SBI ATM:</b> Near Grampanchayat - 24 Hours | <b>Gramin Bank ATM:</b> Near Bus Stand - 24 Hours | <b>Daily Limit:</b> Rs. 10,000 per card (Village ATM), Rs. 40,000 in City ATM.</li><li><b>Free Transactions:</b> 5 Free per month for SBI customers, 3 Free for other bank customers. After that Rs. 21 + GST per transaction.</li></ul>
+                <h4>✨ UPI & Digital:</h4><ul><li>Both ATMs have UPI cash withdrawal (Cardless). PhonePe, GPay, Paytm accepted at all shops. QR Code available for merchants.</li></ul>
+                <div class="linkbox">🔗 Emergency ATM Complaint: 1800-11-2211 (SBI Toll Free)</div>
+                <a class="online" href="tel:1800112211">📞 Call ATM Helpline →</a>
+            </div>
+        }
+        else if (id == "Loan")
+        {
+            <img src="https://images.tv9gujarati.com/wp-content/uploads/2026/04/KCC-loan-rules.jpg" />
+            <div class="content">
+                <span class="tag">KISAN CREDIT CARD - 7% INTEREST - GOVT SUBSIDY</span>
+                <h2>💰 Loan & KCC - Kisan Credit Card</h2>
+                <h4>About This Service:</h4><p>Kisan Credit Card (KCC) is the most important loan scheme for farmers. It provides crop loan at only 7% interest, and if you repay on time, you get 3% extra subsidy - so effectively only 4% interest. Gold loan is also available for instant money at 7.5% interest by keeping your gold jewellery in bank. Home loan and business loans are also available.</p>
+                <h4>Objective:</h4><p>To give affordable credit to farmers for seeds, fertilizer, irrigation and stop farmers from taking high-interest loans from private lenders.</p>
+                <h4>💰 Loan Chart:</h4><table><tr><th>Loan Type</th><th>Interest</th><th>Max Amount</th><th>Tenure</th></tr><tr><td>KCC Crop Loan</td><td>7% (4% if repaid on time)</td><td>Rs. 3 Lakh</td><td>1 Year (Renewable)</td></tr><tr><td>Gold Loan</td><td>7.50%</td><td>Up to Rs. 20 Lakh</td><td>1 Year</td></tr><tr><td>Home Loan</td><td>8.40%</td><td>Up to Rs. 40 Lakh</td><td>20 Years</td></tr><tr><td>Tractor Loan</td><td>8.5%</td><td>Up to Rs. 10 Lakh</td><td>5 Years</td></tr></table>
+                <h4>📄 Documents:</h4><ul><li>For KCC: 7/12 Utara, Aadhar, Pan, Crop Details. For Gold Loan: Gold + Aadhar. For Home Loan: Income Proof, Property Papers.</li></ul>
+                <div class="linkbox">🔗 Apply Online: <a href="https://www.jansamarth.in" target="_blank">https://www.jansamarth.in</a> - Govt Loan Portal</div>
+                <a class="online" href="https://www.jansamarth.in" target="_blank">💻 Apply KCC Online - Jan Samarth Portal →</a>
+            </div>
+        }
+        else if (id == "Insurance")
+        {
+            <img src="https://healthinsuranceblob.abhicl.in/marketingcontent/assets/img/health-guide-images/scheme.jpg" />
+            <div class="content">
+                <span class="tag">PMJJBY - PMSBY - FASAL BIMA - ONLY Rs. 20/YEAR</span>
+                <h2>🛡️ Insurance & PM Schemes</h2>
+                <h4>About This Service:</h4><p>Government provides three very cheap insurance schemes through banks. PM Jeevan Jyoti Bima Yojana (PMJJBY) gives Rs. 2 Lakh life insurance for just Rs. 436 per year. PM Suraksha Bima Yojana (PMSBY) gives Rs. 2 Lakh accident insurance for only Rs. 20 per year. PM Fasal Bima Yojana gives crop loss insurance for farmers. Premium is auto-debited from bank account.</p>
+                <h4>Objective:</h4><p>To provide social security and financial safety to poor families at the lowest possible cost so that family does not become helpless after death or accident of earning member.</p>
+                <h4>🛡️ Scheme Details:</h4><table><tr><th>Scheme</th><th>Premium / Year</th><th>Cover</th><th>Age Limit</th></tr><tr><td>PMJJBY - Life Insurance</td><td>Rs. 436/-</td><td>Rs. 2 Lakh on Death</td><td>18 to 50 Years</td></tr><tr><td>PMSBY - Accident Insurance</td><td>Rs. 20/-</td><td>Rs. 2 Lakh on Accident Death</td><td>18 to 70 Years</td></tr><tr><td>Fasal Bima Yojana</td><td>2% of sum (Kharif)</td><td>Full Crop Loss Cover</td><td>All Farmers</td></tr></table>
+                <h4>✨ How to Claim:</h4><ul><li>Visit bank with death certificate, FIR for accident, and bank passbook. Insurance amount comes in nominee's account within 15 days. For Fasal Bima - contact Agriculture Officer or call 14447.</li></ul>
+                <div class="linkbox">🔗 Official Portal: <a href="https://www.jansuraksha.gov.in" target="_blank">https://www.jansuraksha.gov.in</a></div>
+                <a class="online" href="https://www.jansuraksha.gov.in" target="_blank">💻 Enroll for PM Insurance Online →</a>
+            </div>
+        }
+        else
+        {
+            <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600" />
+            <div class="content">
+                <span class="tag">WOMEN EMPOWERMENT - 25 GROUPS IN VILLAGE</span>
+                <h2>👩‍👩‍👧‍👧 SHG / Bachat Gat - Self Help Group</h2>
+                <h4>About This Service:</h4><p>Self Help Group (Bachat Gat) is a group of 10-20 women from our village who save money together every month. There are 25 active SHGs in our village. Each member saves Rs. 100 to Rs. 500 per month. This saved money is given as small loans to members for small businesses like Papad making, Masala making, Tailoring, Goat farming. Government also gives Rs. 15,000 grant to each group and Rs. 6 Lakh loan without guarantee under NRLM scheme.</p>
+                <h4>Objective:</h4><p>To empower women financially, make them self-dependent, create employment in village itself, and improve family income.</p>
+                <h4>📅 Working System:</h4><p>Meeting: Every Monday / Tuesday at 11 AM in Grampanchayat. Saving: Rs. 100/month per woman. Total Saving per group per month: Rs. 2000/-. Loan: Up to Rs. 20,000 to member at 2% interest (Bank charges 12%, but Govt pays 10%). Business: Papad, Pickle, Masala, Stitching, Beauty Parlor, Kirana Shop.</p>
+                <h4>💰 Govt Benefits:</h4><ul><li>First Grant: <span class="price">Rs. 15,000/-</span> per group after 6 months | Revolving Fund: <span class="price">Rs. 25,000/-</span> | Bank Loan without Collateral: <span class="price">Up to Rs. 6 Lakh</span> | Interest Subsidy: Govt pays extra interest, so women pay only 2%.</li></ul>
+                <h4>✨ Success Story:</h4><p>Jai Bhavani SHG (12 women) started Papad business with Rs. 5000 loan. Now they earn Rs. 8000 per month per woman by selling Papad in Taluka market. Their annual turnover is Rs. 4 Lakh.</p>
+                <a class="online" href="#">📝 Join SHG - Contact Gram Sevak</a>
+            </div>
+        }
+        <div class="content">
+            <div class="complaint">
+                <h3>📮 Complaint / Enquiry Box with Photo</h3>
+                <form method="post" action="/Home/SubmitBankComplaint" enctype="multipart/form-data">
+                    <input type="hidden" name="type" value="@id" />
+                    <input type="text" name="description" placeholder="Write enquiry about Bank Loan, Account, Insurance..." required />
+                    <input type="file" name="photo" accept="image/*" />
+                    <button class="btn-sub" type="submit">Submit Enquiry →</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

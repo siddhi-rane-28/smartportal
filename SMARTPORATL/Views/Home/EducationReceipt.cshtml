@@ -1,0 +1,11 @@
+﻿@{
+    Layout = null; var scheme = Context.Request.Query["scheme"]; var name = Context.Request.Query["name"]; var appId = "MH-EDU-" + new Random().Next(10000, 99999);
+}
+<!DOCTYPE html>
+<html>
+<body style="background:#e8f5e9;font-family:Arial">
+    <div style="max-width:500px;margin:50px auto;background:white;padding:30px;border-radius:16px;text-align:center">
+        <h2 style="color:green">✅ Submitted!</h2><p><b>@scheme</b></p><p>Name: @name</p><p>ID: <b style="color:blue">@appId</b></p>
+        <a href="/Home/EducationServices" class="btn btn-primary">Back to Education</a>
+    </div></body>
+</html>

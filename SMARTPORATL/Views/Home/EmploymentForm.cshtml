@@ -1,0 +1,40 @@
+﻿@{
+    var scheme = ViewBag.SchemeName as string;
+}
+<div class="container mt-4" style="max-width:600px;">
+    <div class="card shadow border-0 rounded-4 p-4">
+        <h4 class="fw-bold mb-3">Apply for @scheme - Youth Registration</h4>
+        <form method="get" action="/Home/EmploymentReceipt">
+            <input type="hidden" name="scheme" value="@scheme" />
+            <div class="mb-3"><label>Full Name</label><input name="name" class="form-control" required /></div>
+            <div class="mb-3"><label>Mobile Number</label><input name="mobile" class="form-control" required /></div>
+            <div class="mb-3">
+                <label>Education</label>
+                <select name="education" class="form-select" required>
+                    <option value="">Select Education</option>
+                    <option>10th Pass</option>
+                    <option>12th Pass</option>
+                    <option>ITI</option>
+                    <option>Diploma</option>
+                    <option>Graduate</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label>Skill Interest</label>
+                <select name="skill" class="form-select" required>
+                    <option value="">Select Skill</option>
+                    <option>Computer / IT</option>
+                    <option>Electrician</option>
+                    <option>Mobile Repair</option>
+                    <option>Plumbing</option>
+                    <option>Driving</option>
+                    <option>Beauty Parlour</option>
+                    <option>Business / Shop</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="mb-3"><label>Aadhaar Last 4 Digit</label><input name="aadhaar" class="form-control" maxlength="4" /></div>
+            <button type="submit" class="btn btn-success w-100 rounded-pill">Submit Application</button>
+        </form>
+    </div>
+</div>

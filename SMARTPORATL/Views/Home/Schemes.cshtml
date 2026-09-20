@@ -1,0 +1,118 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Government Schemes</title>
+    <style>
+            body {
+                margin: 0;
+                font-family: Arial;
+                background: #f5f5f5
+            }
+
+            .topbar {
+                background: #1b5e20;
+                color: white;
+                padding: 12px 18px
+            }
+
+                .topbar a {
+                    color: white;
+                    text-decoration: none;
+                    font-weight: bold
+                }
+
+            .banner {
+                height: 140px;
+                background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.4)),url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200') center/cover;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 22px;
+                font-weight: bold
+            }
+
+            .container {
+                padding: 12px;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 14px;
+                max-width: 1150px;
+                margin: auto
+            }
+
+            .card {
+                background: white;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+                display: flex;
+                flex-direction: column
+            }
+
+                .card img {
+                    width: 100%;
+                    height: 155px;
+                    object-fit: cover;
+                    display: block;
+                    background: #fff
+                }
+
+            .card-body {
+                padding: 10px 12px;
+                flex: 1
+            }
+
+                .card-body h4 {
+                    margin: 0 0 4px 0;
+                    font-size: 13px
+                }
+
+                .card-body p {
+                    margin: 0 0 8px 0;
+                    font-size: 11px;
+                    color: #666
+                }
+
+            .btn {
+                background: #2e7d32;
+                color: white;
+                padding: 6px 14px;
+                border-radius: 20px;
+                font-size: 11px;
+                text-decoration: none;
+                display: inline-block;
+                font-weight: bold
+            }
+
+            @@media(max-width:768px) {
+                .container {
+                    grid-template-columns: 1fr 1fr
+                }
+
+                .card img {
+                    height: 125px
+                }
+            }
+    </style>
+</head>
+<body>
+    <div class="topbar"><a href="/Home/Dashboard">◀ Government Schemes - Back</a></div>
+    <div class="banner">🌾 Gaon Ki Pragati, Desh Ki Pragati</div>
+    <div class="container">
+        <div class="card"><img src="https://images.unsplash.com/photo-1500930540495-e92875696a16?w=600" /><div class="card-body"><h4>PM Kisan Yojana</h4><p>Rs.6000/year</p><a class="btn" href="/Home/SchemeDetails?id=PMKisan">View Info</a></div></div>
+        <div class="card"><img src="https://images.tv9marathi.com/wp-content/uploads/2025/12/ladki-bahin-yojana-26.jpg" /><div class="card-body"><h4>Ladki Bahin Yojana</h4><p>Rs.1500/month</p><a class="btn" href="/Home/SchemeDetails?id=LadkiBahin">View Info</a></div></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600" /><div class="card-body"><h4>Ayushman Bharat</h4><p>5 Lakh Insurance</p><a class="btn" href="/Home/SchemeDetails?id=Ayushman">View Info</a></div></div>
+        <div class="card"><img src="https://www.livehindustan.com/lh-img/smart/img/2025/09/03/original/Bihar_Mahila_Rojgar_Yojana_1756891759075_1756891768994.png" /><div class="card-body"><h4>Mahila Rojgar Yojana</h4><p>Rs.20000 Credit</p><a class="btn" href="/Home/SchemeDetails?id=MahilaRojgar">View Info</a></div></div>
+        <div class="card"><img src="https://upload.wikimedia.org/wikipedia/en/0/02/Pradhan_Mantri_Ujjwala_Yojana_%28PMUY%29_logo.png" style="object-fit:contain;background:white;padding:15px" /><div class="card-body"><h4>PM Ujjwala Yojana</h4><p>Free LPG</p><a class="btn" href="/Home/SchemeDetails?id=Ujjwala">View Info</a></div></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600" /><div class="card-body"><h4>PM Awas Yojana</h4><p>Rs.1.20 Lakh House</p><a class="btn" href="/Home/SchemeDetails?id=Awas">View Info</a></div></div>
+        <div class="card"><img src="https://vajiramias.sgp1.cdn.digitaloceanspaces.com/wp/current-affairs/2025/07/bima-sakhi-yojana.webp" /><div class="card-body"><h4>LIC Bima Sakhi</h4><p>Rs.7000/month</p><a class="btn" href="/Home/SchemeDetails?id=LIC">View Info</a></div></div>
+        <div class="card"><img src="https://images.moneycontrol.com/static-mcnews/2024/04/Mutual-Funds-1.png" /><div class="card-body"><h4>Mutual Fund - Sahi Hai</h4><p>Rs.500 SIP Start</p><a class="btn" href="/Home/SchemeDetails?id=MutualFund">View Info</a></div></div>
+        <div class="card"><img src="https://cdn.turtlemintinsurance.com/wp-content/uploads/mediclaim-policy-for-family-e1619087041245.jpg" /><div class="card-body"><h4>Mediclaim Health Insurance</h4><p>5 Lakh Cover</p><a class="btn" href="/Home/SchemeDetails?id=Mediclaim">View Info</a></div></div>
+    </div>
+</body>
+</html>

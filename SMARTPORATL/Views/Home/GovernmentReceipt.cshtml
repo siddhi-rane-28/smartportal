@@ -1,0 +1,52 @@
+﻿@{
+    var scheme = Context.Request.Query["scheme"].ToString();
+    if (string.IsNullOrEmpty(scheme)) { scheme = ViewBag.Scheme as string ?? "Government Scheme"; }
+    var name = Context.Request.Query["name"].ToString();
+    var mobile = Context.Request.Query["mobile"].ToString();
+    var village = Context.Request.Query["village"].ToString();
+    var aadhaar = Context.Request.Query["aadhaar"].ToString();
+
+    var appId = "MH-SCHEME-" + new Random().Next(10000, 99999);
+    var date = DateTime.Now.ToString("dd-MM-yyyy hh:mm tt");
+}
+<div class="container mt-4" style="max-width:700px;">
+    <div class="card shadow-lg border-0" style="border-radius:15px; overflow:hidden;">
+        <div class="bg-success text-white p-4 text-center">
+            <h2 class="fw-bold mb-0">✓ Application Submitted Successfully</h2>
+            <p class="mb-0 small opacity-75">Your application has been received by Gram Panchayat</p>
+        </div>
+
+        <div class="card-body p-4">
+            <div class="text-center mb-4">
+                <h5 class="fw-bold">@scheme</h5>
+                <span class="badge bg-warning text-dark">Under Verification</span>
+            </div>
+
+            <div class="p-3" style="background:#f8fff8; border:2px dashed #1b5e20; border-radius:12px;">
+                <div class="row g-2 small">
+                    <div class="col-5 fw-bold">Application ID:</div><div class="col-7 fw-bold text-success">@appId</div>
+                    <div class="col-5 fw-bold">Applicant Name:</div><div class="col-7">@name</div>
+                    <div class="col-5 fw-bold">Mobile No:</div><div class="col-7">@mobile</div>
+                    <div class="col-5 fw-bold">Village/City:</div><div class="col-7">@village</div>
+                    <div class="col-5 fw-bold">Aadhaar No:</div><div class="col-7">XXXX-XXXX-@(@aadhaar.Length >= 4 ? @aadhaar.Substring(@aadhaar.Length - 4) : "****")</div>
+                    <div class="col-5 fw-bold">Scheme Name:</div><div class="col-7">@scheme</div>
+                    <div class="col-5 fw-bold">Date & Time:</div><div class="col-7">@date</div>
+                    <div class="col-5 fw-bold">Status:</div><div class="col-7"><span class="badge bg-success">Received at Gram Panchayat</span></div>
+                </div>
+            </div>
+
+            <div class="alert alert-info mt-4 small" style="border-radius:10px;">
+                <b>Next Steps:</b><br />
+                1. Take screenshot / print of this receipt.<br />
+                2. Gram Sevak will verify your documents in 7 working days.<br />
+                3. You will get SMS on @mobile after approval.<br />
+                4. For enquiry, visit Gram Panchayat with Application ID @appId
+            </div>
+
+            <div class="row g-2 mt-3">
+                <div class="col-6"><button onclick="window.print()" class="btn btn-dark w-100">🖨️ Print Receipt</button></div>
+                <div class="col-6"><a href="/Home/GovernmentSchemes" class="btn btn-success w-100">Back to Schemes</a></div>
+            </div>
+        </div>
+    </div>
+</div>

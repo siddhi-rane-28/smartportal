@@ -1,0 +1,102 @@
+﻿@{
+    ViewData["Title"] = "Health Services";
+}
+<style>
+    .health-banner {
+        height: 380px;
+        background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2070');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: -16px;
+    }
+
+        .health-banner h1 {
+            color: white;
+            font-weight: 800;
+            font-size: 42px;
+            text-shadow: 2px 4px 15px black;
+            text-align: center;
+        }
+
+    .card-box {
+        border-radius: 18px !important;
+        overflow: hidden;
+        border: none !important;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.12) !important;
+        height: 100%;
+        background: white;
+    }
+
+        .card-box img {
+            height: 225px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+    .btn-red {
+        background: #d32f2f;
+        color: white;
+        border-radius: 25px;
+        padding: 6px 24px;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+        .btn-red:hover {
+            background: #a50e0e;
+            color: white;
+        }
+</style>
+
+<div class="health-banner"><h1>Healthy Village, Happy Village</h1></div>
+
+<div class="container py-5">
+    <div class="row g-4">
+
+        <div class="col-lg-4 col-md-6">
+            <div class="card card-box text-center">
+                <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800" />
+                <div class="card-body"><h6 class="text-danger fw-bold">Medical Facilities</h6><p class="small">PHC Hospital Building in Village</p><a href="/Home/HealthDetails?id=phc" class="btn-red">View Details</a></div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+            <div class="card card-box text-center">
+                <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=800" />
+                <div class="card-body"><h6 class="text-danger fw-bold">Emergency Contacts</h6><p class="small">108 Ambulance Service in Village</p><a href="/Home/HealthDetails?id=emergency" class="btn-red">View Details</a></div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+            <div class="card card-box text-center">
+                <img src="https://images.unsplash.com/photo-1576765607924-3f7b8410a787?q=80&w=800" />
+                <div class="card-body"><h6 class="text-danger fw-bold">Health Camps</h6><p class="small">Free Health Check-up Camp in Village</p><a href="/Home/HealthDetails?id=camp" class="btn-red">View Details</a></div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+            <div class="card card-box text-center">
+                <img src="https://images.unsplash.com/photo-1605289982774-9a6fef564df8?q=80&w=800" />
+                <div class="card-body"><h6 class="text-danger fw-bold">Vaccination Schedule</h6><p class="small">Child Vaccination Chart</p><a href="/Home/HealthDetails?id=vaccine" class="btn-red">View Details</a></div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+            <div class="card card-box text-center">
+                <img src="https://images.unsplash.com/photo-1586776802477-3685a4bfb1f2?q=80&w=800" />
+                <div class="card-body"><h6 class="text-danger fw-bold">Nearest Hospitals</h6><p class="small">Best and Nearest Government Hospitals</p><a href="/Home/HealthDetails?id=hospitals" class="btn-red">View Details</a></div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+            <div class="card card-box text-center">
+                <img src="https://images.unsplash.com/photo-1471864190281-a93a3070b6de?q=80&w=800" />
+                <div class="card-body"><h6 class="text-danger fw-bold">Jan Aushadhi Kendra</h6><p class="small">Cheap Medicines - 90% Discount</p><a href="/Home/HealthDetails?id=aushadhi" class="btn-red">View Details</a></div>
+            </div>
+        </div>
+
+    </div></div>

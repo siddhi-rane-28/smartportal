@@ -1,0 +1,290 @@
+﻿@{
+    Layout = null;
+    var sid = ViewBag.ServiceId as string;
+    if (sid == null) { sid = "LightBill"; }
+
+    string title = "Online Service";
+    string icon = "💡";
+    string benefit = "";
+    string eligibility = "";
+    string documents = "";
+    string process = "";
+    string fees = "";
+    string officialLink = "";
+    string officialName = "";
+
+    if (sid == "LightBill")
+    {
+        title = "Light Bill - MSEB / MSEDCL";
+        icon = "💡";
+        benefit = "Instant Bill Check, Online Payment, Receipt Download, History";
+        eligibility = "Maharashtra ke sabhi MSEB consumers jinke pass Consumer Number hai";
+        documents = "1. Consumer Number (12 Digit) \n2. Mobile Number \n3. Email ID (optional)";
+        process = "1. Official Link par jao \n2. Consumer Number dalo \n3. Bill dekho \n4. UPI / Net Banking se Pay karo \n5. Receipt download karo";
+        fees = "Bill amount + No extra charge";
+        officialLink = "https://wss.mahadiscom.in/wss/wss";
+        officialName = "wss.mahadiscom.in - Official";
+    }
+    else if (sid == "WaterBill")
+    {
+        title = "Water Bill - पाणी बिल";
+        icon = "💧";
+        benefit = "Gram Panchayat Water Bill check, Online Pay, Receipt";
+        eligibility = "Gaon ke sabhi Nal connection dharak";
+        documents = "1. Connection No / House No \n2. Gram Panchayat Name \n3. Mobile Number";
+        process = "1. Gram Panchayat office ya portal par jao \n2. House No dalo \n3. Bill amount check karo \n4. Online / Cash pay karo";
+        fees = "As per Gram Panchayat - Rs. 100 to 500 per month";
+        officialLink = "https://www.maharashtra.gov.in";
+        officialName = "Aaple Sarkar - Maharashtra Govt";
+    }
+    else if (sid == "Property")
+    {
+        title = "Property Tax - Gharpatti";
+        icon = "🏠";
+        benefit = "Gharpatti Tax Pay, History, Receipt, No Dues Certificate";
+        eligibility = "Gaon / Nagar Parishad ke sabhi property owners";
+        documents = "1. Property ID / House No \n2. Owner Name \n3. Aadhaar Card";
+        process = "1. Official portal par Property ID dalo \n2. Tax amount dekho \n3. Online Pay karo \n4. Receipt download karo";
+        fees = "Property size ke hisab se - Rs. 500 to 5000 yearly";
+        officialLink = "https://www.maharashtra.gov.in";
+        officialName = "Maharashtra Property Tax Portal";
+    }
+    else if (sid == "SevenTwelve")
+    {
+        title = "7/12 Utara - Satbara";
+        icon = "📄";
+        benefit = "Gat No se 7/12, 8A, Ferfar Download + Print - Official";
+        eligibility = "Maharashtra ke sabhi jamin malak";
+        documents = "1. District, Taluka, Village Name \n2. Gat No / Survey No";
+        process = "1. Bhulekh Mahabhumi site par jao \n2. District > Taluka > Village select karo \n3. Gat No dalo \n4. 7/12 dekho / Download karo";
+        fees = "Free - Rs. 0 (Govt Site)";
+        officialLink = "https://bhulekh.mahabhumi.gov.in";
+        officialName = "bhulekh.mahabhumi.gov.in - Official";
+    }
+    else if (sid == "PMKisan")
+    {
+        title = "PM Kisan Samman Nidhi - 5 Yojana";
+        icon = "🌾";
+        benefit = "Rs. 6000 Yearly + KCC + Crop Insurance + Soil Health Card";
+        eligibility = "2 Hectare tak ke sabhi kisan, Aadhaar link bank account hona chahiye";
+        documents = "1. Aadhaar Card \n2. 7/12 Utara \n3. Bank Passbook (Aadhaar link) \n4. Mobile Number";
+        process = "1. pmkisan.gov.in par jao \n2. Farmer Corner > Beneficiary Status \n3. Aadhaar / Mobile No dalo \n4. Status dekho \n5. New Farmer Registration bhi yahi se";
+        fees = "Free - No Fees";
+        officialLink = "https://pmkisan.gov.in";
+        officialName = "pmkisan.gov.in - Official";
+    }
+    else if (sid == "Ration")
+    {
+        title = "Ration Card - 3 Color + eKYC";
+        icon = "🍚";
+        benefit = "Yellow (Antyodaya), Orange (PHH), White (APL) + eKYC + Name Add/Delete";
+        eligibility = "Maharashtra ke sabhi parivar - Income ke hisab se Yellow/Orange/White";
+        documents = "1. Aadhaar Card (All Members) \n2. Income Certificate \n3. Address Proof \n4. Mobile Number (eKYC ke liye) \n5. Photo";
+        process = "1. mahafood.gov.in par jao \n2. Ration Card > Public Ration Card List \n3. RC No dalo \n4. eKYC ke liye RCMS site par jao \n5. Aadhaar OTP se eKYC karo";
+        fees = "New Ration Card Rs. 100, eKYC Free";
+        officialLink = "https://mahafood.gov.in";
+        officialName = "mahafood.gov.in / rcms.mahafood.gov.in";
+    }
+    else if (sid == "Certificates")
+    {
+        title = "Certificates / Dakhla - 5 Types";
+        icon = "📜";
+        benefit = "1. Jati Dakhla 2. Utpanna Dakhla 3. Rahiwasi Dakhla 4. Non-Creamy Layer 5. EWS Certificate";
+        eligibility = "Maharashtra ke sabhi nagrik";
+        documents = "1. Aadhaar Card \n2. Address Proof \n3. School LC / Birth Proof \n4. Income Proof (for Utpanna) \n5. Jati Proof (for Jati) \n6. Photo";
+        process = "1. aaplesarkar.mahaonline.gov.in par jao \n2. Login / Register karo \n3. Revenue Department > Certificate select karo \n4. Form bharo + Documents upload karo \n5. 7-15 din me certificate milega";
+        fees = "Rs. 33 to Rs. 100 per certificate";
+        officialLink = "https://aaplesarkar.mahaonline.gov.in";
+        officialName = "Aaple Sarkar - Official Portal";
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@title</title>
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial
+            }
+
+            body {
+                background: #e8eef7
+            }
+
+            .header {
+                background: #062d11;
+                color: white;
+                padding: 12px 18px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center
+            }
+
+                .header b {
+                    color: #f5c518
+                }
+
+            .nav a {
+                background: white;
+                color: #222;
+                padding: 6px 14px;
+                border-radius: 18px;
+                text-decoration: none;
+                font-size: 11px;
+                font-weight: bold;
+                margin-left: 6px
+            }
+
+            .main {
+                max-width: 850px;
+                margin: 15px auto;
+                padding: 0 15px
+            }
+
+            .top {
+                background: white;
+                border-radius: 12px;
+                padding: 16px;
+                text-align: center;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+                border-top: 5px solid #ff6f00;
+                margin-bottom: 14px
+            }
+
+                .top .ic {
+                    font-size: 44px
+                }
+
+                .top h2 {
+                    font-size: 18px;
+                    color: #062d11;
+                    margin-top: 6px
+                }
+
+                .top p {
+                    font-size: 11px;
+                    color: #777;
+                    margin-top: 4px
+                }
+
+            .grid2 {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 14px
+            }
+
+            .box {
+                background: white;
+                border-radius: 12px;
+                padding: 14px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.06)
+            }
+
+                .box h4 {
+                    font-size: 12px;
+                    color: #062d11;
+                    border-bottom: 1px solid #eee;
+                    padding-bottom: 6px;
+                    margin-bottom: 8px
+                }
+
+                .box p {
+                    font-size: 11px;
+                    color: #333;
+                    line-height: 18px;
+                    white-space: pre-line
+                }
+
+            .official {
+                background: linear-gradient(135deg,#062d11,#1a7a2e);
+                color: white;
+                border-radius: 12px;
+                padding: 14px;
+                text-align: center;
+                margin-top: 14px
+            }
+
+                .official a {
+                    color: #f5c518;
+                    font-weight: bold;
+                    text-decoration: none;
+                    word-break: break-all
+                }
+
+            .btn {
+                color: white;
+                padding: 10px 22px;
+                border-radius: 22px;
+                text-decoration: none;
+                font-size: 12px;
+                font-weight: bold;
+                display: inline-block;
+                margin-top: 10px;
+                background: linear-gradient(135deg,#e65100,#fb8c00);
+                border: none;
+                cursor: pointer
+            }
+
+            .form {
+                margin-top: 14px
+            }
+
+                .form input, .form textarea {
+                    width: 100%;
+                    padding: 10px;
+                    border: 1px solid #ccc;
+                    border-radius: 8px;
+                    margin: 6px 0;
+                    font-size: 12px
+                }
+    </style>
+</head>
+<body>
+    <div class="header"><b>SMART VILLAGE</b><div class="nav"><a href="/Home/Dashboard">Dashboard</a><a href="/Home/OnlineServices">← Back to 7 Services</a></div></div>
+
+    <div class="main">
+        <div class="top">
+            <div class="ic">@icon</div>
+            <h2>@title</h2>
+            <p>Service ID: @sid | Gaon ke logon ke liye puri jankari</p>
+        </div>
+
+        <div class="grid2">
+            <div class="box"><h4>✅ Benefit / Fayda</h4><p>@benefit</p></div>
+            <div class="box"><h4>👨‍🌾 Eligibility / Patrata</h4><p>@eligibility</p></div>
+            <div class="box"><h4>📄 Documents Required / Lagnewale Kagaz</h4><p>@documents</p></div>
+            <div class="box"><h4>💰 Fees / Shulk</h4><p>@fees</p></div>
+        </div>
+
+        <div class="box" style="margin-top:14px">
+            <h4>📝 Process / Prakriya - Step by Step</h4>
+            <p>@process</p>
+        </div>
+
+        <div class="official">
+            <div style="font-size:12px;margin-bottom:4px">🔗 Official Government Website</div>
+            <div style="font-size:14px"><a href="@officialLink" target="_blank">@officialName</a></div>
+            <div style="font-size:11px;color:#ddd;margin-top:6px">@officialLink</div>
+            <div>
+                <a class="btn" href="@officialLink" target="_blank" style="background:linear-gradient(135deg,#f5c518,#ff9800);color:#062d11">Go to Official Website - Click Here</a>
+            </div>
+        </div>
+
+        <div class="box" style="margin-top:14px">
+            <h4>📨 Enquiry Form - Chaukashi Arj (Gaon ke log yaha arj kar sakte hain)</h4>
+            <form method="post" action="/Home/SubmitOnlineServiceRequest" enctype="multipart/form-data">
+                <input type="hidden" name="type" value="@sid" />
+                <input type="text" name="consumerNo" placeholder="Consumer No / Gat No / Ration No / Property ID likho" required />
+                <textarea name="description" rows="3" placeholder="Aapki samasya / Information likho - Eg. Bill nahi aa raha, 7/12 me naam galat hai..."></textarea>
+                <input type="file" name="photo" />
+                <button type="submit" class="btn" style="width:100%">Submit Request to Gram Panchayat</button>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>
