@@ -54,12 +54,21 @@
                 flex-direction: column
             }
 
-                .card img {
+            .card-img-box {
+                width: 100%;
+                height: 180px;
+                background: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+            }
+
+                .card-img-box img {
                     width: 100%;
-                    height: 155px;
-                    object-fit: cover;
-                    display: block;
-                    background: #fff
+                    height: 100%;
+                    object-fit: contain;
+                    background: white;
                 }
 
             .card-body {
@@ -94,8 +103,8 @@
                     grid-template-columns: 1fr 1fr
                 }
 
-                .card img {
-                    height: 125px
+                .card-img-box {
+                    height: 150px
                 }
             }
     </style>
@@ -104,15 +113,15 @@
     <div class="topbar"><a href="/Home/Dashboard">◀ Government Schemes - Back</a></div>
     <div class="banner">🌾 Gaon Ki Pragati, Desh Ki Pragati</div>
     <div class="container">
-        <div class="card"><img src="https://images.unsplash.com/photo-1500930540495-e92875696a16?w=600" /><div class="card-body"><h4>PM Kisan Yojana</h4><p>Rs.6000/year</p><a class="btn" href="/Home/SchemeDetails?id=PMKisan">View Info</a></div></div>
-        <div class="card"><img src="https://images.tv9marathi.com/wp-content/uploads/2025/12/ladki-bahin-yojana-26.jpg" /><div class="card-body"><h4>Ladki Bahin Yojana</h4><p>Rs.1500/month</p><a class="btn" href="/Home/SchemeDetails?id=LadkiBahin">View Info</a></div></div>
-        <div class="card"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600" /><div class="card-body"><h4>Ayushman Bharat</h4><p>5 Lakh Insurance</p><a class="btn" href="/Home/SchemeDetails?id=Ayushman">View Info</a></div></div>
-        <div class="card"><img src="https://www.livehindustan.com/lh-img/smart/img/2025/09/03/original/Bihar_Mahila_Rojgar_Yojana_1756891759075_1756891768994.png" /><div class="card-body"><h4>Mahila Rojgar Yojana</h4><p>Rs.20000 Credit</p><a class="btn" href="/Home/SchemeDetails?id=MahilaRojgar">View Info</a></div></div>
-        <div class="card"><img src="https://upload.wikimedia.org/wikipedia/en/0/02/Pradhan_Mantri_Ujjwala_Yojana_%28PMUY%29_logo.png" style="object-fit:contain;background:white;padding:15px" /><div class="card-body"><h4>PM Ujjwala Yojana</h4><p>Free LPG</p><a class="btn" href="/Home/SchemeDetails?id=Ujjwala">View Info</a></div></div>
-        <div class="card"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600" /><div class="card-body"><h4>PM Awas Yojana</h4><p>Rs.1.20 Lakh House</p><a class="btn" href="/Home/SchemeDetails?id=Awas">View Info</a></div></div>
-        <div class="card"><img src="https://vajiramias.sgp1.cdn.digitaloceanspaces.com/wp/current-affairs/2025/07/bima-sakhi-yojana.webp" /><div class="card-body"><h4>LIC Bima Sakhi</h4><p>Rs.7000/month</p><a class="btn" href="/Home/SchemeDetails?id=LIC">View Info</a></div></div>
-        <div class="card"><img src="https://images.moneycontrol.com/static-mcnews/2024/04/Mutual-Funds-1.png" /><div class="card-body"><h4>Mutual Fund - Sahi Hai</h4><p>Rs.500 SIP Start</p><a class="btn" href="/Home/SchemeDetails?id=MutualFund">View Info</a></div></div>
-        <div class="card"><img src="https://cdn.turtlemintinsurance.com/wp-content/uploads/mediclaim-policy-for-family-e1619087041245.jpg" /><div class="card-body"><h4>Mediclaim Health Insurance</h4><p>5 Lakh Cover</p><a class="btn" href="/Home/SchemeDetails?id=Mediclaim">View Info</a></div></div>
+        <div class="card"><div class="card-img-box"><img src="https://www.rjassociatesmedia.com/wp-content/uploads/2026/08/1-3.jpg" alt="PM Kisan" /></div><div class="card-body"><h4>PM Kisan Yojana</h4><p>Rs.6000/year</p><a class="btn" href="/Home/SchemeDetails?id=PMKisan">View Info</a></div></div>
+        <div class="card"><div class="card-img-box"><img src="https://images.tv9marathi.com/wp-content/uploads/2025/12/ladki-bahin-yojana-26.jpg" /></div><div class="card-body"><h4>Ladki Bahin Yojana</h4><p>Rs.1500/month</p><a class="btn" href="/Home/SchemeDetails?id=LadkiBahin">View Info</a></div></div>
+        <div class="card"><div class="card-img-box"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600" /></div><div class="card-body"><h4>Ayushman Bharat</h4><p>5 Lakh Insurance</p><a class="btn" href="/Home/SchemeDetails?id=Ayushman">View Info</a></div></div>
+        <div class="card"><div class="card-img-box"><img src="https://www.livehindustan.com/lh-img/smart/img/2025/09/03/original/Bihar_Mahila_Rojgar_Yojana_1756891759075_1756891768994.png" /></div><div class="card-body"><h4>Mahila Rojgar Yojana</h4><p>Rs.20000 Credit</p><a class="btn" href="/Home/SchemeDetails?id=MahilaRojgar">View Info</a></div></div>
+        <div class="card"><div class="card-img-box"><img src="https://upload.wikimedia.org/wikipedia/en/0/02/Pradhan_Mantri_Ujjwala_Yojana_%28PMUY%29_logo.png" /></div><div class="card-body"><h4>PM Ujjwala Yojana</h4><p>Free LPG</p><a class="btn" href="/Home/SchemeDetails?id=Ujjwala">View Info</a></div></div>
+        <div class="card"><div class="card-img-box"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600" /></div><div class="card-body"><h4>PM Awas Yojana</h4><p>Rs.1.20 Lakh House</p><a class="btn" href="/Home/SchemeDetails?id=Awas">View Info</a></div></div>
+        <div class="card"><div class="card-img-box"><img src="https://vajiramias.sgp1.cdn.digitaloceanspaces.com/wp/current-affairs/2025/07/bima-sakhi-yojana.webp" /></div><div class="card-body"><h4>LIC Bima Sakhi</h4><p>Rs.7000/month</p><a class="btn" href="/Home/SchemeDetails?id=LIC">View Info</a></div></div>
+        <div class="card"><div class="card-img-box"><img src="https://images.moneycontrol.com/static-mcnews/2024/04/Mutual-Funds-1.png" /></div><div class="card-body"><h4>Mutual Fund - Sahi Hai</h4><p>Rs.500 SIP Start</p><a class="btn" href="/Home/SchemeDetails?id=MutualFund">View Info</a></div></div>
+        <div class="card"><div class="card-img-box"><img src="https://cdn.turtlemintinsurance.com/wp-content/uploads/mediclaim-policy-for-family-e1619087041245.jpg" /></div><div class="card-body"><h4>Mediclaim Health Insurance</h4><p>5 Lakh Cover</p><a class="btn" href="/Home/SchemeDetails?id=Mediclaim">View Info</a></div></div>
     </div>
 </body>
 </html>
