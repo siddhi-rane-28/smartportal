@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,28 +8,63 @@ using Microsoft.AspNetCore.Http;
 
 namespace SMARTPORATL.Controllers
 {
+    [AllowAnonymous] // <-- POORA CONTROLLER PUBLIC KAR DIYA
     public class HomeController : Controller
     {
+        [AllowAnonymous]
         public IActionResult Index() => View();
+
+        [AllowAnonymous]
         public IActionResult Login() => View();
+
+        [AllowAnonymous]
+        public IActionResult Register() => View();
+
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult Register(string FullName, string Village, string Mobile, string Password)
+        {
+            TempData["UserName"] = FullName;
+            TempData["Village"] = Village;
+            return RedirectToAction("Dashboard");
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult Login(string Mobile, string Password)
+        {
+            TempData["UserName"] = Mobile;
+            return RedirectToAction("Dashboard");
+        }
+
+        [AllowAnonymous]
         public IActionResult Dashboard() => View();
+
+        [AllowAnonymous]
         public IActionResult ComplaintBox() => View();
+        [AllowAnonymous]
         public IActionResult Education() => View();
+        [AllowAnonymous]
         public IActionResult Employment() => View();
+        [AllowAnonymous]
         public IActionResult ComplaintSolution() => View();
 
-        // ===== Agriculture Old =====
+        [AllowAnonymous]
         public IActionResult Agriculture() => View();
+        [AllowAnonymous]
         public IActionResult AgricultureDetails(string id) { ViewBag.Id = id; return View(); }
+        [AllowAnonymous]
         public IActionResult AgricultureForm(string id) { ViewBag.Id = id; return View(); }
 
-        // ===== Health Old =====
+        [AllowAnonymous]
         public IActionResult Health() => View();
 
-        // ===== MAIN SCHEME =====
+        [AllowAnonymous]
         public IActionResult Scheme() => View();
+        [AllowAnonymous]
         public IActionResult Schemes() => View();
 
+        [AllowAnonymous]
         public IActionResult SchemeDetails(string id)
         {
             ViewBag.SchemeId = id;
@@ -45,12 +81,18 @@ namespace SMARTPORATL.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         public IActionResult GovernmentSchemes() => View("Scheme");
+        [AllowAnonymous]
         public IActionResult GovernmentSchemeDetails(string id) { ViewBag.SchemeId = id; ViewBag.Id = id; return View("SchemeDetails"); }
 
+        [AllowAnonymous]
         public IActionResult SchemeForm(string id) { ViewBag.Id = id; return View(); }
+        [AllowAnonymous]
         public IActionResult Receipt(string id, string name) { ViewBag.Id = id; ViewBag.Name = name; return View(); }
+        [AllowAnonymous]
         public IActionResult GovernmentForm(string scheme) { ViewBag.Scheme = scheme; return View("SchemeForm"); }
+        [AllowAnonymous]
         public IActionResult GovernmentReceipt(string scheme, string name, string mobile)
         {
             ViewBag.Scheme = scheme; ViewBag.Name = name; ViewBag.Mobile = mobile;
@@ -59,11 +101,17 @@ namespace SMARTPORATL.Controllers
             return View("Receipt");
         }
 
+        [AllowAnonymous]
         public IActionResult AgricultureServices() => View();
+        [AllowAnonymous]
         public IActionResult AgricultureDevelopment() => View();
+        [AllowAnonymous]
         public IActionResult HealthServices() => View();
+        [AllowAnonymous]
         public IActionResult HealthDetails(string id) { ViewBag.ServiceId = id; return View(); }
+        [AllowAnonymous]
         public IActionResult HealthForm(string scheme) { ViewBag.SchemeName = scheme; return View(); }
+        [AllowAnonymous]
         public IActionResult HealthReceipt(string scheme, string name, string mobile)
         {
             ViewBag.Scheme = scheme; ViewBag.Name = name; ViewBag.Mobile = mobile;
@@ -72,9 +120,13 @@ namespace SMARTPORATL.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         public IActionResult EducationServices() { return View(); }
+        [AllowAnonymous]
         public IActionResult EducationDetails(string id) { ViewBag.ServiceId = id; return View(); }
+        [AllowAnonymous]
         public IActionResult EducationForm(string scheme) { ViewBag.SchemeName = scheme; return View(); }
+        [AllowAnonymous]
         public IActionResult EducationReceipt(string scheme, string name, string mobile)
         {
             ViewBag.Scheme = scheme; ViewBag.Name = name; ViewBag.Mobile = mobile;
@@ -83,9 +135,13 @@ namespace SMARTPORATL.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         public IActionResult EmploymentServices() => View();
+        [AllowAnonymous]
         public IActionResult EmploymentDetails(string id) { ViewBag.ServiceId = id; return View(); }
+        [AllowAnonymous]
         public IActionResult EmploymentForm(string scheme) { ViewBag.SchemeName = scheme; return View(); }
+        [AllowAnonymous]
         public IActionResult EmploymentReceipt(string scheme, string name, string mobile, string education, string skill)
         {
             ViewBag.Scheme = scheme; ViewBag.Name = name; ViewBag.Mobile = mobile;
@@ -95,10 +151,13 @@ namespace SMARTPORATL.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         public IActionResult VillageDevelopment() => View();
+        [AllowAnonymous]
         public IActionResult VillageDevelopmentDetails(string id) { ViewBag.ServiceId = id; return View(); }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> SubmitVillageComplaint(string type, string description, IFormFile photo)
         {
             if (photo != null && photo.Length > 0)
@@ -113,6 +172,7 @@ namespace SMARTPORATL.Controllers
             return RedirectToAction("VillageDevelopment");
         }
 
+        [AllowAnonymous]
         public IActionResult VillageDevelopmentReceipt(string scheme, string name, string mobile)
         {
             ViewBag.Scheme = scheme; ViewBag.Name = name; ViewBag.Mobile = mobile;
@@ -121,10 +181,13 @@ namespace SMARTPORATL.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         public IActionResult Transport() => View();
+        [AllowAnonymous]
         public IActionResult TransportDetails(string id) { ViewBag.ServiceId = id; return View(); }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> SubmitTransportComplaint(string type, string description, IFormFile photo)
         {
             if (photo != null && photo.Length > 0)
@@ -139,6 +202,7 @@ namespace SMARTPORATL.Controllers
             return RedirectToAction("Transport");
         }
 
+        [AllowAnonymous]
         public IActionResult TransportReceipt(string scheme, string name, string mobile)
         {
             ViewBag.Scheme = scheme; ViewBag.Name = name; ViewBag.Mobile = mobile;
@@ -147,10 +211,13 @@ namespace SMARTPORATL.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         public IActionResult Bank() => View();
+        [AllowAnonymous]
         public IActionResult BankDetails(string id) { ViewBag.ServiceId = id; return View(); }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> SubmitBankComplaint(string type, string description, IFormFile photo)
         {
             if (photo != null && photo.Length > 0)
@@ -165,6 +232,7 @@ namespace SMARTPORATL.Controllers
             return RedirectToAction("BankDetails", new { id = type });
         }
 
+        [AllowAnonymous]
         public IActionResult BankReceipt(string scheme, string name, string mobile)
         {
             ViewBag.Scheme = scheme; ViewBag.Name = name; ViewBag.Mobile = mobile;
@@ -173,10 +241,13 @@ namespace SMARTPORATL.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         public IActionResult PoliceSafety() => View();
+        [AllowAnonymous]
         public IActionResult PoliceSafetyDetails(string id) { ViewBag.ServiceId = id; return View(); }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> SubmitPoliceComplaint(string type, string description, IFormFile photo)
         {
             if (photo != null && photo.Length > 0)
@@ -191,6 +262,7 @@ namespace SMARTPORATL.Controllers
             return RedirectToAction("PoliceSafetyDetails", new { id = type });
         }
 
+        [AllowAnonymous]
         public IActionResult PoliceSafetyReceipt(string scheme, string name, string mobile)
         {
             ViewBag.Scheme = scheme; ViewBag.Name = name; ViewBag.Mobile = mobile;
@@ -199,10 +271,13 @@ namespace SMARTPORATL.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         public IActionResult OnlineServices() => View();
+        [AllowAnonymous]
         public IActionResult OnlineServiceDetails(string id) { ViewBag.ServiceId = id; return View(); }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> SubmitOnlineServiceRequest(string type, string description, IFormFile photo)
         {
             if (photo != null && photo.Length > 0)
@@ -217,6 +292,7 @@ namespace SMARTPORATL.Controllers
             return RedirectToAction("OnlineServiceDetails", new { id = type });
         }
 
+        [AllowAnonymous]
         public IActionResult OnlineServiceReceipt(string scheme, string name, string mobile)
         {
             ViewBag.Scheme = scheme; ViewBag.Name = name; ViewBag.Mobile = mobile;
@@ -225,7 +301,7 @@ namespace SMARTPORATL.Controllers
             return View();
         }
 
-        // ===== ✅ AI GRAM MITRA - CHATBOT - NEW - 12th CARD =====
+        [AllowAnonymous]
         public IActionResult Chatbot() => View();
     }
 }
